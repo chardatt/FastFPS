@@ -37,6 +37,7 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\Script\PlatformMovement.cs" />
+     <Compile Include="Assets\Script\PlayerController.cs" />
     <Reference Include="UnityEngine">
         <HintPath>G:/Unity/Unity/Unity 2021.1.5f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
@@ -625,11 +626,17 @@
     <Reference Include="Unity.VSCode.Editor">
         <HintPath>G:/Unity/Github Repo/FastFPS/Parkour_UnityProject/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.ProBuilder.AssetIdRemapUtility">
+        <HintPath>G:/Unity/Github Repo/FastFPS/Parkour_UnityProject/Library/ScriptAssemblies/Unity.ProBuilder.AssetIdRemapUtility.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
         <HintPath>G:/Unity/Github Repo/FastFPS/Parkour_UnityProject/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualStudio.Editor">
         <HintPath>G:/Unity/Github Repo/FastFPS/Parkour_UnityProject/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ProBuilder.AddOns.Editor">
+        <HintPath>G:/Unity/Github Repo/FastFPS/Parkour_UnityProject/Library/ScriptAssemblies/Unity.ProBuilder.AddOns.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline.Editor">
         <HintPath>G:/Unity/Github Repo/FastFPS/Parkour_UnityProject/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
@@ -649,14 +656,20 @@
     <Reference Include="VSSettingsProvider">
         <HintPath>G:/Unity/Github Repo/FastFPS/Parkour_UnityProject/Library/ScriptAssemblies/VSSettingsProvider.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.VisualScripting.Flow">
-        <HintPath>G:/Unity/Github Repo/FastFPS/Parkour_UnityProject/Library/ScriptAssemblies/Unity.VisualScripting.Flow.dll</HintPath>
+    <Reference Include="Unity.ProBuilder">
+        <HintPath>G:/Unity/Github Repo/FastFPS/Parkour_UnityProject/Library/ScriptAssemblies/Unity.ProBuilder.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ProBuilder.Editor">
+        <HintPath>G:/Unity/Github Repo/FastFPS/Parkour_UnityProject/Library/ScriptAssemblies/Unity.ProBuilder.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
         <HintPath>G:/Unity/Github Repo/FastFPS/Parkour_UnityProject/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
         <HintPath>G:/Unity/Github Repo/FastFPS/Parkour_UnityProject/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.Flow">
+        <HintPath>G:/Unity/Github Repo/FastFPS/Parkour_UnityProject/Library/ScriptAssemblies/Unity.VisualScripting.Flow.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
         <HintPath>G:/Unity/Github Repo/FastFPS/Parkour_UnityProject/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
@@ -666,18 +679,6 @@
     </Reference>
     <Reference Include="Unity.VisualScripting.Core">
         <HintPath>G:/Unity/Github Repo/FastFPS/Parkour_UnityProject/Library/ScriptAssemblies/Unity.VisualScripting.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.ProBuilder">
-        <HintPath>G:/Unity/Github Repo/FastFPS/Parkour_UnityProject/Library/ScriptAssemblies/Unity.ProBuilder.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.ProBuilder.AddOns.Editor">
-        <HintPath>G:/Unity/Github Repo/FastFPS/Parkour_UnityProject/Library/ScriptAssemblies/Unity.ProBuilder.AddOns.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.ProBuilder.Editor">
-        <HintPath>G:/Unity/Github Repo/FastFPS/Parkour_UnityProject/Library/ScriptAssemblies/Unity.ProBuilder.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.ProBuilder.AssetIdRemapUtility">
-        <HintPath>G:/Unity/Github Repo/FastFPS/Parkour_UnityProject/Library/ScriptAssemblies/Unity.ProBuilder.AssetIdRemapUtility.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

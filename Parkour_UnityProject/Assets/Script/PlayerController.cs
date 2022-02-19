@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float jumpForce = 5;
     [SerializeField][Range(0f,0.5f)] float moveSmoothTime = 0.3f;
     [SerializeField][Range(0f,0.5f)] float mouseSmoothTime = 0.03f;
+    [SerializeField] float fallGravityMultiplier = 1;
+    [SerializeField] float smallJumpGravityMultiplier = 2;
 
     [SerializeField] bool lockCursor = true;
 
@@ -57,11 +59,26 @@ public class PlayerController : MonoBehaviour
             isJumping = true;
         }
 
+        
         velocityY += gravity * Time.deltaTime;
         if (Input.GetButtonDown("Jump") && isJumping == false)
         {
             isJumping = true;
-            velocityY = jumpForce;
+                        //move.y = Mathf.Sqrt(-2f * Physics2D.gravity.y * rb.gravityScale * jumpHeight);
+            velocityY = Mathf.Sqrt(-2f * gravity * jumpForce);
+            //velocityY = jumpForce;
+        }
+
+        if (cc.isGrounded == false)
+        {
+            if (velocityY < 0)
+            {
+                velocityY += gravity * Time.deltaTime * fallGravityMultiplier;
+            }
+            else if (!Input.GetButton("Jump"))
+            {
+                velocityY += gravity * Time.deltaTime * smallJumpGravityMultiplier;
+            }
         }
 
         Vector3 velocity = (transform.forward * currentDirection.y + transform.right * currentDirection.x) * walkSpeed + Vector3.up * velocityY;

@@ -65928,7 +65928,7 @@ CharacterController:
   m_Height: 2
   m_Radius: 0.5
   m_SlopeLimit: 45
-  m_StepOffset: 0.3
+  m_StepOffset: 0.6
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 1, z: 0}
@@ -65963,9 +65963,11 @@ MonoBehaviour:
   mouseSensitivity: 3.5
   walkSpeed: 8
   gravity: -13
-  jumpForce: 8
+  jumpForce: 3
   moveSmoothTime: 0.3
   mouseSmoothTime: 0.03
+  fallGravityMultiplier: 1
+  smallJumpGravityMultiplier: 2
   lockCursor: 1
 --- !u!43 &1268866181
 Mesh:

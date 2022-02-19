@@ -324,6 +324,7 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/VSSettingsProvider.ref.dll"
 "Assets/Script/PlatformMovement.cs"
 "Assets/Script/PlayerController.cs"
+"Assets/Script/Wallrun.cs"
 -langversion:8.0
 
 /deterministic

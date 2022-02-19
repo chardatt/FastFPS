@@ -12,6 +12,7 @@ public class PlatformMovement : MonoBehaviour
     bool goingToTranslator = true;
     Vector3 velocity = Vector3.zero;
     public float smoothTime = 2;
+    GameObject player;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +20,7 @@ public class PlatformMovement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         timer += Time.deltaTime;
         if (timer >= tempo)
@@ -30,6 +31,13 @@ public class PlatformMovement : MonoBehaviour
 
         if (moving && goingToTranslator == true)
         {
+            /*if (GetComponentInChildren<CharacterController>())
+            {
+                if (player = GetComponentInChildren<CharacterController>().gameObject)
+                {
+                    player.transform.position += Vector3.SmoothDamp(transform.position, translatorVector, ref velocity, smoothTime);
+                }
+            }*/
             transform.position = Vector3.SmoothDamp(transform.position, translatorVector, ref velocity, smoothTime);
             if (Vector3.Distance(translatorVector, transform.position) < 0.5f)
             {
@@ -40,6 +48,13 @@ public class PlatformMovement : MonoBehaviour
 
         if (moving && goingToTranslator == false)
         {
+            /*if (GetComponentInChildren<CharacterController>())
+            {
+                if (player = GetComponentInChildren<CharacterController>().gameObject)
+                {
+                    player.transform.position += Vector3.SmoothDamp(transform.position, translatorVector, ref velocity, smoothTime);
+                }
+            }*/
             transform.position = Vector3.SmoothDamp(transform.position, origin, ref velocity, smoothTime);
             if (Vector3.Distance(origin, transform.position) < 0.5f)
             {

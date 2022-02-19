@@ -44,6 +44,7 @@ public class PlayerController : MonoBehaviour
 
     void UpdateMovement()
     {
+        Debug.Log(cc.isGrounded);
         Vector2 targetDir = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         targetDir.Normalize();
 
@@ -59,12 +60,13 @@ public class PlayerController : MonoBehaviour
             isJumping = true;
         }
 
-        
-        velocityY += gravity * Time.deltaTime;
+        //if (transform.parent == null)
+            velocityY += gravity * Time.deltaTime;
+
         if (Input.GetButtonDown("Jump") && isJumping == false)
         {
+            transform.parent = null;
             isJumping = true;
-                        //move.y = Mathf.Sqrt(-2f * Physics2D.gravity.y * rb.gravityScale * jumpHeight);
             velocityY = Mathf.Sqrt(-2f * gravity * jumpForce);
             //velocityY = jumpForce;
         }
@@ -83,7 +85,11 @@ public class PlayerController : MonoBehaviour
 
         Vector3 velocity = (transform.forward * currentDirection.y + transform.right * currentDirection.x) * walkSpeed + Vector3.up * velocityY;
 
-        cc.Move(velocity * Time.deltaTime);
+        if (velocity != Vector3.zero)
+        {
+            //Debug.Log(velocity);
+            cc.Move(velocity * Time.deltaTime);
+        }
     }
 
     void UpdateMouseLook()
@@ -97,5 +103,34 @@ public class PlayerController : MonoBehaviour
 
         playerCamera.localEulerAngles = Vector3.right * cameraPitch;
         transform.Rotate(Vector3.up * currentMouseDelta.x * mouseSensitivity);
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        Debug.Log(other.gameObject.name);
+        
+        if (other.gameObject.tag == "Ground")
+        {
+            transform.parent = other.gameObject.transform;
+        }
+    }
+
+    private void OnCollisionExit(Collision other)
+    {
+        if (other.gameObject.tag == "Ground")
+        {
+            transform.parent = null;
+        }
+    }
+
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        if (hit.gameObject.tag == "Ground")
+        {
+            if (transform.parent == null)
+                transform.parent = hit.gameObject.transform;
+        }
+        else
+            transform.parent = null;
     }
 }

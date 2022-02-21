@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float mouseSensitivity = 3.5f;
     [SerializeField] float walkSpeed = 6.0f;
     [SerializeField] float gravity = -13.0f;
+    float gravityTmp;
     [SerializeField] float jumpForce = 5;
     [SerializeField][Range(0f,0.5f)] float moveSmoothTime = 0.3f;
     [SerializeField][Range(0f,0.5f)] float mouseSmoothTime = 0.03f;
@@ -24,9 +25,11 @@ public class PlayerController : MonoBehaviour
     Vector2 currentMouseDelta = Vector2.zero;
     Vector2 currentMouseDeltaVelocity = Vector2.zero;
     bool isJumping = false;
+    public bool isWallrunning = false;
     // Start is called before the first frame update
     void Start()
     {
+        gravityTmp = gravity;
         cc = GetComponent<CharacterController>();
         if (lockCursor)
         {
@@ -42,6 +45,16 @@ public class PlayerController : MonoBehaviour
         UpdateMovement();
     }
 
+    public void GravityOff()
+    {
+        gravity = 0;
+    }
+
+    public void GravityOn()
+    {
+        gravity = gravityTmp;
+    }
+
     void UpdateMovement()
     {
         Debug.Log(cc.isGrounded);
@@ -54,6 +67,7 @@ public class PlayerController : MonoBehaviour
         {
             isJumping = false;
             velocityY = 0;
+            isWallrunning = false;
         }
         else
         {
@@ -61,6 +75,7 @@ public class PlayerController : MonoBehaviour
         }
 
         //if (transform.parent == null)
+        if (!isWallrunning)
             velocityY += gravity * Time.deltaTime;
 
         if (Input.GetButtonDown("Jump") && isJumping == false)
@@ -71,7 +86,7 @@ public class PlayerController : MonoBehaviour
             //velocityY = jumpForce;
         }
 
-        if (cc.isGrounded == false)
+        if (cc.isGrounded == false && isWallrunning == false)
         {
             if (velocityY < 0)
             {
@@ -87,7 +102,7 @@ public class PlayerController : MonoBehaviour
 
         if (velocity != Vector3.zero)
         {
-            //Debug.Log(velocity);
+                        //Debug.Log(velocity);
             cc.Move(velocity * Time.deltaTime);
         }
     }

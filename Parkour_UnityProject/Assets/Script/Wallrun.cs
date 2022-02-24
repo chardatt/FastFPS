@@ -29,8 +29,10 @@ public class Wallrun : MonoBehaviour
             Debug.DrawRay(Vector3.Cross(hit.normal, Vector3.up) + -transform.position, transform.position, Color.cyan);*/
             //Debug.Log(Vector3.Cross(hit.normal, Vector3.up));
             //if (Input.GetKey(KeyCode.C))
-            if (cc.isGrounded == false && Input.GetButtonDown("Fire3"))
+            if (cc.isGrounded == false && Input.GetButton("Fire3"))
                 playerController.isWallrunning = true;
+            else if (Input.GetButtonUp("Fire3"))
+                playerController.isWallrunning = false;
             /*if (isWallrunning && Input.GetButtonDown("Jump"))
                 isWallrunning = false;*/
 
@@ -41,6 +43,7 @@ public class Wallrun : MonoBehaviour
                 {
                     direction *= -1;
                 }
+                direction.y = 0;
                 cc.Move(direction * Time.deltaTime * wallRunSpeed);
             }
             //Debug.Log("Did Hit : " + hit.collider.gameObject.name);

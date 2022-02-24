@@ -98,10 +98,13 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        Vector3 velocity = (transform.forward * currentDirection.y + transform.right * currentDirection.x) * walkSpeed + Vector3.up * velocityY;
+        Vector3 velocity = (transform.forward * currentDirection.y + transform.right * currentDirection.x) * walkSpeed;
+        if (isWallrunning == false)
+            velocity += Vector3.up * velocityY;
 
         if (velocity != Vector3.zero)
         {
+            Debug.Log("is walking");
                         //Debug.Log(velocity);
             cc.Move(velocity * Time.deltaTime);
         }

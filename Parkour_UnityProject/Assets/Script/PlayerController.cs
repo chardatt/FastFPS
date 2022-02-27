@@ -24,8 +24,9 @@ public class PlayerController : MonoBehaviour
     Vector2 currentDirectionVelocity = Vector2.zero;
     Vector2 currentMouseDelta = Vector2.zero;
     Vector2 currentMouseDeltaVelocity = Vector2.zero;
-    bool isJumping = false;
+    public bool isJumping = false;
     public bool isWallrunning = false;
+    public bool canMove = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -42,7 +43,8 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         UpdateMouseLook();
-        UpdateMovement();
+        //if (canMove)
+            UpdateMovement();
     }
 
     public void GravityOff()
@@ -75,7 +77,7 @@ public class PlayerController : MonoBehaviour
         }
 
         //if (transform.parent == null)
-        if (!isWallrunning)
+        if (isWallrunning == false)
             velocityY += gravity * Time.deltaTime;
 
         if (Input.GetButtonDown("Jump") && isJumping == false)
@@ -98,7 +100,9 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        Vector3 velocity = (transform.forward * currentDirection.y + transform.right * currentDirection.x) * walkSpeed;
+        Vector3 velocity = Vector3.zero;
+        if (canMove)
+            velocity = (transform.forward * currentDirection.y + transform.right * currentDirection.x) * walkSpeed;
         if (isWallrunning == false)
             velocity += Vector3.up * velocityY;
 

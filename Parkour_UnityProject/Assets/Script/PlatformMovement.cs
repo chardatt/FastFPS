@@ -8,7 +8,7 @@ public class PlatformMovement : MonoBehaviour
     Vector3 origin;
     public float tempo;
     float timer;
-    bool moving = false;
+    public bool moving = false;
     bool goingToTranslator = true;
     Vector3 velocity = Vector3.zero;
     public float smoothTime = 2;

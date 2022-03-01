@@ -40,6 +40,7 @@
      <Compile Include="Assets\Script\PlayerController.cs" />
      <Compile Include="Assets\Script\GlissadeScript.cs" />
      <Compile Include="Assets\Script\Wallrun.cs" />
+     <Compile Include="Assets\BeatController.cs" />
     <Reference Include="UnityEngine">
         <HintPath>C:\Program Files\Unity\Hub\Editor\2021.2.13f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
@@ -720,6 +721,22 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="FMODUnityResonanceEditor.csproj">
+      <Project>{bfd87a6e-f9c5-6c41-ce11-ea60664bfc47}</Project>
+      <Name>FMODUnityResonanceEditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="FMODUnity.csproj">
+      <Project>{f5e4c00d-0e65-f5ca-d14c-cf4567f771c1}</Project>
+      <Name>FMODUnity</Name>
+    </ProjectReference>
+    <ProjectReference Include="FMODUnityEditor.csproj">
+      <Project>{0d69b542-0d7e-2ad0-fdd6-2daf49d55557}</Project>
+      <Name>FMODUnityEditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="FMODUnityResonance.csproj">
+      <Project>{cb0e856d-04f9-a8ae-517e-7da491d279a4}</Project>
+      <Name>FMODUnityResonance</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

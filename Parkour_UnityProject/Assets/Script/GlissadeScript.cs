@@ -6,7 +6,7 @@ public class GlissadeScript : MonoBehaviour
 {
     CharacterController cc;
     PlayerController playerController;
-    [SerializeField] int dashSpeed = 300;
+    [SerializeField] int dashSpeed = 500;
     [SerializeField] float dashTime = 1;
     float timer = 0;
     Vector3 direction;
@@ -27,7 +27,7 @@ public class GlissadeScript : MonoBehaviour
             cc.height = 1;
             playerController.canMove = false;
             direction = transform.forward;
-            speed = dashSpeed - speed * (Time.deltaTime * 0.5f);
+            speed = dashSpeed/* - speed * (Time.deltaTime * 0.5f)*/;
         }
         if (Input.GetButtonUp("Fire1") || Input.GetButtonDown("Jump") || getUp)
         {
@@ -40,8 +40,9 @@ public class GlissadeScript : MonoBehaviour
 
         if (speed != 0)
         {
+            Debug.Log(direction + " " + speed + " " + speed * Time.deltaTime + " " + Time.deltaTime);
             timer += Time.deltaTime;
-            cc.SimpleMove(direction * speed * Time.deltaTime);
+            cc.SimpleMove(direction * speed /* Time.deltaTime*/);
             if (timer >= dashTime)
             {
                 getUp = true;

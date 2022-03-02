@@ -86,6 +86,7 @@ public class PlayerController : MonoBehaviour
             isJumping = true;
             velocityY = Mathf.Sqrt(-2f * gravity * jumpForce);
             //velocityY = jumpForce;
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Jump");
         }
 
         if (cc.isGrounded == false && isWallrunning == false)

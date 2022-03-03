@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class PlatformMovement : MonoBehaviour
 {
-    public Vector3 translatorVector;
+    public List<Vector3> posList = new List<Vector3>();
+    //public Vector3 translatorVector;
     Vector3 origin;
     public float tempo;
     float timer;
@@ -13,10 +14,12 @@ public class PlatformMovement : MonoBehaviour
     Vector3 velocity = Vector3.zero;
     public float smoothTime = 2;
     GameObject player;
+    int i = 0;
     // Start is called before the first frame update
     void Start()
     {
         origin = transform.position;
+        posList.Add(origin);
     }
 
     // Update is called once per frame
@@ -29,15 +32,21 @@ public class PlatformMovement : MonoBehaviour
             timer = 0;
         }
 
-        if (moving && goingToTranslator == true)
+        if (moving)
         {
-            /*if (GetComponentInChildren<CharacterController>())
+            transform.position = Vector3.SmoothDamp(transform.position, posList[i], ref velocity, smoothTime);
+            if (Vector3.Distance(posList[i], transform.position) < 0.05f)
             {
-                if (player = GetComponentInChildren<CharacterController>().gameObject)
-                {
-                    player.transform.position += Vector3.SmoothDamp(transform.position, translatorVector, ref velocity, smoothTime);
-                }
-            }*/
+                if (i < posList.Count - 1)
+                    i++;
+                else
+                    i = 0;
+                moving = false;
+            }
+        }
+
+        /*if (moving && goingToTranslator == true)
+        {
             transform.position = Vector3.SmoothDamp(transform.position, translatorVector, ref velocity, smoothTime);
             if (Vector3.Distance(translatorVector, transform.position) < 0.5f)
             {
@@ -48,19 +57,12 @@ public class PlatformMovement : MonoBehaviour
 
         if (moving && goingToTranslator == false)
         {
-            /*if (GetComponentInChildren<CharacterController>())
-            {
-                if (player = GetComponentInChildren<CharacterController>().gameObject)
-                {
-                    player.transform.position += Vector3.SmoothDamp(transform.position, translatorVector, ref velocity, smoothTime);
-                }
-            }*/
             transform.position = Vector3.SmoothDamp(transform.position, origin, ref velocity, smoothTime);
             if (Vector3.Distance(origin, transform.position) < 0.5f)
             {
                 goingToTranslator = true;
                 moving = false;
             }
-        }
+        }*/
     }
 }

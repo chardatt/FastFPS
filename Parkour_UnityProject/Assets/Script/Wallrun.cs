@@ -8,6 +8,11 @@ public class Wallrun : MonoBehaviour
     bool isWallrunning = false;
     CharacterController cc;
     PlayerController playerController;
+
+    //SD
+    float timer;
+    [SerializeField] float interval;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,20 +28,18 @@ public class Wallrun : MonoBehaviour
 
         RaycastHit hit;
         // Get nearest Wall
-        if (Physics.Raycast(transform.position, transform.forward, out hit, 2.5f, layerMask) || Physics.Raycast(transform.position, transform.right, out hit, 2.5f, layerMask) || Physics.Raycast(transform.position, -transform.right, out hit, 2.5f, layerMask))
+        if (/*Physics.Raycast(transform.position, transform.forward, out hit, 2.5f, layerMask) ||*/ Physics.Raycast(transform.position, transform.right, out hit, 2.5f, layerMask) || Physics.Raycast(transform.position, -transform.right, out hit, 2.5f, layerMask))
         {
-            /*Debug.DrawRay(transform.position, hit.point, Color.black);
-            Debug.DrawRay(Vector3.Cross(hit.normal, Vector3.up) + -transform.position, transform.position, Color.cyan);*/
-            //Debug.Log(Vector3.Cross(hit.normal, Vector3.up));
-            //if (Input.GetKey(KeyCode.C))
-            //if (cc.isGrounded == false && Input.GetButton("Fire3"))
-            if (cc.isGrounded == false && Input.GetButton("Jump"))
-                playerController.isWallrunning = true;
-            //else if (Input.GetButtonUp("Fire3"))
-            else if (Input.GetButtonUp("Jump"))
+            if (Input.GetButtonDown("Jump") && playerController.isWallrunning)
+            {
                 playerController.isWallrunning = false;
-            /*if (isWallrunning && Input.GetButtonDown("Jump"))
-                isWallrunning = false;*/
+                //Debug.Log("Wallrun falsing");
+            }
+            else if (cc.isGrounded == false && Input.GetButtonDown("Jump"))
+            {
+                playerController.isWallrunning = true;
+                //Debug.Log("Wallrun trueing");
+            }
 
             if (playerController.isWallrunning)
             {
@@ -47,11 +50,19 @@ public class Wallrun : MonoBehaviour
                 }
                 direction.y = 0;
                 cc.Move(direction * Time.deltaTime * wallRunSpeed);
+
+                timer += Time.deltaTime;
+                if (timer >= interval)
+                {
+                    timer = 0;
+                    FMODUnity.RuntimeManager.PlayOneShot("event:/Walk");
+                }
             }
             //Debug.Log("Did Hit : " + hit.collider.gameObject.name);
         }
         else
         {
+            //Debug.Log("Wallrun falsing");
             playerController.isWallrunning = false;
         }
     }

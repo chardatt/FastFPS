@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{c5bc1c27-764f-4415-a2ed-bde37610f828}">
+		<property name="assetPath">
+			<value>Footsteps, Human, Metal, Run, Isolated Steps 01 SND62066 10.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>96</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>0.44085416666666666</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{65cf115b-9cbf-4ca5-8ba3-cc8fd98510cd}</destination>
+		</relationship>
+	</object>
+</objects>

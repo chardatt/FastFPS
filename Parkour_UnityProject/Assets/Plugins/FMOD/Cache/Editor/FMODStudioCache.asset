@@ -15,10 +15,10 @@ MonoBehaviour:
   Path: ../fmodTristan/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637818500105095617
+  lastModified: 637819260790223072
   FileSizes:
   - Name: Desktop
-    Value: 800
+    Value: 836
   Exists: 1
 --- !u!114 &-4376324743223690256
 MonoBehaviour:
@@ -35,10 +35,10 @@ MonoBehaviour:
   Path: ../fmodTristan/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637818500105020604
+  lastModified: 637819260790208070
   FileSizes:
   - Name: Desktop
-    Value: 32256
+    Value: 86976
   Exists: 1
 --- !u!114 &-2791939968377767763
 MonoBehaviour:
@@ -85,12 +85,13 @@ MonoBehaviour:
   EditorEvents:
   - {fileID: 3576907548278219157}
   - {fileID: -2791939968377767763}
+  - {fileID: 8040072312114239536}
   EditorParameters: []
   MasterBanks:
   - {fileID: -4376324743223690256}
   StringsBanks:
   - {fileID: -8850215295706120597}
-  cacheTime: 637818500105095617
+  cacheTime: 637819260790223072
   cacheVersion: 10
 --- !u!114 &3576907548278219157
 MonoBehaviour:
@@ -110,6 +111,33 @@ MonoBehaviour:
     Data2: 1284627035
     Data3: 1781250946
     Data4: 674347880
+  Banks:
+  - {fileID: -4376324743223690256}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2000
+--- !u!114 &8040072312114239536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Walk
+  m_EditorClassIdentifier: 
+  Path: event:/Walk
+  Guid:
+    Data1: 1161796444
+    Data2: 1160815765
+    Data3: -1117662837
+    Data4: -576021801
   Banks:
   - {fileID: -4376324743223690256}
   IsStream: 0

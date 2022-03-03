@@ -14,7 +14,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField][Range(0f,0.5f)] float mouseSmoothTime = 0.03f;
     [SerializeField] float fallGravityMultiplier = 1;
     [SerializeField] float smallJumpGravityMultiplier = 2;
-
     [SerializeField] bool lockCursor = true;
 
     float cameraPitch = 0.0f;
@@ -27,6 +26,9 @@ public class PlayerController : MonoBehaviour
     public bool isJumping = false;
     public bool isWallrunning = false;
     public bool canMove = true;
+
+    // Temporaire pour le son de pas
+    float timer;
     // Start is called before the first frame update
     void Start()
     {
@@ -65,11 +67,11 @@ public class PlayerController : MonoBehaviour
 
         currentDirection = Vector2.SmoothDamp(currentDirection, targetDir, ref currentDirectionVelocity, moveSmoothTime);
 
-        if (cc.isGrounded)
+        if (cc.isGrounded || isWallrunning)
         {
             isJumping = false;
             velocityY = 0;
-            isWallrunning = false;
+            //isWallrunning = false;
         }
         else
         {
@@ -86,6 +88,7 @@ public class PlayerController : MonoBehaviour
             isJumping = true;
             velocityY = Mathf.Sqrt(-2f * gravity * jumpForce);
             //velocityY = jumpForce;
+            Debug.Log("Jumping");
             FMODUnity.RuntimeManager.PlayOneShot("event:/Jump");
         }
 
@@ -109,8 +112,13 @@ public class PlayerController : MonoBehaviour
 
         if (velocity != Vector3.zero)
         {
-            Debug.Log("is walking");
-                        //Debug.Log(velocity);
+            
+            timer += Time.deltaTime;
+            if ((velocity.x > 0.25f || velocity.x < -0.25f) && (velocity.z > 0.25f || velocity.z < -0.25f) && timer >= .5f && cc.isGrounded)
+            {
+                timer = 0;
+                FMODUnity.RuntimeManager.PlayOneShot("event:/Walk");
+            }
             cc.Move(velocity * Time.deltaTime);
         }
     }

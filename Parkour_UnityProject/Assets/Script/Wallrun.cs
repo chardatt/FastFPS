@@ -29,9 +29,11 @@ public class Wallrun : MonoBehaviour
             Debug.DrawRay(Vector3.Cross(hit.normal, Vector3.up) + -transform.position, transform.position, Color.cyan);*/
             //Debug.Log(Vector3.Cross(hit.normal, Vector3.up));
             //if (Input.GetKey(KeyCode.C))
-            if (cc.isGrounded == false && Input.GetButton("Fire3"))
+            //if (cc.isGrounded == false && Input.GetButton("Fire3"))
+            if (cc.isGrounded == false && Input.GetButton("Jump"))
                 playerController.isWallrunning = true;
-            else if (Input.GetButtonUp("Fire3"))
+            //else if (Input.GetButtonUp("Fire3"))
+            else if (Input.GetButtonUp("Jump"))
                 playerController.isWallrunning = false;
             /*if (isWallrunning && Input.GetButtonDown("Jump"))
                 isWallrunning = false;*/

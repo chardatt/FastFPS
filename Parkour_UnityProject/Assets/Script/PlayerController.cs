@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
     public bool isJumping = false;
     public bool isWallrunning = false;
     public bool canMove = true;
+    public bool moving = false;
 
     // Temporaire pour le son de pas
     float timer;
@@ -45,8 +46,8 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         UpdateMouseLook();
-        //if (canMove)
-            UpdateMovement();
+        
+        UpdateMovement();
     }
 
     public void GravityOff()
@@ -67,7 +68,7 @@ public class PlayerController : MonoBehaviour
 
         currentDirection = Vector2.SmoothDamp(currentDirection, targetDir, ref currentDirectionVelocity, moveSmoothTime);
 
-        if (cc.isGrounded || isWallrunning)
+        if (cc.isGrounded)
         {
             isJumping = false;
             velocityY = 0;
@@ -78,11 +79,10 @@ public class PlayerController : MonoBehaviour
             isJumping = true;
         }
 
-        //if (transform.parent == null)
         if (isWallrunning == false)
             velocityY += gravity * Time.deltaTime;
 
-        if (Input.GetButtonDown("Jump") && isJumping == false)
+        if (Input.GetButtonDown("Jump") && (isJumping == false || isWallrunning))
         {
             transform.parent = null;
             isJumping = true;
@@ -114,13 +114,25 @@ public class PlayerController : MonoBehaviour
         {
             
             timer += Time.deltaTime;
-            if ((velocity.x > 0.25f || velocity.x < -0.25f) && (velocity.z > 0.25f || velocity.z < -0.25f) && timer >= .5f && cc.isGrounded)
+            //if ((velocity.x > 0.25f || velocity.x < -0.25f) && (velocity.z > 0.25f || velocity.z < -0.25f) && timer >= .3f && cc.isGrounded)
+            if (Vector3.Distance(cc.velocity, Vector3.zero) > .25f && timer >= .3f && cc.isGrounded)
             {
                 timer = 0;
+                moving = true;
                 FMODUnity.RuntimeManager.PlayOneShot("event:/Walk");
+                Debug.Log("Moving");
             }
+            
+            //if ((velocity.x < 0.25f || velocity.x > -0.25f) && (velocity.z < 0.25f || velocity.z > -0.25f))
+            if (Vector3.Distance(cc.velocity, Vector3.zero) < .25f || cc.isGrounded == false)
+            {
+                moving = false;
+                Debug.Log("Not Moving");
+            }
+
             cc.Move(velocity * Time.deltaTime);
         }
+
     }
 
     void UpdateMouseLook()

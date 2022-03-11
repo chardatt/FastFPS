@@ -57,7 +57,7 @@ public class Grappling : MonoBehaviour
         inertia -= grapSpeed/2 * Time.deltaTime;
 
         inertia = Mathf.Clamp(inertia, 0, maxSpeed);
-        //if (firstTime == true)
-            cc.Move((target.position.normalized - transform.parent.position.normalized) * inertia);
+        if (firstTime == true)
+            cc.Move((target.position - transform.parent.position).normalized * inertia);
     }
 }

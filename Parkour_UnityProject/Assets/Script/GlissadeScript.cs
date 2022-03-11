@@ -24,14 +24,14 @@ public class GlissadeScript : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1"))
         {
-            cc.height = 1;
+            transform.localScale = Vector3.up/2 + Vector3.right + Vector3.forward;
             playerController.canMove = false;
             direction = transform.forward;
             speed = dashSpeed/* - speed * (Time.deltaTime * 0.5f)*/;
         }
         if (Input.GetButtonUp("Fire1") || Input.GetButtonDown("Jump") || getUp)
         {
-            cc.height = 2;
+            transform.localScale = Vector3.up + Vector3.right + Vector3.forward;
             playerController.canMove = true;
             speed = 0;
             timer = 0;

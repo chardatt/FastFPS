@@ -9,6 +9,7 @@ public class Grappling : MonoBehaviour
     [SerializeField] float maxSpeed = 20;
     Camera cam;
     Transform target;
+    Vector3 direction;
     float inertia;
     bool firstTime = false;
     CharacterController cc;
@@ -34,8 +35,10 @@ public class Grappling : MonoBehaviour
                 {
                     if (hit.collider.tag == "Grappling")
                     {
+//                        Debug.Log("j");
                         firstTime = true;
                         target = hit.collider.transform;
+                        direction = (target.position - transform.parent.position).normalized;
                     }
                 }
                 else
@@ -43,6 +46,10 @@ public class Grappling : MonoBehaviour
                     firstTime = false;
                     //target = null;
                 }
+            }
+            else
+            {
+                Debug.Log("Test");
             }
 
             if (target != null)
@@ -58,6 +65,6 @@ public class Grappling : MonoBehaviour
 
         inertia = Mathf.Clamp(inertia, 0, maxSpeed);
         if (firstTime == true)
-            cc.Move((target.position - transform.parent.position).normalized * inertia);
+            cc.Move(direction * inertia);
     }
 }

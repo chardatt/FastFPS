@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ground
   - Grappling
+  - Wallrun
   layers:
   - Default
   - TransparentFX

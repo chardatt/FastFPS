@@ -27,7 +27,10 @@ public class PlayerController : MonoBehaviour
     public bool isWallrunning = false;
     public bool canMove = true;
     public bool moving = false;
-
+    float magicNumber = 0.0001f;
+    Vector3 moveVector;
+    public bool grounded = false;
+    //List<GameObject> groundObjects = new List<GameObject>();
     // Temporaire pour le son de pas
     float timer;
     // Start is called before the first frame update
@@ -45,9 +48,28 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*if (cc.isGrounded)
+        {
+            moveVector.y = magicNumber;
+            cc.Move(moveVector * Time.deltaTime);
+        }*/
+
+        //if (!cc.collisionFlags.ToString().Equals("None") && CollisionFlags.Below != 0)
+        if (cc.collisionFlags == CollisionFlags.Below || cc.isGrounded)
+        {
+            Debug.Log("Grounded " + CollisionFlags.Below.ToString());
+            grounded = true;
+        }
+        else
+        {
+            grounded = false;
+            Debug.Log("Not Grounded");
+        }
         UpdateMouseLook();
         
         UpdateMovement();
+
+        Debug.Log("Gravity state: " + gravity + " isGrounded? " + cc.isGrounded);
     }
 
     public void GravityOff()
@@ -62,13 +84,14 @@ public class PlayerController : MonoBehaviour
 
     void UpdateMovement()
     {
-        Debug.Log(cc.isGrounded);
+        //Debug.Log(cc.isGrounded);
         Vector2 targetDir = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         targetDir.Normalize();
 
         currentDirection = Vector2.SmoothDamp(currentDirection, targetDir, ref currentDirectionVelocity, moveSmoothTime);
 
-        if (cc.isGrounded)
+        //if (cc.isGrounded)
+        if (grounded)
         {
             isJumping = false;
             velocityY = 0;
@@ -92,7 +115,8 @@ public class PlayerController : MonoBehaviour
             FMODUnity.RuntimeManager.PlayOneShot("event:/Jump");
         }
 
-        if (cc.isGrounded == false && isWallrunning == false)
+        //if (cc.isGrounded == false && isWallrunning == false)
+        if (grounded == false && isWallrunning == false)
         {
             if (velocityY < 0)
             {
@@ -115,7 +139,8 @@ public class PlayerController : MonoBehaviour
             
             timer += Time.deltaTime;
             //if ((velocity.x > 0.25f || velocity.x < -0.25f) && (velocity.z > 0.25f || velocity.z < -0.25f) && timer >= .3f && cc.isGrounded)
-            if (Vector3.Distance(cc.velocity, Vector3.zero) > .25f && timer >= .3f && cc.isGrounded)
+            //if (Vector3.Distance(cc.velocity, Vector3.zero) > .25f && timer >= .3f && cc.isGrounded)
+            if (Vector3.Distance(cc.velocity, Vector3.zero) > .25f && timer >= .3f && grounded)
             {
                 timer = 0;
                 moving = true;
@@ -124,7 +149,8 @@ public class PlayerController : MonoBehaviour
             }
             
             //if ((velocity.x < 0.25f || velocity.x > -0.25f) && (velocity.z < 0.25f || velocity.z > -0.25f))
-            if (Vector3.Distance(cc.velocity, Vector3.zero) < .25f || cc.isGrounded == false)
+            //if (Vector3.Distance(cc.velocity, Vector3.zero) < .25f || cc.isGrounded == false)
+            if (Vector3.Distance(cc.velocity, Vector3.zero) < .25f || grounded == false)
             {
                 moving = false;
                 Debug.Log("Not Moving");
@@ -148,7 +174,7 @@ public class PlayerController : MonoBehaviour
         transform.Rotate(Vector3.up * currentMouseDelta.x * mouseSensitivity);
     }
 
-    private void OnCollisionEnter(Collision other)
+    /*private void OnCollisionEnter(Collision other)
     {
         Debug.Log(other.gameObject.name);
         
@@ -164,16 +190,25 @@ public class PlayerController : MonoBehaviour
         {
             transform.parent = null;
         }
-    }
+    }*/
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
         if (hit.gameObject.tag == "Ground")
         {
-            if (transform.parent == null)
-                transform.parent = hit.gameObject.transform;
+            //if (transform.parent == null)
+            transform.parent = hit.gameObject.transform;
         }
         else
             transform.parent = null;
+
+        /*grouded = false;
+        if (hit.normal.y > 0.7f)
+        {
+            grouded = true;
+            Debug.Log("isGrounded");
+        }
+        else
+            Debug.Log("isNOTGrounded");*/
     }
 }

@@ -21,11 +21,12 @@ public class BeatController : MonoBehaviour
         {
             notPlaying = true;
             //Debug.Log("Test");
-            FMODUnity.RuntimeManager.PlayOneShot("event:/Beat");
+            
         }
 
-        if (environnementObject.moving == false)
+        if (environnementObject.moving == false && notPlaying == true)
         {
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Beat");
             notPlaying = false;
         }
     }

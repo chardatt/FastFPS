@@ -6,6 +6,7 @@ public class Grappling : MonoBehaviour
 {
     [SerializeField] int grapRange = 10000;
     [SerializeField] float grapSpeed = 5;
+    [SerializeField] float grapDecel = 0.2f;
     [SerializeField] float maxSpeed = 20;
     Camera cam;
     Transform target;
@@ -14,6 +15,7 @@ public class Grappling : MonoBehaviour
     bool firstTime = false;
     CharacterController cc;
     PlayerController playerController;
+    PlatformMovement platformMovement;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +27,7 @@ public class Grappling : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        #region 
         if (Input.GetMouseButton(0))
         {
             RaycastHit hit;
@@ -47,10 +50,10 @@ public class Grappling : MonoBehaviour
                     //target = null;
                 }
             }
-            else
+            /*else
             {
                 Debug.Log("Test");
-            }
+            }*/
 
             if (target != null)
             {
@@ -61,13 +64,45 @@ public class Grappling : MonoBehaviour
         else
             playerController.GravityOn();
 
-        inertia -= grapSpeed/2 * Time.deltaTime;
+        inertia -= grapDecel * Time.deltaTime;
 
         inertia = Mathf.Clamp(inertia, 0, maxSpeed);
         if (firstTime == true && direction * inertia != Vector3.zero)
         {
             cc.Move(direction * inertia);
             Debug.Log("Application de l'inertie " + direction * inertia);
+        }
+        else
+        {
+            direction = Vector3.zero;
+            firstTime = false;
+            Debug.Log("Test de reset " + direction + " " + firstTime + " " + inertia);
+        }
+        #endregion
+
+        if (Input.GetMouseButton(1))
+        {
+            RaycastHit hit;
+
+            if (Physics.Raycast(transform.position, transform.forward, out hit, grapRange))
+            {
+                if (hit.collider != null)
+                {
+                    if (hit.collider.tag == "Ground")
+                    {
+                        platformMovement = hit.collider.GetComponent<PlatformMovement>();
+                        if (platformMovement.grappable)
+                        {
+                            platformMovement.gameObject.transform.position = transform.parent.position + transform.parent.forward - transform.parent.up;
+                            Debug.Log("grappable");
+                        }
+                    }
+                }
+                else
+                {
+
+                }
+            }
         }
     }
 }

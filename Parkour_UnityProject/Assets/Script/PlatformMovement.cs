@@ -10,6 +10,7 @@ public class PlatformMovement : MonoBehaviour
     public float tempo;
     float timer;
     public bool moving = false;
+    public bool grappable = false;
     bool goingToTranslator = true;
     Vector3 velocity = Vector3.zero;
     public float smoothTime = 2;
@@ -22,26 +23,34 @@ public class PlatformMovement : MonoBehaviour
         posList.Add(origin);
     }
 
+    private void Update()
+    {
+        
+    }
+
     // Update is called once per frame
     void LateUpdate()
     {
-        timer += Time.deltaTime;
-        if (timer >= tempo)
+        if (grappable == false)
         {
-            moving = true;
-            timer = 0;
-        }
-
-        if (moving)
-        {
-            transform.position = Vector3.SmoothDamp(transform.position, posList[i], ref velocity, smoothTime);
-            if (Vector3.Distance(posList[i], transform.position) < 0.05f)
+            timer += Time.deltaTime;
+            if (timer >= tempo)
             {
-                if (i < posList.Count - 1)
-                    i++;
-                else
-                    i = 0;
-                moving = false;
+                moving = true;
+                timer = 0;
+            }
+
+            if (moving)
+            {
+                transform.position = Vector3.SmoothDamp(transform.position, posList[i], ref velocity, smoothTime);
+                if (Vector3.Distance(posList[i], transform.position) < 0.05f)
+                {
+                    if (i < posList.Count - 1)
+                        i++;
+                    else
+                        i = 0;
+                    moving = false;
+                }
             }
         }
 

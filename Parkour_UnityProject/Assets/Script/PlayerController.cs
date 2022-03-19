@@ -74,11 +74,13 @@ public class PlayerController : MonoBehaviour
 
     public void GravityOff()
     {
+        Debug.Log("No gravity");
         gravity = 0;
     }
 
     public void GravityOn()
     {
+        Debug.Log("Gravity");
         gravity = gravityTmp;
     }
 
@@ -145,7 +147,7 @@ public class PlayerController : MonoBehaviour
                 timer = 0;
                 moving = true;
                 FMODUnity.RuntimeManager.PlayOneShot("event:/Walk");
-                Debug.Log("Moving");
+                //Debug.Log("Moving");
             }
             
             //if ((velocity.x < 0.25f || velocity.x > -0.25f) && (velocity.z < 0.25f || velocity.z > -0.25f))
@@ -153,9 +155,9 @@ public class PlayerController : MonoBehaviour
             if (Vector3.Distance(cc.velocity, Vector3.zero) < .25f || grounded == false)
             {
                 moving = false;
-                Debug.Log("Not Moving");
+                //Debug.Log("Not Moving");
             }
-
+//            Debug.Log(velocity * Time.deltaTime);
             cc.Move(velocity * Time.deltaTime);
         }
 

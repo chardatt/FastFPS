@@ -8,6 +8,7 @@ public class Grappling : MonoBehaviour
     [SerializeField] float grapSpeed = 5;
     [SerializeField] float grapDecel = 0.2f;
     [SerializeField] float maxSpeed = 20;
+    [SerializeField] float platformGrapDistanceFromPlayer = 1.5f;
     Camera cam;
     Transform target;
     Vector3 direction;
@@ -93,7 +94,7 @@ public class Grappling : MonoBehaviour
                         platformMovement = hit.collider.GetComponent<PlatformMovement>();
                         if (platformMovement.grappable)
                         {
-                            platformMovement.gameObject.transform.position = transform.parent.position + transform.parent.forward - transform.parent.up;
+                            platformMovement.gameObject.transform.position = transform.parent.position + transform.parent.forward * platformGrapDistanceFromPlayer - transform.parent.up;
                             Debug.Log("grappable");
                         }
                     }

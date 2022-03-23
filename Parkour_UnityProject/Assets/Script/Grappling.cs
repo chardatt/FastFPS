@@ -17,6 +17,7 @@ public class Grappling : MonoBehaviour
     CharacterController cc;
     PlayerController playerController;
     PlatformMovement platformMovement;
+    float distance;
     // Start is called before the first frame update
     void Start()
     {
@@ -92,9 +93,17 @@ public class Grappling : MonoBehaviour
                     if (hit.collider.tag == "Ground")
                     {
                         platformMovement = hit.collider.GetComponent<PlatformMovement>();
+                        distance = (transform.position - platformMovement.gameObject.transform.position).magnitude;
+
+                        if (Input.mouseScrollDelta.y != 0)
+                        {
+                            distance += Input.mouseScrollDelta.y;
+                            Debug.Log(Input.mouseScrollDelta.y);
+                        }
                         if (platformMovement.grappable)
                         {
-                            platformMovement.gameObject.transform.position = transform.parent.position + transform.parent.forward * platformGrapDistanceFromPlayer - transform.parent.up;
+                            platformMovement.gameObject.transform.position = transform.position + transform.forward * distance;
+                            //platformMovement.gameObject.transform.position = transform.parent.position + transform.parent.forward * platformGrapDistanceFromPlayer - transform.parent.up;
                             Debug.Log("grappable");
                         }
                     }
@@ -105,5 +114,6 @@ public class Grappling : MonoBehaviour
                 }
             }
         }
+        //distance = 0;
     }
 }

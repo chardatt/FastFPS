@@ -45,6 +45,11 @@ public class Grappling : MonoBehaviour
                         target = hit.collider.transform;
                         direction = (target.position - transform.parent.position).normalized;
                     }
+                    else
+                    {
+                        /*direction = Vector3.zero;
+                        firstTime = false;*/
+                    }
                 }
                 else
                 {
@@ -60,6 +65,7 @@ public class Grappling : MonoBehaviour
             if (target != null)
             {
                 inertia += grapSpeed * Time.deltaTime;
+                direction = (target.position - transform.parent.position).normalized;
             }
             playerController.GravityOff();
         }
@@ -82,6 +88,7 @@ public class Grappling : MonoBehaviour
         }
         #endregion
 
+#region 
         if (Input.GetMouseButton(1))
         {
             RaycastHit hit;
@@ -90,7 +97,7 @@ public class Grappling : MonoBehaviour
             {
                 if (hit.collider != null)
                 {
-                    if (hit.collider.tag == "Ground")
+                    if (hit.collider.tag == "Ground" && Vector3.Distance(transform.position, hit.point) > 2)
                     {
                         platformMovement = hit.collider.GetComponent<PlatformMovement>();
                         distance = (transform.position - platformMovement.gameObject.transform.position).magnitude;
@@ -114,6 +121,7 @@ public class Grappling : MonoBehaviour
                 }
             }
         }
+        #endregion
         //distance = 0;
     }
 }

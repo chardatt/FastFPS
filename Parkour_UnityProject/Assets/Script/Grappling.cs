@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Grappling : MonoBehaviour
 {
-    [SerializeField] int grapRange = 10000;
-    [SerializeField] float grapSpeed = 5;
+    [SerializeField] int grapRange = 25;
+    [SerializeField] float grapSpeed = 0.4f;
     [SerializeField] float grapDecel = 0.2f;
-    [SerializeField] float maxSpeed = 20;
-    [SerializeField] float platformGrapDistanceFromPlayer = 1.5f;
+    [SerializeField] float maxSpeed = 2;
+    [SerializeField] float platformGrapDistanceFromPlayer = 5f;
     Camera cam;
     Transform target;
     Vector3 direction;
@@ -27,7 +27,7 @@ public class Grappling : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         #region 
         if (Input.GetMouseButton(0))

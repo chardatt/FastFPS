@@ -54,7 +54,7 @@ public class Grappling : MonoBehaviour
                 else
                 {
                     firstTime = false;
-                    //target = null;
+                    target = null;
                 }
             }
             /*else
@@ -62,12 +62,14 @@ public class Grappling : MonoBehaviour
                 Debug.Log("Test");
             }*/
 
-            if (target != null)
+            if (firstTime)
             {
+                Debug.Log("Inertia Increasing");
                 inertia += grapSpeed * Time.deltaTime;
-                direction = (target.position - transform.parent.position).normalized;
+                playerController.GravityOff();
+                //direction = (target.position - transform.parent.position).normalized;
             }
-            playerController.GravityOff();
+
         }
         else
             playerController.GravityOn();
@@ -75,16 +77,17 @@ public class Grappling : MonoBehaviour
         inertia -= grapDecel * Time.deltaTime;
 
         inertia = Mathf.Clamp(inertia, 0, maxSpeed);
+        
         if (firstTime == true && direction * inertia != Vector3.zero)
         {
             cc.Move(direction * inertia);
-            Debug.Log("Application de l'inertie " + direction * inertia);
+            //Debug.Log("Application de l'inertie " + direction * inertia);
         }
         else
         {
             direction = Vector3.zero;
             firstTime = false;
-            Debug.Log("Test de reset " + direction + " " + firstTime + " " + inertia);
+            //Debug.Log("Test de reset " + direction + " " + firstTime + " " + inertia);
         }
         #endregion
 

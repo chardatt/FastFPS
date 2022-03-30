@@ -57,30 +57,30 @@ public class PlayerController : MonoBehaviour
         //if (!cc.collisionFlags.ToString().Equals("None") && CollisionFlags.Below != 0)
         if (cc.collisionFlags == CollisionFlags.Below || cc.isGrounded)
         {
-            Debug.Log("Grounded " + CollisionFlags.Below.ToString());
+            //Debug.Log("Grounded " + CollisionFlags.Below.ToString());
             grounded = true;
         }
         else
         {
             grounded = false;
-            Debug.Log("Not Grounded");
+            //Debug.Log("Not Grounded");
         }
         UpdateMouseLook();
         
         UpdateMovement();
 
-        Debug.Log("Gravity state: " + gravity + " isGrounded? " + cc.isGrounded);
+        //Debug.Log("Gravity state: " + gravity + " isGrounded? " + cc.isGrounded);
     }
 
     public void GravityOff()
     {
-        Debug.Log("No gravity");
+        //Debug.Log("No gravity");
         gravity = 0;
     }
 
     public void GravityOn()
     {
-        Debug.Log("Gravity");
+        //Debug.Log("Gravity");
         gravity = gravityTmp;
     }
 

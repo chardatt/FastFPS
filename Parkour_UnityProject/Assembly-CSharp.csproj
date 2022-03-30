@@ -44,6 +44,7 @@
      <Compile Include="Assets\Script\Restart.cs" />
      <Compile Include="Assets\Script\Wallrun.cs" />
      <Compile Include="Assets\Script\Grappling.cs" />
+     <Compile Include="Assets\Script\GrapplingHookCollision.cs" />
     <Reference Include="UnityEngine">
         <HintPath>Z:\Unity Hub\2021.2.13f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>

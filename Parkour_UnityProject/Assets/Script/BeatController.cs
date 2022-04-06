@@ -6,28 +6,23 @@ public class BeatController : MonoBehaviour
 {
     public PlatformMovement environnementObject;
     public bool notPlaying = false;
-    // Start is called before the first frame update
+    private FMOD.Studio.EventInstance event_fmod;
     void Start()
     {
-        //environnementObject = GameObject.FindObjectOfType<PlatformMovement>();
+        event_fmod = FMODUnity.RuntimeManager.CreateInstance("event:/Beat");
     }
 
-    // Update is called once per frame
     void Update()
     {
-        /*Debug.Log(environnementObject.timer + " " + environnementObject.tempo);
-        if (environnementObject.timer >= environnementObject.tempo)*/
-        /*if (environnementObject.moving && notPlaying == false)
-        {
-            notPlaying = true;
-            //Debug.Log("Test");
-            
-        }*/
-
         if (environnementObject.moving == true && notPlaying == true)
         {
-            FMODUnity.RuntimeManager.PlayOneShot("event:/Beat");
+            event_fmod.start();
             notPlaying = false;
         }
+    }
+
+    public void StopBeat()
+    {
+        event_fmod.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
     }
 }

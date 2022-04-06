@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour
     public bool isWallrunning = false;
     public bool canMove = true;
     public bool moving = false;
+    bool isGliding = false;
     float magicNumber = 0.0001f;
     Vector3 moveVector;
     public bool grounded = false;
@@ -142,7 +143,7 @@ public class PlayerController : MonoBehaviour
             timer += Time.deltaTime;
             //if ((velocity.x > 0.25f || velocity.x < -0.25f) && (velocity.z > 0.25f || velocity.z < -0.25f) && timer >= .3f && cc.isGrounded)
             //if (Vector3.Distance(cc.velocity, Vector3.zero) > .25f && timer >= .3f && cc.isGrounded)
-            if (Vector3.Distance(cc.velocity, Vector3.zero) > .25f && timer >= .3f && grounded)
+            if (Vector3.Distance(cc.velocity, Vector3.zero) > .25f && timer >= .3f && grounded && canMove == true)
             {
                 timer = 0;
                 moving = true;

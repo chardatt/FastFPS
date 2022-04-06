@@ -11,10 +11,12 @@ public class GlissadeScript : MonoBehaviour
     float timer = 0;
     Vector3 direction;
     bool getUp = false;
+    private FMOD.Studio.EventInstance slide_event_fmod;
     float speed = 0;
     // Start is called before the first frame update
     void Start()
     {
+        slide_event_fmod = FMODUnity.RuntimeManager.CreateInstance("event:/Slide");
         cc = GetComponent<CharacterController>();
         playerController = GetComponent<PlayerController>();
     }
@@ -26,8 +28,10 @@ public class GlissadeScript : MonoBehaviour
         {
             transform.localScale = Vector3.up/2 + Vector3.right + Vector3.forward;
             playerController.canMove = false;
+            
             direction = transform.forward;
             speed = dashSpeed/* - speed * (Time.deltaTime * 0.5f)*/;
+            slide_event_fmod.start();
         }
         if (Input.GetButtonUp("Fire1") || Input.GetButtonDown("Jump") || getUp)
         {
@@ -36,6 +40,7 @@ public class GlissadeScript : MonoBehaviour
             speed = 0;
             timer = 0;
             getUp = false;
+            slide_event_fmod.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
         }
 
         if (speed != 0)

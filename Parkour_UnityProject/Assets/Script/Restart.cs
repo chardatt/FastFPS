@@ -16,6 +16,7 @@ public class Restart : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.R))
         {
+            GameObject.FindObjectOfType<BeatController>().StopBeat();
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }

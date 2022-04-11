@@ -261,7 +261,7 @@ MonoBehaviour:
   walkSpeed: 15
   gravity: -20
   jumpForce: 3
-  moveSmoothTime: 0.2
+  moveSmoothTime: 0.1
   mouseSmoothTime: 0.03
   fallGravityMultiplier: 1
   smallJumpGravityMultiplier: 3

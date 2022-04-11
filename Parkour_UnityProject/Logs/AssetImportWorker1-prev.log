@@ -1,23 +1,23 @@
 Using pre-set license
 Built from '2021.2/staging' branch; Version is '2021.2.13f1 (90b6766da538) revision 9483894'; Using compiler version '192829333'; Build Type 'Release'
-OS: 'Windows 10  (10.0.19043) 64bit Core' Language: 'fr' Physical Memory: 8010 MB
+OS: 'Windows 10  (10.0.19044) 64bit Core' Language: 'fr' Physical Memory: 16228 MB
 BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
 
 COMMAND LINE ARGUMENTS:
-C:\Program Files\Unity\Hub\Editor\2021.2.13f1\Editor\Unity.exe
+D:\Unity\2021.2.13f1\Editor\Unity.exe
 -adb2
 -batchMode
 -noUpm
 -name
 AssetImportWorker1
 -projectPath
-C:/Users/trist/Desktop/FastFPS/Parkour_UnityProject
+D:/PROJETS/FastFPS/Parkour_UnityProject
 -logFile
 Logs/AssetImportWorker1.log
 -srvPort
-50087
-Successfully changed project path to: C:/Users/trist/Desktop/FastFPS/Parkour_UnityProject
-C:/Users/trist/Desktop/FastFPS/Parkour_UnityProject
+57279
+Successfully changed project path to: D:/PROJETS/FastFPS/Parkour_UnityProject
+D:/PROJETS/FastFPS/Parkour_UnityProject
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
     "memorysetup-bucket-allocator-granularity=16"
     "memorysetup-bucket-allocator-bucket-count=8"
@@ -47,11 +47,11 @@ C:/Users/trist/Desktop/FastFPS/Parkour_UnityProject
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Refreshing native plugins compatible for Editor in 474.94 ms, found 5 plugins.
+Refreshing native plugins compatible for Editor in 131.56 ms, found 5 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2021.2.13f1 (90b6766da538)
-[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2021.2.13f1/Editor/Data/Resources/UnitySubsystems
-[Subsystems] Discovering subsystems at path C:/Users/trist/Desktop/FastFPS/Parkour_UnityProject/Assets
+[Subsystems] Discovering subsystems at path D:/Unity/2021.2.13f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path D:/PROJETS/FastFPS/Parkour_UnityProject/Assets
 GfxDevice: creating device client; threaded=0; jobified=0
 [vulkan] LoadVulkanLibrary vulkan-1.dll[vulkan] Loaded instance function vkGetInstanceProcAddr
 [vulkan] Loaded instance function vkGetInstanceProcAddr
@@ -59,41 +59,43 @@ GfxDevice: creating device client; threaded=0; jobified=0
 [vulkan] Loaded instance function vkEnumerateInstanceExtensionProperties
 [vulkan] Loaded instance function vkEnumerateInstanceLayerProperties
 [vulkan] Loaded instance function vkEnumerateInstanceVersion
-[Vulkan init] extensions: count=15
-[Vulkan init] extensions: name=VK_KHR_surface, enabled=1
-[Vulkan init] extensions: name=VK_KHR_win32_surface, enabled=1
+[Vulkan init] extensions: count=16
+[Vulkan init] extensions: name=VK_KHR_device_group_creation, enabled=0
+[Vulkan init] extensions: name=VK_KHR_display, enabled=1
+[Vulkan init] extensions: name=VK_KHR_external_fence_capabilities, enabled=0
 [Vulkan init] extensions: name=VK_KHR_external_memory_capabilities, enabled=0
 [Vulkan init] extensions: name=VK_KHR_external_semaphore_capabilities, enabled=0
-[Vulkan init] extensions: name=VK_KHR_external_fence_capabilities, enabled=0
+[Vulkan init] extensions: name=VK_KHR_get_display_properties2, enabled=0
 [Vulkan init] extensions: name=VK_KHR_get_physical_device_properties2, enabled=1
 [Vulkan init] extensions: name=VK_KHR_get_surface_capabilities2, enabled=0
-[Vulkan init] extensions: name=VK_KHR_device_group_creation, enabled=0
-[Vulkan init] extensions: name=VK_EXT_swapchain_colorspace, enabled=1
-[Vulkan init] extensions: name=VK_KHR_display, enabled=1
-[Vulkan init] extensions: name=VK_KHR_get_display_properties2, enabled=0
+[Vulkan init] extensions: name=VK_KHR_surface, enabled=1
 [Vulkan init] extensions: name=VK_KHR_surface_protected_capabilities, enabled=0
+[Vulkan init] extensions: name=VK_KHR_win32_surface, enabled=1
 [Vulkan init] extensions: name=VK_EXT_debug_report, enabled=1
 [Vulkan init] extensions: name=VK_EXT_debug_utils, enabled=0
+[Vulkan init] extensions: name=VK_EXT_direct_mode_display, enabled=0
+[Vulkan init] extensions: name=VK_EXT_swapchain_colorspace, enabled=1
 [Vulkan init] extensions: name=VK_NV_external_memory_capabilities, enabled=0
 [vulkan] Loaded instance function vkDestroyInstance
 [vulkan] Loaded instance function vkGetPhysicalDeviceProperties
 [vulkan] Loaded instance function vkEnumeratePhysicalDevices
 Vulkan detection: 2
-[Vulkan init] extensions: count=15
-[Vulkan init] extensions: name=VK_KHR_surface, enabled=1
-[Vulkan init] extensions: name=VK_KHR_win32_surface, enabled=1
+[Vulkan init] extensions: count=16
+[Vulkan init] extensions: name=VK_KHR_device_group_creation, enabled=0
+[Vulkan init] extensions: name=VK_KHR_display, enabled=1
+[Vulkan init] extensions: name=VK_KHR_external_fence_capabilities, enabled=0
 [Vulkan init] extensions: name=VK_KHR_external_memory_capabilities, enabled=0
 [Vulkan init] extensions: name=VK_KHR_external_semaphore_capabilities, enabled=0
-[Vulkan init] extensions: name=VK_KHR_external_fence_capabilities, enabled=0
+[Vulkan init] extensions: name=VK_KHR_get_display_properties2, enabled=0
 [Vulkan init] extensions: name=VK_KHR_get_physical_device_properties2, enabled=1
 [Vulkan init] extensions: name=VK_KHR_get_surface_capabilities2, enabled=0
-[Vulkan init] extensions: name=VK_KHR_device_group_creation, enabled=0
-[Vulkan init] extensions: name=VK_EXT_swapchain_colorspace, enabled=1
-[Vulkan init] extensions: name=VK_KHR_display, enabled=1
-[Vulkan init] extensions: name=VK_KHR_get_display_properties2, enabled=0
+[Vulkan init] extensions: name=VK_KHR_surface, enabled=1
 [Vulkan init] extensions: name=VK_KHR_surface_protected_capabilities, enabled=0
+[Vulkan init] extensions: name=VK_KHR_win32_surface, enabled=1
 [Vulkan init] extensions: name=VK_EXT_debug_report, enabled=1
 [Vulkan init] extensions: name=VK_EXT_debug_utils, enabled=0
+[Vulkan init] extensions: name=VK_EXT_direct_mode_display, enabled=0
+[Vulkan init] extensions: name=VK_EXT_swapchain_colorspace, enabled=1
 [Vulkan init] extensions: name=VK_NV_external_memory_capabilities, enabled=0
 [vulkan] Loaded instance function vkDestroyInstance
 [vulkan] Loaded instance function vkGetPhysicalDeviceProperties
@@ -137,41 +139,49 @@ Vulkan detection: 2
 [vulkan] Loaded instance function vkGetPhysicalDeviceMemoryProperties2KHR
 [vulkan] Loaded instance function vkGetPhysicalDeviceSparseImageFormatProperties2KHR
 [Vulkan init] SelectPhysicalDevice requestedDeviceIndex=-1 xrDevice=0000000000000000
-[Vulkan init] Physical Device 000002031A6FA9D0 [0]: "NVIDIA GeForce GTX 1650" deviceType=2 vendorID=10de deviceID=1f99
-[Vulkan init] Physical Device 000002031A6FAE10 [1]: "Intel(R) UHD Graphics" deviceType=1 vendorID=8086 deviceID=9bc4
-[Vulkan init] Selected physical device 000002031A6FA9D0
+[Vulkan init] Physical Device 00000224FE71E1C0 [0]: "NVIDIA GeForce GTX 1660 Ti" deviceType=2 vendorID=10de deviceID=2191
+[Vulkan init] Physical Device 00000224FE71E010 [1]: "Intel(R) UHD Graphics 630" deviceType=1 vendorID=8086 deviceID=3e9b
+[Vulkan init] Selected physical device 00000224FE71E1C0
 [Vulkan init] Graphics queue count=1
-[Vulkan init] extensions: count=141
+[Vulkan init] extensions: count=157
 [Vulkan init] extensions: name=VK_KHR_16bit_storage, enabled=1
 [Vulkan init] extensions: name=VK_KHR_8bit_storage, enabled=0
+[Vulkan init] extensions: name=VK_KHR_acceleration_structure, enabled=0
 [Vulkan init] extensions: name=VK_KHR_bind_memory2, enabled=0
 [Vulkan init] extensions: name=VK_KHR_buffer_device_address, enabled=0
 [Vulkan init] extensions: name=VK_KHR_copy_commands2, enabled=0
 [Vulkan init] extensions: name=VK_KHR_create_renderpass2, enabled=1
 [Vulkan init] extensions: name=VK_KHR_dedicated_allocation, enabled=1
+[Vulkan init] extensions: name=VK_KHR_deferred_host_operations, enabled=0
 [Vulkan init] extensions: name=VK_KHR_depth_stencil_resolve, enabled=1
 [Vulkan init] extensions: name=VK_KHR_descriptor_update_template, enabled=1
 [Vulkan init] extensions: name=VK_KHR_device_group, enabled=0
 [Vulkan init] extensions: name=VK_KHR_draw_indirect_count, enabled=0
 [Vulkan init] extensions: name=VK_KHR_driver_properties, enabled=0
+[Vulkan init] extensions: name=VK_KHR_dynamic_rendering, enabled=0
 [Vulkan init] extensions: name=VK_KHR_external_fence, enabled=0
 [Vulkan init] extensions: name=VK_KHR_external_fence_win32, enabled=0
 [Vulkan init] extensions: name=VK_KHR_external_memory, enabled=0
 [Vulkan init] extensions: name=VK_KHR_external_memory_win32, enabled=0
 [Vulkan init] extensions: name=VK_KHR_external_semaphore, enabled=0
 [Vulkan init] extensions: name=VK_KHR_external_semaphore_win32, enabled=0
+[Vulkan init] extensions: name=VK_KHR_format_feature_flags2, enabled=0
 [Vulkan init] extensions: name=VK_KHR_fragment_shading_rate, enabled=0
 [Vulkan init] extensions: name=VK_KHR_get_memory_requirements2, enabled=1
+[Vulkan init] extensions: name=VK_KHR_global_priority, enabled=0
 [Vulkan init] extensions: name=VK_KHR_image_format_list, enabled=1
 [Vulkan init] extensions: name=VK_KHR_imageless_framebuffer, enabled=0
 [Vulkan init] extensions: name=VK_KHR_maintenance1, enabled=1
 [Vulkan init] extensions: name=VK_KHR_maintenance2, enabled=1
 [Vulkan init] extensions: name=VK_KHR_maintenance3, enabled=0
+[Vulkan init] extensions: name=VK_KHR_maintenance4, enabled=0
 [Vulkan init] extensions: name=VK_KHR_multiview, enabled=1
 [Vulkan init] extensions: name=VK_KHR_pipeline_executable_properties, enabled=0
+[Vulkan init] extensions: name=VK_KHR_pipeline_library, enabled=0
 [Vulkan init] extensions: name=VK_KHR_present_id, enabled=0
 [Vulkan init] extensions: name=VK_KHR_present_wait, enabled=0
 [Vulkan init] extensions: name=VK_KHR_push_descriptor, enabled=0
+[Vulkan init] extensions: name=VK_KHR_ray_tracing_pipeline, enabled=0
 [Vulkan init] extensions: name=VK_KHR_relaxed_block_layout, enabled=0
 [Vulkan init] extensions: name=VK_KHR_sampler_mirror_clamp_to_edge, enabled=1
 [Vulkan init] extensions: name=VK_KHR_sampler_ycbcr_conversion, enabled=0
@@ -181,6 +191,7 @@ Vulkan detection: 2
 [Vulkan init] extensions: name=VK_KHR_shader_draw_parameters, enabled=0
 [Vulkan init] extensions: name=VK_KHR_shader_float16_int8, enabled=1
 [Vulkan init] extensions: name=VK_KHR_shader_float_controls, enabled=0
+[Vulkan init] extensions: name=VK_KHR_shader_integer_dot_product, enabled=0
 [Vulkan init] extensions: name=VK_KHR_shader_non_semantic_info, enabled=0
 [Vulkan init] extensions: name=VK_KHR_shader_subgroup_extended_types, enabled=0
 [Vulkan init] extensions: name=VK_KHR_shader_subgroup_uniform_control_flow, enabled=0
@@ -199,12 +210,14 @@ Vulkan detection: 2
 [Vulkan init] extensions: name=VK_KHR_zero_initialize_workgroup_memory, enabled=0
 [Vulkan init] extensions: name=VK_EXT_4444_formats, enabled=0
 [Vulkan init] extensions: name=VK_EXT_blend_operation_advanced, enabled=0
+[Vulkan init] extensions: name=VK_EXT_border_color_swizzle, enabled=0
 [Vulkan init] extensions: name=VK_EXT_buffer_device_address, enabled=0
 [Vulkan init] extensions: name=VK_EXT_calibrated_timestamps, enabled=0
 [Vulkan init] extensions: name=VK_EXT_color_write_enable, enabled=0
 [Vulkan init] extensions: name=VK_EXT_conditional_rendering, enabled=0
 [Vulkan init] extensions: name=VK_EXT_conservative_rasterization, enabled=1
 [Vulkan init] extensions: name=VK_EXT_custom_border_color, enabled=0
+[Vulkan init] extensions: name=VK_EXT_depth_clip_control, enabled=0
 [Vulkan init] extensions: name=VK_EXT_depth_clip_enable, enabled=0
 [Vulkan init] extensions: name=VK_EXT_depth_range_unrestricted, enabled=0
 [Vulkan init] extensions: name=VK_EXT_descriptor_indexing, enabled=0
@@ -217,16 +230,20 @@ Vulkan detection: 2
 [Vulkan init] extensions: name=VK_EXT_hdr_metadata, enabled=1
 [Vulkan init] extensions: name=VK_EXT_host_query_reset, enabled=0
 [Vulkan init] extensions: name=VK_EXT_image_robustness, enabled=0
+[Vulkan init] extensions: name=VK_EXT_image_view_min_lod, enabled=0
 [Vulkan init] extensions: name=VK_EXT_index_type_uint8, enabled=0
 [Vulkan init] extensions: name=VK_EXT_inline_uniform_block, enabled=0
 [Vulkan init] extensions: name=VK_EXT_line_rasterization, enabled=0
+[Vulkan init] extensions: name=VK_EXT_load_store_op_none, enabled=0
 [Vulkan init] extensions: name=VK_EXT_memory_budget, enabled=0
 [Vulkan init] extensions: name=VK_EXT_memory_priority, enabled=0
 [Vulkan init] extensions: name=VK_EXT_multi_draw, enabled=0
+[Vulkan init] extensions: name=VK_EXT_pageable_device_local_memory, enabled=0
 [Vulkan init] extensions: name=VK_EXT_pci_bus_info, enabled=0
 [Vulkan init] extensions: name=VK_EXT_pipeline_creation_cache_control, enabled=0
 [Vulkan init] extensions: name=VK_EXT_pipeline_creation_feedback, enabled=0
 [Vulkan init] extensions: name=VK_EXT_post_depth_coverage, enabled=0
+[Vulkan init] extensions: name=VK_EXT_primitive_topology_list_restart, enabled=0
 [Vulkan init] extensions: name=VK_EXT_private_data, enabled=0
 [Vulkan init] extensions: name=VK_EXT_provoking_vertex, enabled=0
 [Vulkan init] extensions: name=VK_EXT_queue_family_foreign, enabled=0
@@ -270,6 +287,7 @@ Vulkan detection: 2
 [Vulkan init] extensions: name=VK_NV_geometry_shader_passthrough, enabled=0
 [Vulkan init] extensions: name=VK_NV_inherited_viewport_scissor, enabled=0
 [Vulkan init] extensions: name=VK_NV_mesh_shader, enabled=0
+[Vulkan init] extensions: name=VK_NV_ray_tracing, enabled=0
 [Vulkan init] extensions: name=VK_NV_representative_fragment_test, enabled=0
 [Vulkan init] extensions: name=VK_NV_sample_mask_override_coverage, enabled=0
 [Vulkan init] extensions: name=VK_NV_scissor_exclusive, enabled=0
@@ -418,99 +436,99 @@ Vulkan detection: 2
 [vulkan] Loaded instance function vkCmdDebugMarkerBeginEXT
 [vulkan] Loaded instance function vkCmdDebugMarkerEndEXT
 [vulkan] Loaded instance function vkCmdDebugMarkerInsertEXT
-Vulkan API version 1.1.0 (1.2.186 supported by driver, 1.1.0 requested)
+Vulkan API version 1.1.0 (1.3.194 supported by driver, 1.1.0 requested)
 Vulkan vendor=[NVIDIA] id=[10de]
-Vulkan renderer=[NVIDIA GeForce GTX 1650] id=[1f99]
+Vulkan renderer=[NVIDIA GeForce GTX 1660 Ti] id=[2191]
 Vulkan device type 2
-Vulkan driverversion=[0x7c444000] uint=[2084847616]
-Vulkan PSO: Cache data successfully loaded [size=1831235,path=C:/Users/trist/AppData/Local/Temp/DefaultCompany/Parkour_UnityProject/vulkan_pso_cache.bin]
+Vulkan driverversion=[0x8003c000] uint=[-2147237888]
+Vulkan PSO: Cache data successfully loaded [size=2194403,path=C:/Users/noelq/AppData/Local/Temp/DefaultCompany/Parkour_UnityProject/vulkan_pso_cache.bin]
 Initialize mono
-Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2021.2.13f1/Editor/Data/Managed'
-Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2021.2.13f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
-Mono config path = 'C:/Program Files/Unity/Hub/Editor/2021.2.13f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56428
+Mono path[0] = 'D:/Unity/2021.2.13f1/Editor/Data/Managed'
+Mono path[1] = 'D:/Unity/2021.2.13f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'D:/Unity/2021.2.13f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56248
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
-Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.2.13f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.011205 seconds.
+Register platform support module: D:/Unity/2021.2.13f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.003460 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 188.30 ms, found 5 plugins.
+Refreshing native plugins compatible for Editor in 105.89 ms, found 5 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.326 seconds
+- Completed reload, in  0.725 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1329ms)
-		BeginReloadAssembly (239ms)
+	ReloadAssembly (726ms)
+		BeginReloadAssembly (95ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (1ms)
-		EndReloadAssembly (916ms)
-			LoadAssemblies (234ms)
+		EndReloadAssembly (522ms)
+			LoadAssemblies (95ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (194ms)
+			SetupTypeCache (117ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (57ms)
-			SetupLoadedEditorAssemblies (536ms)
+			RebuildScriptCaches (32ms)
+			SetupLoadedEditorAssemblies (323ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (11ms)
+				InitializePlatformSupportModulesInManaged (6ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (188ms)
-				BeforeProcessingInitializeOnLoad (7ms)
-				ProcessInitializeOnLoadAttributes (248ms)
-				ProcessInitializeOnLoadMethodAttributes (82ms)
+				RefreshPlugins (106ms)
+				BeforeProcessingInitializeOnLoad (1ms)
+				ProcessInitializeOnLoadAttributes (158ms)
+				ProcessInitializeOnLoadMethodAttributes (50ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.053541 seconds.
+Registered in 0.013902 seconds.
 Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory doesn't match image C:\Users\trist\Desktop\FastFPS\Parkour_UnityProject\Library\PackageCache\com.unity.visualscripting@1.7.6\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
-Symbol file LoadedFromMemory doesn't match image C:\Users\trist\Desktop\FastFPS\Parkour_UnityProject\Library\PackageCache\com.unity.visualscripting@1.7.6\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image D:\PROJETS\FastFPS\Parkour_UnityProject\Library\PackageCache\com.unity.visualscripting@1.7.6\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Symbol file LoadedFromMemory doesn't match image D:\PROJETS\FastFPS\Parkour_UnityProject\Library\PackageCache\com.unity.visualscripting@1.7.6\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 174.01 ms, found 5 plugins.
+Refreshing native plugins compatible for Editor in 136.05 ms, found 5 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  5.092 seconds
+- Completed reload, in  2.765 seconds
 Domain Reload Profiling:
-	ReloadAssembly (5097ms)
-		BeginReloadAssembly (304ms)
-			ExecutionOrderSort (1ms)
-			DisableScriptedObjects (12ms)
+	ReloadAssembly (2766ms)
+		BeginReloadAssembly (165ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (6ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (64ms)
-		EndReloadAssembly (4625ms)
-			LoadAssemblies (285ms)
-			RebuildTransferFunctionScriptingTraits (2ms)
-			SetupTypeCache (859ms)
-			ReleaseScriptCaches (2ms)
-			RebuildScriptCaches (210ms)
-			SetupLoadedEditorAssemblies (3173ms)
+			CreateAndSetChildDomain (22ms)
+		EndReloadAssembly (2455ms)
+			LoadAssemblies (152ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (345ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (109ms)
+			SetupLoadedEditorAssemblies (1844ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (6ms)
+				InitializePlatformSupportModulesInManaged (4ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (174ms)
-				BeforeProcessingInitializeOnLoad (253ms)
-				ProcessInitializeOnLoadAttributes (2502ms)
-				ProcessInitializeOnLoadMethodAttributes (217ms)
-				AfterProcessingInitializeOnLoad (16ms)
-				EditorAssembliesLoaded (5ms)
+				RefreshPlugins (136ms)
+				BeforeProcessingInitializeOnLoad (123ms)
+				ProcessInitializeOnLoadAttributes (1488ms)
+				ProcessInitializeOnLoadMethodAttributes (89ms)
+				AfterProcessingInitializeOnLoad (3ms)
+				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (22ms)
+			AwakeInstancesAfterBackupRestoration (10ms)
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.17 seconds
-Refreshing native plugins compatible for Editor in 2.32 ms, found 5 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.09 seconds
+Refreshing native plugins compatible for Editor in 1.24 ms, found 5 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 5964 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 87 unused Assets / (1.4 MB). Loaded Objects now: 6365.
-Memory consumption went from 243.5 MB to 242.0 MB.
-Total: 7.689900 ms (FindLiveObjects: 1.811000 ms CreateObjectMapping: 0.708200 ms MarkObjects: 4.689400 ms  DeleteObjects: 0.479900 ms)
+Unloading 5965 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 87 unused Assets / (1.5 MB). Loaded Objects now: 6365.
+Memory consumption went from 245.7 MB to 244.3 MB.
+Total: 5.491000 ms (FindLiveObjects: 0.446900 ms CreateObjectMapping: 0.352600 ms MarkObjects: 4.281100 ms  DeleteObjects: 0.409400 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
@@ -524,11 +542,13 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 1933620.388299 seconds.
-  path: Assets/Materials/GrabablePlatforme.mat
-  artifactKey: Guid(31823c332faa62446b25de4da722180b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Materials/GrabablePlatforme.mat using Guid(31823c332faa62446b25de4da722180b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5c50599be9c7607bb10575f37e1b6fec') in 0.349018 seconds 
-Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
-AssetImportWorker is now disconnected from the server
-Process exiting
-Exiting without the bug reporter. Application will terminate with return code 0
+  Time since last request: 253038.489369 seconds.
+  path: Assets/New Universal Render Pipeline Asset_Renderer.asset
+  artifactKey: Guid(75b42a4e33278f746a6c0c2c43f4a59a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/New Universal Render Pipeline Asset_Renderer.asset using Guid(75b42a4e33278f746a6c0c2c43f4a59a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c36589d6c669cdffaca33148cbe55b4f') in 0.155144 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/UniversalRenderPipelineGlobalSettings.asset
+  artifactKey: Guid(252494393519862499e4c6abfdcc8398) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UniversalRenderPipelineGlobalSettings.asset using Guid(252494393519862499e4c6abfdcc8398) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6434cec0c83f269a8689e59af3814378') in 0.006550 seconds 

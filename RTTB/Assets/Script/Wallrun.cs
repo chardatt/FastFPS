@@ -28,10 +28,12 @@ public class Wallrun : MonoBehaviour
 
         RaycastHit hit;
         // Get nearest Wall
-        if ((Physics.Raycast(transform.position, transform.right, out hit, 2.5f, layerMask) || Physics.Raycast(transform.position, -transform.right, out hit, 2.5f, layerMask)))
+        if ((Physics.Raycast(transform.position, transform.right, out hit, 2.5f, layerMask) || Physics.Raycast(transform.position, -transform.right, out hit, 2.5f, layerMask)
+            || Physics.Raycast(transform.position, transform.forward, out hit, 2.5f, layerMask)))
         {
             if (hit.collider.tag == "Wallrun")
             {
+                transform.parent.SetParent(hit.collider.transform);
                 if (Input.GetButtonDown("Jump") && playerController.isWallrunning)
                 {
                     playerController.isWallrunning = false;

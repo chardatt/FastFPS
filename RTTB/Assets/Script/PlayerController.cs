@@ -202,7 +202,7 @@ public class PlayerController : MonoBehaviour
             //if (transform.parent == null)
             transform.parent = hit.gameObject.transform;
         }
-        else
+        else if (isWallrunning == false)
             transform.parent = null;
 
         /*grouded = false;

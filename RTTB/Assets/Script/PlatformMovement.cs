@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class PlatformMovement : MonoBehaviour
 {
-    public List<Vector3> posList = new List<Vector3>();
+    public List<Transform> posList = new List<Transform>();
     //public Vector3 translatorVector;
-    Vector3 origin;
+    Transform origin;
     public float tempo;
     float timer;
     public bool moving = false;
@@ -16,10 +16,13 @@ public class PlatformMovement : MonoBehaviour
     public float smoothTime = 2;
     GameObject player;
     int i = 0;
+    Quaternion target;
     // Start is called before the first frame update
     void Start()
     {
-        origin = transform.position;
+        origin = new GameObject().transform;
+        origin.position = transform.position;
+        origin.rotation = transform.rotation;
         posList.Add(origin);
     }
 
@@ -42,8 +45,12 @@ public class PlatformMovement : MonoBehaviour
 
             if (moving)
             {
-                transform.position = Vector3.SmoothDamp(transform.position, posList[i], ref velocity, smoothTime);
-                if (Vector3.Distance(posList[i], transform.position) < 0.05f)
+                Debug.Log("Test " + transform.eulerAngles + " " + posList[i].eulerAngles);
+                //target.eulerAngles = Vector3.SmoothDamp(transform.rotation.eulerAngles, posList[i].rotation.eulerAngles, ref velocity, smoothTime);
+                if (transform.eulerAngles != posList[i].eulerAngles)
+                    transform.eulerAngles = posList[i].eulerAngles;
+                transform.position = Vector3.SmoothDamp(transform.position, posList[i].position, ref velocity, smoothTime);
+                if (Vector3.Distance(posList[i].position, transform.position) < 0.05f)
                 {
                     if (i < posList.Count - 1)
                         i++;

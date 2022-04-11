@@ -11,7 +11,7 @@ public class PlatformMovement : MonoBehaviour
     float timer;
     public bool moving = false;
     public bool grappable = false;
-    bool goingToTranslator = true;
+    //bool goingToTranslator = true;
     Vector3 velocity = Vector3.zero;
     public float smoothTime = 2;
     GameObject player;
@@ -45,7 +45,7 @@ public class PlatformMovement : MonoBehaviour
 
             if (moving)
             {
-                Debug.Log("Test " + transform.eulerAngles + " " + posList[i].eulerAngles);
+//                Debug.Log("Test " + transform.eulerAngles + " " + posList[i].eulerAngles);
                 //target.eulerAngles = Vector3.SmoothDamp(transform.rotation.eulerAngles, posList[i].rotation.eulerAngles, ref velocity, smoothTime);
                 if (transform.eulerAngles != posList[i].eulerAngles)
                     transform.eulerAngles = posList[i].eulerAngles;

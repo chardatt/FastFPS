@@ -27,8 +27,8 @@ public class PlayerController : MonoBehaviour
     public bool isWallrunning = false;
     public bool canMove = true;
     public bool moving = false;
-    bool isGliding = false;
-    float magicNumber = 0.0001f;
+    //bool isGliding = false;
+    //float magicNumber = 0.0001f;
     Vector3 moveVector;
     public bool grounded = false;
     //List<GameObject> groundObjects = new List<GameObject>();
@@ -108,10 +108,11 @@ public class PlayerController : MonoBehaviour
         if (isWallrunning == false)
             velocityY += gravity * Time.deltaTime;
 
-        if (Input.GetButtonDown("Jump") && (isJumping == false || isWallrunning))
+        if (Input.GetButtonDown("Jump") && (isJumping == false || isWallrunning == true))
         {
             transform.parent = null;
             isJumping = true;
+            isWallrunning = false;
             velocityY = Mathf.Sqrt(-2f * gravity * jumpForce);
             //velocityY = jumpForce;
             Debug.Log("Jumping");

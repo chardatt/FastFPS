@@ -8,7 +8,7 @@ public class Grappling : MonoBehaviour
     [SerializeField] float grapSpeed = 0.4f;
     [SerializeField] float grapDecel = 0.2f;
     [SerializeField] float maxSpeed = 2;
-    [SerializeField] float platformGrapDistanceFromPlayer = 5f;
+    //[SerializeField] float platformGrapDistanceFromPlayer = 5f;
     Camera cam;
     Transform target;
     Vector3 direction;

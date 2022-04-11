@@ -5,7 +5,7 @@ using UnityEngine;
 public class Wallrun : MonoBehaviour
 {
     [SerializeField] float wallRunSpeed = 10;
-    bool isWallrunning = false;
+//    bool isWallrunning = false;
     CharacterController cc;
     PlayerController playerController;
 
@@ -29,18 +29,18 @@ public class Wallrun : MonoBehaviour
         RaycastHit hit;
         // Get nearest Wall
         if ((Physics.Raycast(transform.position, transform.right, out hit, 2.5f, layerMask) || Physics.Raycast(transform.position, -transform.right, out hit, 2.5f, layerMask)
-            || Physics.Raycast(transform.position, transform.forward, out hit, 2.5f, layerMask)))
+            || Physics.Raycast(transform.position, transform.forward, out hit, 2.5f, layerMask)) && !Input.GetButton("Jump"))
         {
             if (hit.collider.tag == "Wallrun")
             {
-                transform.parent.SetParent(hit.collider.transform);
-                if (Input.GetButtonDown("Jump") && playerController.isWallrunning)
+                /*if (Input.GetButton("Jump") && playerController.isWallrunning)
                 {
                     playerController.isWallrunning = false;
                     //Debug.Log("Wallrun falsing");
                 }
-                else if (cc.isGrounded == false && Input.GetButtonDown("Jump"))
+                else*/ if (cc.isGrounded == false/* && Input.GetButtonDown("Jump")*/)
                 {
+                    transform.parent.SetParent(hit.collider.transform);
                     playerController.isWallrunning = true;
                     //Debug.Log("Wallrun trueing");
                 }
@@ -53,6 +53,7 @@ public class Wallrun : MonoBehaviour
                         direction *= -1;
                     }
                     direction.y = 0;
+                    Debug.Log(direction * Time.deltaTime * wallRunSpeed);
                     cc.Move(direction * Time.deltaTime * wallRunSpeed);
 
                     timer += Time.deltaTime;

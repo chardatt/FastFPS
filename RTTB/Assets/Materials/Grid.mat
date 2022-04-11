@@ -34,11 +34,11 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Line_Thickness: 0.719
+    - _Line_Thickness: 0.96
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
-    - _Grid_Color: {r: 1.5827698, g: 2.0577188, b: 2.8679247, a: 1}
+    - _Grid_Color: {r: 1.3792251, g: 1.4611593, b: 1.5840605, a: 1}
     - _Tiling: {r: 1, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &157725109181636013

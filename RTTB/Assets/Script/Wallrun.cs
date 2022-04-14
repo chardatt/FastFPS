@@ -5,7 +5,6 @@ using UnityEngine;
 public class Wallrun : MonoBehaviour
 {
     [SerializeField] float wallRunSpeed = 10;
-//    bool isWallrunning = false;
     CharacterController cc;
     PlayerController playerController;
 
@@ -13,14 +12,12 @@ public class Wallrun : MonoBehaviour
     float timer;
     [SerializeField] float interval;
 
-    // Start is called before the first frame update
     void Start()
     {
         cc = GameObject.FindObjectOfType<CharacterController>();
         playerController = cc.gameObject.GetComponent<PlayerController>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         int layerMask = 1 << 8;
@@ -38,9 +35,10 @@ public class Wallrun : MonoBehaviour
                     playerController.isWallrunning = false;
                     //Debug.Log("Wallrun falsing");
                 }
-                else*/ if (cc.isGrounded == false/* && Input.GetButtonDown("Jump")*/)
+                else*/
+                if (cc.isGrounded == false/* && Input.GetButtonDown("Jump")*/)
                 {
-                    transform.parent.SetParent(hit.collider.transform);
+                    //transform.parent.SetParent(hit.collider.transform);
                     playerController.isWallrunning = true;
                     //Debug.Log("Wallrun trueing");
                 }
@@ -53,7 +51,7 @@ public class Wallrun : MonoBehaviour
                         direction *= -1;
                     }
                     direction.y = 0;
-                    Debug.Log(direction * Time.deltaTime * wallRunSpeed);
+                    //Debug.Log(direction * Time.deltaTime * wallRunSpeed);
                     cc.Move(direction * Time.deltaTime * wallRunSpeed);
 
                     timer += Time.deltaTime;

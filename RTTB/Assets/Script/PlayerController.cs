@@ -94,8 +94,9 @@ public class PlayerController : MonoBehaviour
         currentDirection = Vector2.SmoothDamp(currentDirection, targetDir, ref currentDirectionVelocity, moveSmoothTime);
 
         //if (cc.isGrounded)
-        if (grounded)
+        if (grounded || isWallrunning == true)
         {
+            Debug.Log("Can Jump");
             isJumping = false;
             velocityY = 0;
             //isWallrunning = false;

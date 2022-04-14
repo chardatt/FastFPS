@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Transform playerCamera;
     [SerializeField] float mouseSensitivity = 3.5f;
     [SerializeField] float walkSpeed = 6.0f;
+    [SerializeField] float speedIncrement = 0.001f;
     [SerializeField] float gravity = -13.0f;
     float gravityTmp;
     [SerializeField] float jumpForce = 5;
@@ -15,6 +16,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float fallGravityMultiplier = 1;
     [SerializeField] float smallJumpGravityMultiplier = 2;
     [SerializeField] bool lockCursor = true;
+
+    [SerializeField] float speed = 10;
 
     float cameraPitch = 0.0f;
     float velocityY = 0.0f;
@@ -34,6 +37,7 @@ public class PlayerController : MonoBehaviour
     //List<GameObject> groundObjects = new List<GameObject>();
     // Temporaire pour le son de pas
     float timer;
+    float decrementTimer;
     // Start is called before the first frame update
     void Start()
     {
@@ -91,12 +95,21 @@ public class PlayerController : MonoBehaviour
         Vector2 targetDir = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         targetDir.Normalize();
 
+        if (targetDir.magnitude == 0 && speed > 10)
+        {
+            Debug.Log("Decrement");
+            decrementTimer += Time.deltaTime;
+            if (decrementTimer > 0.15f)
+            {
+                speed -= speedIncrement * Time.deltaTime;
+                decrementTimer = 0;
+            }
+        }
         currentDirection = Vector2.SmoothDamp(currentDirection, targetDir, ref currentDirectionVelocity, moveSmoothTime);
 
         //if (cc.isGrounded)
         if (grounded || isWallrunning == true)
         {
-            Debug.Log("Can Jump");
             isJumping = false;
             velocityY = 0;
             //isWallrunning = false;
@@ -135,7 +148,7 @@ public class PlayerController : MonoBehaviour
 
         Vector3 velocity = Vector3.zero;
         if (canMove)
-            velocity = (transform.forward * currentDirection.y + transform.right * currentDirection.x) * walkSpeed;
+            velocity = (transform.forward * currentDirection.y + transform.right * currentDirection.x) * speed;
         if (isWallrunning == false)
             velocity += Vector3.up * velocityY;
 
@@ -150,6 +163,8 @@ public class PlayerController : MonoBehaviour
                 timer = 0;
                 moving = true;
                 FMODUnity.RuntimeManager.PlayOneShot("event:/Walk");
+                if (speed < walkSpeed)
+                    speed += speedIncrement * Time.deltaTime;
                 //Debug.Log("Moving");
             }
             

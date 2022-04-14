@@ -19,7 +19,7 @@ public class SpeedLineController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        visualEffect.SetFloat("SpawnRate", 100 * playerController.velocity.magnitude / 15);
+        visualEffect.SetFloat("SpawnRate", 100 * playerController.velocity.magnitude / 18);
         //Debug.Log(playerController.velocity.magnitude);
     }
 }

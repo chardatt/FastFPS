@@ -30,18 +30,12 @@ public class Wallrun : MonoBehaviour
         {
             if (hit.collider.tag == "Wallrun")
             {
-                /*if (Input.GetButton("Jump") && playerController.isWallrunning)
-                {
-                    playerController.isWallrunning = false;
-                    //Debug.Log("Wallrun falsing");
-                }
-                else*/
-                if (cc.isGrounded == false/* && Input.GetButtonDown("Jump")*/)
+                if (cc.isGrounded == false)
                 {
                     transform.parent.SetParent(hit.collider.transform);
-                    Debug.DrawRay(transform.position, transform.position - transform.parent.parent.position, Color.blue, 100);
+                    //Debug.DrawRay(transform.position, transform.position - transform.parent.parent.position, Color.blue, 100);
                     playerController.isWallrunning = true;
-                    //Debug.Log("Wallrun trueing");
+                    Debug.Log("Wallrun trueing");
                 }
 
                 if (playerController.isWallrunning)
@@ -68,7 +62,7 @@ public class Wallrun : MonoBehaviour
         else
         {
             //Debug.Log("Wallrun falsing");
-            playerController.isWallrunning = false;
+            //playerController.isWallrunning = false;
         }
     }
 }

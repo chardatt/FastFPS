@@ -74,6 +74,10 @@ public class PlayerController : MonoBehaviour
         
         UpdateMovement();
 
+        if (Input.GetButtonDown("Jump"))
+        {
+            Debug.Log("is Wallrunning? " + isWallrunning);
+        }
         //Debug.Log("Gravity state: " + gravity + " isGrounded? " + cc.isGrounded);
     }
 
@@ -128,8 +132,7 @@ public class PlayerController : MonoBehaviour
             isJumping = true;
             isWallrunning = false;
             velocityY = Mathf.Sqrt(-2f * gravity * jumpForce);
-            //velocityY = jumpForce;
-            Debug.Log("Jumping");
+            Debug.Log("Jumping " + isWallrunning);
             FMODUnity.RuntimeManager.PlayOneShot("event:/Jump");
         }
 

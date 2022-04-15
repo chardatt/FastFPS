@@ -39,6 +39,7 @@ public class Wallrun : MonoBehaviour
                 if (cc.isGrounded == false/* && Input.GetButtonDown("Jump")*/)
                 {
                     transform.parent.SetParent(hit.collider.transform);
+                    Debug.DrawRay(transform.position, transform.position - transform.parent.parent.position, Color.blue, 100);
                     playerController.isWallrunning = true;
                     //Debug.Log("Wallrun trueing");
                 }

@@ -26,7 +26,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 2000
+  Length: 2400
 --- !u!114 &-1981258814673885399
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42,10 +42,10 @@ MonoBehaviour:
   Path: ../fmodTristan/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637856123176810797
+  lastModified: 637858918493946799
   FileSizes:
   - Name: Desktop
-    Value: 143104
+    Value: 143328
   Exists: 1
 --- !u!114 &-795346125779620920
 MonoBehaviour:
@@ -99,7 +99,7 @@ MonoBehaviour:
   - {fileID: -1981258814673885399}
   StringsBanks:
   - {fileID: 3684684144597245551}
-  cacheTime: 637856123176820705
+  cacheTime: 637858918493961811
   cacheVersion: 9
 --- !u!114 &2638711621450923474
 MonoBehaviour:
@@ -143,7 +143,7 @@ MonoBehaviour:
   Path: ../fmodTristan/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637856123176820705
+  lastModified: 637858918493961811
   FileSizes:
   - Name: Desktop
     Value: 872

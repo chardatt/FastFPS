@@ -38,6 +38,7 @@ public class PlayerController : MonoBehaviour
     // Temporaire pour le son de pas
     float timer;
     float decrementTimer;
+    float jumpTimer;
     // Start is called before the first frame update
     void Start()
     {
@@ -84,6 +85,7 @@ public class PlayerController : MonoBehaviour
     public void GravityOff()
     {
         //Debug.Log("No gravity");
+        velocityY = 0;
         gravity = 0;
     }
 
@@ -116,15 +118,22 @@ public class PlayerController : MonoBehaviour
         {
             isJumping = false;
             velocityY = 0;
+            jumpTimer = 0;
             //isWallrunning = false;
         }
         else
         {
-            isJumping = true;
+            if (jumpTimer > 0.3f)
+            {
+                isJumping = true;
+            }
+            else
+            {
+                jumpTimer += Time.deltaTime;
+            }
         }
 
-        if (isWallrunning == false)
-            velocityY += gravity * Time.deltaTime;
+        velocityY += gravity * Time.deltaTime;
 
         if (Input.GetButtonDown("Jump") && (isJumping == false || isWallrunning == true))
         {
@@ -159,8 +168,7 @@ public class PlayerController : MonoBehaviour
         {
             
             timer += Time.deltaTime;
-            //if ((velocity.x > 0.25f || velocity.x < -0.25f) && (velocity.z > 0.25f || velocity.z < -0.25f) && timer >= .3f && cc.isGrounded)
-            //if (Vector3.Distance(cc.velocity, Vector3.zero) > .25f && timer >= .3f && cc.isGrounded)
+
             if (Vector3.Distance(cc.velocity, Vector3.zero) > .25f && timer >= .3f && grounded && canMove == true)
             {
                 timer = 0;
@@ -170,15 +178,12 @@ public class PlayerController : MonoBehaviour
                     speed += speedIncrement * Time.deltaTime;
                 //Debug.Log("Moving");
             }
-            
-            //if ((velocity.x < 0.25f || velocity.x > -0.25f) && (velocity.z < 0.25f || velocity.z > -0.25f))
-            //if (Vector3.Distance(cc.velocity, Vector3.zero) < .25f || cc.isGrounded == false)
+
             if (Vector3.Distance(cc.velocity, Vector3.zero) < .25f || grounded == false)
             {
                 moving = false;
-                //Debug.Log("Not Moving");
             }
-//            Debug.Log(velocity * Time.deltaTime);
+
             cc.Move(velocity * Time.deltaTime);
         }
 

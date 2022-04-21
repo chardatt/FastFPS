@@ -32,6 +32,7 @@ public class Wallrun : MonoBehaviour
             {
                 if (cc.isGrounded == false)
                 {
+
                     transform.parent.SetParent(hit.collider.transform);
                     //Debug.DrawRay(transform.position, transform.position - transform.parent.parent.position, Color.blue, 100);
                     playerController.isWallrunning = true;
@@ -40,6 +41,7 @@ public class Wallrun : MonoBehaviour
 
                 if (playerController.isWallrunning)
                 {
+                    playerController.GravityOff();
                     Vector3 direction = new Vector3(Vector3.Cross(hit.normal, Vector3.up).x, 0, Vector3.Cross(hit.normal, Vector3.up).z);
                     if (Vector3.Dot(direction, transform.forward) < 0)
                     {
@@ -61,8 +63,9 @@ public class Wallrun : MonoBehaviour
         }
         else
         {
+            playerController.GravityOn();
             //Debug.Log("Wallrun falsing");
-            //playerController.isWallrunning = false;
+            playerController.isWallrunning = false;
         }
     }
 }

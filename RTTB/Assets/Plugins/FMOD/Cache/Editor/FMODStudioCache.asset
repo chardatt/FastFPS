@@ -42,7 +42,7 @@ MonoBehaviour:
   Path: ../fmodTristan/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637858918493946799
+  lastModified: 637862256061478101
   FileSizes:
   - Name: Desktop
     Value: 143328
@@ -99,7 +99,7 @@ MonoBehaviour:
   - {fileID: -1981258814673885399}
   StringsBanks:
   - {fileID: 3684684144597245551}
-  cacheTime: 637858918493961811
+  cacheTime: 637862256061478101
   cacheVersion: 9
 --- !u!114 &2638711621450923474
 MonoBehaviour:
@@ -143,7 +143,7 @@ MonoBehaviour:
   Path: ../fmodTristan/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637858918493961811
+  lastModified: 637856123176820705
   FileSizes:
   - Name: Desktop
     Value: 872

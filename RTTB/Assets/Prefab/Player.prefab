@@ -403,6 +403,7 @@ MonoBehaviour:
   playerCamera: {fileID: 1215276970190134676}
   mouseSensitivity: 3.5
   walkSpeed: 15
+  speedIncrement: 0.001
   gravity: -20
   jumpForce: 3
   moveSmoothTime: 0.2
@@ -410,6 +411,7 @@ MonoBehaviour:
   fallGravityMultiplier: 1
   smallJumpGravityMultiplier: 3
   lockCursor: 1
+  speed: 10
   isJumping: 0
   isWallrunning: 0
   canMove: 1

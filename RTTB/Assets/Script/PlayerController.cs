@@ -30,6 +30,13 @@ public class PlayerController : MonoBehaviour
     public bool isWallrunning = false;
     public bool canMove = true;
     public bool moving = false;
+
+    /// Wallrunning Var
+    Transform wallrunTransform;
+    bool wallrunningJump = false;
+    [SerializeField] float wallrunJumpSpeedXZ;
+    [SerializeField] float wallrunJumpY;
+
     //bool isGliding = false;
     //float magicNumber = 0.0001f;
     Vector3 moveVector;
@@ -80,6 +87,12 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("is Wallrunning? " + isWallrunning);
         }
+
+        if (wallrunTransform != null)
+        {
+                Debug.Log("Jump and Wallrunning");
+            cc.Move((((transform.position - wallrunTransform.position).normalized * wallrunJumpSpeedXZ) + Vector3.up * Mathf.Sqrt(-2f * gravity * jumpForce)) * Time.deltaTime);
+        }
         //Debug.Log("Gravity state: " + gravity + " isGrounded? " + cc.isGrounded);
     }
 
@@ -104,7 +117,7 @@ public class PlayerController : MonoBehaviour
 
         if (targetDir.magnitude == 0 && speed > 10)
         {
-            Debug.Log("Decrement");
+            //Debug.Log("Decrement");
             decrementTimer += Time.deltaTime;
             if (decrementTimer > 0.15f)
             {
@@ -117,6 +130,7 @@ public class PlayerController : MonoBehaviour
         //if (cc.isGrounded)
         if (grounded || isWallrunning == true)
         {
+            //Debug.Log("CanJump");
             isJumping = false;
             velocityY = 0;
             jumpTimer = 0;
@@ -135,14 +149,34 @@ public class PlayerController : MonoBehaviour
         }
 
         velocityY += gravity * Time.deltaTime;
+        Vector3 velocity = Vector3.zero;
+        if (canMove)
+            velocity = (transform.forward * currentDirection.y + transform.right * currentDirection.x) * speed;
 
-        if (Input.GetButtonDown("Jump") && (isJumping == false || isWallrunning == true))
+        if (Input.GetButtonDown("Jump") && isJumping == false)
         {
-            transform.parent = null;
             isJumping = true;
-            isWallrunning = false;
-            velocityY = Mathf.Sqrt(-2f * gravity * jumpForce);
-            Debug.Log("Jumping " + isWallrunning);
+            //isWallrunning = false;
+            if (isWallrunning)
+            {
+                //Debug.Log("Jump and Wallrunning");
+
+                //// velocityY Add differently et velocity x/z add en fonction de la position du wall
+
+                ////cc.Move((transform.position - transform.parent.position).normalized * walkSpeed);
+                ////velocityY = Mathf.Sqrt(-2f * gravity * (jumpForce / 2));
+                //velocity += (transform.position - transform.parent.position).normalized * walkSpeed;
+                wallrunTransform = transform.parent;
+
+
+
+
+
+            }
+            else
+                velocityY = Mathf.Sqrt(-2f * gravity * jumpForce);
+            
+            transform.parent = null;
             FMODUnity.RuntimeManager.PlayOneShot("event:/Jump");
         }
 
@@ -159,9 +193,7 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        Vector3 velocity = Vector3.zero;
-        if (canMove)
-            velocity = (transform.forward * currentDirection.y + transform.right * currentDirection.x) * speed;
+
         if (isWallrunning == false)
             velocity += Vector3.up * velocityY;
 
@@ -225,19 +257,15 @@ public class PlayerController : MonoBehaviour
     {
         if (hit.gameObject.tag == "Ground")
         {
-            //if (transform.parent == null)
             transform.parent = hit.gameObject.transform;
         }
         else if (isWallrunning == false)
             transform.parent = null;
 
-        /*grouded = false;
-        if (hit.normal.y > 0.7f)
+        if (hit.gameObject.transform != wallrunTransform)
         {
-            grouded = true;
-            Debug.Log("isGrounded");
+            Debug.Log("Stop Wallrunning Jump " + hit.gameObject.name);
+            wallrunTransform = null;
         }
-        else
-            Debug.Log("isNOTGrounded");*/
     }
 }

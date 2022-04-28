@@ -37,10 +37,12 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\Script\PlayerController.cs" />
+     <Compile Include="Assets\Script\CheckPoint.cs" />
      <Compile Include="Assets\Script\CornerMovement.cs" />
      <Compile Include="Assets\Script\SpeedLineController.cs" />
      <Compile Include="Assets\Script\CameraMovement.cs" />
      <Compile Include="Assets\Script\GlissadeScript.cs" />
+     <Compile Include="Assets\Script\PlayerStartingPoint.cs" />
      <Compile Include="Assets\Script\GrapplingHookCollision.cs" />
      <Compile Include="Assets\Script\PlatformMovement.cs" />
      <Compile Include="Assets\Script\BeatController.cs" />
@@ -48,8 +50,6 @@
      <Compile Include="Assets\Script\Roue.cs" />
      <Compile Include="Assets\Script\Wallrun.cs" />
      <Compile Include="Assets\Script\Grappling.cs" />
-     <Compile Include="Assets\Script\CheckPoint.cs" />
-     <Compile Include="Assets\Script\PlayerStartingPoint.cs" />
     <Reference Include="UnityEngine">
         <HintPath>Z:\Unity Hub\2021.2.13f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>

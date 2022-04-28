@@ -26,7 +26,7 @@ public class Wallrun : MonoBehaviour
         RaycastHit hit;
         // Get nearest Wall
         if ((Physics.Raycast(transform.position, transform.right, out hit, 2.5f, layerMask) || Physics.Raycast(transform.position, -transform.right, out hit, 2.5f, layerMask)
-            || Physics.Raycast(transform.position, transform.forward, out hit, 2.5f, layerMask)) && !Input.GetButton("Jump"))
+            || Physics.Raycast(transform.position, transform.forward, out hit, 2.5f, layerMask)) /*&& !Input.GetButton("Jump")*/)
         {
             if (hit.collider.tag == "Wallrun")
             {
@@ -39,7 +39,7 @@ public class Wallrun : MonoBehaviour
                     Debug.Log("Wallrun trueing");
                 }
 
-                if (playerController.isWallrunning)
+                if (playerController.isWallrunning && !Input.GetButton("Jump"))
                 {
                     playerController.GravityOff();
                     Vector3 direction = new Vector3(Vector3.Cross(hit.normal, Vector3.up).x, 0, Vector3.Cross(hit.normal, Vector3.up).z);
@@ -48,7 +48,7 @@ public class Wallrun : MonoBehaviour
                         direction *= -1;
                     }
                     direction.y = 0;
-                    //Debug.Log(direction * Time.deltaTime * wallRunSpeed);
+
                     cc.Move(direction * Time.deltaTime * wallRunSpeed);
 
                     timer += Time.deltaTime;
@@ -59,12 +59,11 @@ public class Wallrun : MonoBehaviour
                     }
                 }
             }
-            //Debug.Log("Did Hit : " + hit.collider.gameObject.name);
         }
         else
         {
             playerController.GravityOn();
-            //Debug.Log("Wallrun falsing");
+            Debug.Log("Wallruning falsening");
             playerController.isWallrunning = false;
         }
     }

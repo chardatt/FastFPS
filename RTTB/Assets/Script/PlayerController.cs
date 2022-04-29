@@ -36,6 +36,7 @@ public class PlayerController : MonoBehaviour
     bool wallrunningJump = false;
     [SerializeField] float wallrunJumpSpeedXZ;
     [SerializeField] float wallrunJumpY;
+    public Vector3 hitPointWall;
 
     //bool isGliding = false;
     //float magicNumber = 0.0001f;
@@ -90,8 +91,11 @@ public class PlayerController : MonoBehaviour
 
         if (wallrunTransform != null)
         {
-                Debug.Log("Jump and Wallrunning");
-            cc.Move((((transform.position - wallrunTransform.position).normalized * wallrunJumpSpeedXZ) + Vector3.up * Mathf.Sqrt(-2f * gravity * jumpForce)) * Time.deltaTime);
+                Debug.Log(Vector3.up * Mathf.Sqrt(-2f * gravity * wallrunJumpY));
+            //cc.Move((((transform.position - wallrunTransform.position).normalized * wallrunJumpSpeedXZ) + Vector3.up * Mathf.Sqrt(-2f * gravity * jumpForce)) * Time.deltaTime);
+            Vector3 dirXZ = ((transform.position - hitPointWall).normalized + transform.forward / 2);
+            dirXZ.y = 0;
+            cc.Move(((dirXZ * wallrunJumpSpeedXZ) + Vector3.up * Mathf.Sqrt(-2f * gravity * wallrunJumpY)) * Time.deltaTime);
         }
         //Debug.Log("Gravity state: " + gravity + " isGrounded? " + cc.isGrounded);
     }
@@ -159,19 +163,7 @@ public class PlayerController : MonoBehaviour
             //isWallrunning = false;
             if (isWallrunning)
             {
-                //Debug.Log("Jump and Wallrunning");
-
-                //// velocityY Add differently et velocity x/z add en fonction de la position du wall
-
-                ////cc.Move((transform.position - transform.parent.position).normalized * walkSpeed);
-                ////velocityY = Mathf.Sqrt(-2f * gravity * (jumpForce / 2));
-                //velocity += (transform.position - transform.parent.position).normalized * walkSpeed;
                 wallrunTransform = transform.parent;
-
-
-
-
-
             }
             else
                 velocityY = Mathf.Sqrt(-2f * gravity * jumpForce);
@@ -235,24 +227,6 @@ public class PlayerController : MonoBehaviour
         transform.Rotate(Vector3.up * currentMouseDelta.x * mouseSensitivity);
     }
 
-    /*private void OnCollisionEnter(Collision other)
-    {
-        Debug.Log(other.gameObject.name);
-        
-        if (other.gameObject.tag == "Ground")
-        {
-            transform.parent = other.gameObject.transform;
-        }
-    }
-
-    private void OnCollisionExit(Collision other)
-    {
-        if (other.gameObject.tag == "Ground")
-        {
-            transform.parent = null;
-        }
-    }*/
-
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
         if (hit.gameObject.tag == "Ground")
@@ -264,7 +238,7 @@ public class PlayerController : MonoBehaviour
 
         if (hit.gameObject.transform != wallrunTransform)
         {
-            Debug.Log("Stop Wallrunning Jump " + hit.gameObject.name);
+//            Debug.Log("Stop Wallrunning Jump " + hit.gameObject.name);
             wallrunTransform = null;
         }
     }

@@ -34,6 +34,7 @@ public class Wallrun : MonoBehaviour
                 {
 
                     transform.parent.SetParent(hit.collider.transform);
+                    playerController.hitPointWall = hit.point;
                     //Debug.DrawRay(transform.position, transform.position - transform.parent.parent.position, Color.blue, 100);
                     playerController.isWallrunning = true;
                     Debug.Log("Wallrun trueing");

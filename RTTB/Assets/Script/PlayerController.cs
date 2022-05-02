@@ -32,11 +32,13 @@ public class PlayerController : MonoBehaviour
     public bool moving = false;
 
     /// Wallrunning Var
-    Transform wallrunTransform;
+    public Transform wallrunTransform;
     bool wallrunningJump = false;
     [SerializeField] float wallrunJumpSpeedXZ;
     [SerializeField] float wallrunJumpY;
     public Vector3 hitPointWall;
+    public float wallrunTimer = 0.3f;
+    public float wallrunCD = 0.2f;
 
     //bool isGliding = false;
     //float magicNumber = 0.0001f;
@@ -63,13 +65,6 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*if (cc.isGrounded)
-        {
-            moveVector.y = magicNumber;
-            cc.Move(moveVector * Time.deltaTime);
-        }*/
-
-        //if (!cc.collisionFlags.ToString().Equals("None") && CollisionFlags.Below != 0)
         if (cc.collisionFlags == CollisionFlags.Below || cc.isGrounded)
         {
             //Debug.Log("Grounded " + CollisionFlags.Below.ToString());
@@ -89,15 +84,20 @@ public class PlayerController : MonoBehaviour
             Debug.Log("is Wallrunning? " + isWallrunning);
         }
 
-        if (wallrunTransform != null)
+        if (wallrunTimer <= wallrunCD)
+            wallrunTimer += Time.deltaTime;
+
+        if (wallrunTransform != null && isJumping == true)
         {
 //                Debug.Log(Vector3.up * Mathf.Sqrt(-2f * gravity * wallrunJumpY));
             //cc.Move((((transform.position - wallrunTransform.position).normalized * wallrunJumpSpeedXZ) + Vector3.up * Mathf.Sqrt(-2f * gravity * jumpForce)) * Time.deltaTime);
             Vector3 dirXZ = ((transform.position - hitPointWall).normalized + transform.forward / 2);
+
             dirXZ.y = 0;
-            Debug.Log("wallrun XY " + dirXZ);
+            Debug.Log("wallrun XY");
             cc.Move(((dirXZ * wallrunJumpSpeedXZ) + Vector3.up * Mathf.Sqrt(-2f * gravity * wallrunJumpY)) * Time.deltaTime);
         }
+
         //Debug.Log("Gravity state: " + gravity + " isGrounded? " + cc.isGrounded);
     }
 
@@ -161,9 +161,12 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Jump") && isJumping == false)
         {
             isJumping = true;
+            Debug.Log(isWallrunning);
             //isWallrunning = false;
             if (isWallrunning)
             {
+                wallrunTimer = 0;
+                isWallrunning = false;
                 wallrunTransform = transform.parent;
             }
             else
@@ -233,13 +236,14 @@ public class PlayerController : MonoBehaviour
         if (hit.gameObject.tag == "Ground")
         {
             transform.parent = hit.gameObject.transform;
+            wallrunTransform = null;
         }
         else if (isWallrunning == false)
             transform.parent = null;
 
         if (hit.gameObject.transform != wallrunTransform)
         {
-//            Debug.Log("Stop Wallrunning Jump " + hit.gameObject.name);
+            Debug.Log("Stop Wallrunning Jump " + hit.gameObject.name);
             wallrunTransform = null;
         }
     }

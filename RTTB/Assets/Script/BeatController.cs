@@ -9,7 +9,7 @@ public class BeatController : MonoBehaviour
     private FMOD.Studio.EventInstance event_fmod;
     void Start()
     {
-        event_fmod = FMODUnity.RuntimeManager.CreateInstance("event:/Beat");
+        event_fmod = FMODUnity.RuntimeManager.CreateInstance("event:/Halo");
     }
 
     void Update()

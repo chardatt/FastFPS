@@ -26,9 +26,9 @@ public class Wallrun : MonoBehaviour
         RaycastHit hit;
         // Get nearest Wall
         if ((Physics.Raycast(transform.position, transform.right, out hit, 2.5f, layerMask) || Physics.Raycast(transform.position, -transform.right, out hit, 2.5f, layerMask)
-            || Physics.Raycast(transform.position, transform.forward, out hit, 2.5f, layerMask)) /*&& !Input.GetButton("Jump")*/)
+            || Physics.Raycast(transform.position, transform.forward, out hit, 2.5f, layerMask)) && !Input.GetButton("Jump") && playerController.wallrunTimer >= playerController.wallrunCD)
         {
-            if (hit.collider.tag == "Wallrun")
+            if (hit.collider.tag == "Wallrun" && hit.collider.gameObject != playerController.wallrunTransform)
             {
                 if (cc.isGrounded == false)
                 {
@@ -61,10 +61,10 @@ public class Wallrun : MonoBehaviour
                 }
             }
         }
-        else
+        else if (!Input.GetButton("Jump"))
         {
             playerController.GravityOn();
-            Debug.Log("Wallruning falsening");
+            //Debug.Log("Wallruning falsening");
             playerController.isWallrunning = false;
         }
     }

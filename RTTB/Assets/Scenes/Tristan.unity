@@ -458,10 +458,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1441383827, guid: b94663a90f9a85d41b5e58675d8610ee, type: 3}
-      propertyPath: m_PropertySheet.m_Float.m_Array.Array.data[1].m_Value
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1215276970938102380, guid: b94663a90f9a85d41b5e58675d8610ee,
         type: 3}
       propertyPath: m_Name
@@ -521,26 +517,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1215276970938102383, guid: b94663a90f9a85d41b5e58675d8610ee,
-        type: 3}
-      propertyPath: walkSpeed
-      value: 18
-      objectReference: {fileID: 0}
-    - target: {fileID: 1215276970938102383, guid: b94663a90f9a85d41b5e58675d8610ee,
-        type: 3}
-      propertyPath: wallrunJumpY
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1215276970938102383, guid: b94663a90f9a85d41b5e58675d8610ee,
-        type: 3}
-      propertyPath: speedIncrement
-      value: 75
-      objectReference: {fileID: 0}
-    - target: {fileID: 1215276970938102383, guid: b94663a90f9a85d41b5e58675d8610ee,
-        type: 3}
-      propertyPath: wallrunJumpSpeedXZ
-      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b94663a90f9a85d41b5e58675d8610ee, type: 3}
@@ -5783,25 +5759,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!1 &249643348 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7929260325265413864, guid: 1a299a91419a3804994994119de46590,
-    type: 3}
-  m_PrefabInstance: {fileID: 1501645528}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &249643351
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 249643348}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6e265245a7ee19489e6d3317be202a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  position: {x: 0, y: 0, z: 0}
 --- !u!1 &251748550
 GameObject:
   m_ObjectHideFlags: 0

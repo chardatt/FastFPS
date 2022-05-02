@@ -402,8 +402,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerCamera: {fileID: 1215276970190134676}
   mouseSensitivity: 3.5
-  walkSpeed: 15
-  speedIncrement: 0.001
+  walkSpeed: 18
+  speedIncrement: 75
   gravity: -20
   jumpForce: 3
   moveSmoothTime: 0.2
@@ -416,6 +416,9 @@ MonoBehaviour:
   isWallrunning: 0
   canMove: 1
   moving: 0
+  wallrunJumpSpeedXZ: 12
+  wallrunJumpY: 4
+  hitPointWall: {x: 0, y: 0, z: 0}
   grounded: 0
 --- !u!114 &413376655
 MonoBehaviour:

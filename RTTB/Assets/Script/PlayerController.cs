@@ -91,10 +91,11 @@ public class PlayerController : MonoBehaviour
 
         if (wallrunTransform != null)
         {
-                Debug.Log(Vector3.up * Mathf.Sqrt(-2f * gravity * wallrunJumpY));
+//                Debug.Log(Vector3.up * Mathf.Sqrt(-2f * gravity * wallrunJumpY));
             //cc.Move((((transform.position - wallrunTransform.position).normalized * wallrunJumpSpeedXZ) + Vector3.up * Mathf.Sqrt(-2f * gravity * jumpForce)) * Time.deltaTime);
             Vector3 dirXZ = ((transform.position - hitPointWall).normalized + transform.forward / 2);
             dirXZ.y = 0;
+            Debug.Log("wallrun XY " + dirXZ);
             cc.Move(((dirXZ * wallrunJumpSpeedXZ) + Vector3.up * Mathf.Sqrt(-2f * gravity * wallrunJumpY)) * Time.deltaTime);
         }
         //Debug.Log("Gravity state: " + gravity + " isGrounded? " + cc.isGrounded);

@@ -13,13 +13,13 @@ public class SpeedLineController : MonoBehaviour
     void Start()
     {
         visualEffect = GetComponent<VisualEffect>();
-        playerController = GameObject.FindObjectOfType<CharacterController>().GetComponent<CharacterController>();
+        //playerController = GameObject.FindObjectOfType<CharacterController>().GetComponent<CharacterController>();
     }
 
     // Update is called once per frame
     void Update()
     {
         visualEffect.SetFloat("SpawnRate", 150 * playerController.velocity.magnitude / 30);
-        //Debug.Log(playerController.velocity.magnitude);
+//        Debug.Log(playerController.velocity.magnitude);
     }
 }

@@ -49,6 +49,14 @@ public class PlayerController : MonoBehaviour
     float timer;
     float decrementTimer;
     float jumpTimer;
+    float glideTimer;
+
+    //// Glide Var
+    bool getUp = false;
+    [SerializeField] float dashTime = 1;
+    [SerializeField] int dashSpeed = 5;
+    private FMOD.Studio.EventInstance slide_event_fmod;
+    Vector3 direction;
     // Start is called before the first frame update
     void Start()
     {
@@ -60,6 +68,7 @@ public class PlayerController : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
         }
+        slide_event_fmod = FMODUnity.RuntimeManager.CreateInstance("event:/Slide");
     }
 
     // Update is called once per frame
@@ -77,6 +86,8 @@ public class PlayerController : MonoBehaviour
         }
         UpdateMouseLook();
         
+        UpdateGlissade();
+
         UpdateMovement();
 
         if (Input.GetButtonDown("Jump"))
@@ -112,6 +123,41 @@ public class PlayerController : MonoBehaviour
     {
         //Debug.Log("Gravity");
         gravity = gravityTmp;
+    }
+
+    void UpdateGlissade()
+    {
+        if (Input.GetButtonDown("Fire1"))
+        {
+            transform.localScale = Vector3.up/2 + Vector3.right + Vector3.forward;
+            canMove = false;
+            
+            direction = transform.forward;
+            speed += dashSpeed/* - speed * (Time.deltaTime * 0.5f)*/;
+            if (speed > walkSpeed)
+                speed = walkSpeed;
+        }
+        if (Input.GetButtonUp("Fire1") || Input.GetButtonDown("Jump") || getUp)
+        {
+            transform.localScale = Vector3.up + Vector3.right + Vector3.forward;
+            canMove = true;
+            glideTimer = 0;
+            getUp = false;
+            slide_event_fmod.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+            direction = Vector3.zero;
+        }
+        if (direction != Vector3.zero)
+        {
+            slide_event_fmod.start();
+            glideTimer += Time.deltaTime;
+            Debug.Log(direction * speed * Time.deltaTime);
+            cc.Move(direction * speed * Time.deltaTime);
+            Debug.Log(cc.velocity);
+            if (glideTimer >= dashTime)
+            {
+                getUp = true;
+            }
+        }
     }
 
     void UpdateMovement()
@@ -193,7 +239,7 @@ public class PlayerController : MonoBehaviour
         if (isWallrunning == false)
             velocity += Vector3.up * velocityY;
 
-        if (velocity != Vector3.zero)
+        if (velocity != Vector3.zero && canMove || isWallrunning)
         {
             
             timer += Time.deltaTime;

@@ -47,7 +47,8 @@ public class GlissadeScript : MonoBehaviour
         {
 //            Debug.Log(direction + " " + speed + " " + speed * Time.deltaTime + " " + Time.deltaTime);
             timer += Time.deltaTime;
-            cc.SimpleMove(direction * speed /* Time.deltaTime*/);
+            cc.Move(direction * speed * Time.deltaTime);
+            Debug.Log(cc.velocity);
             if (timer >= dashTime)
             {
                 getUp = true;

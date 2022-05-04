@@ -42,10 +42,10 @@ MonoBehaviour:
   Path: ../fmodTristan/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637859956993448848
+  lastModified: 637871825678518712
   FileSizes:
   - Name: Desktop
-    Value: 143328
+    Value: 6618976
   Exists: 1
 --- !u!114 &-795346125779620920
 MonoBehaviour:
@@ -94,12 +94,13 @@ MonoBehaviour:
   - {fileID: 2638711621450923474}
   - {fileID: -795346125779620920}
   - {fileID: 7458317761567021589}
+  - {fileID: 6933164366638448362}
   EditorParameters: []
   MasterBanks:
   - {fileID: -1981258814673885399}
   StringsBanks:
   - {fileID: 3684684144597245551}
-  cacheTime: 637859956993448848
+  cacheTime: 637871825678528713
   cacheVersion: 9
 --- !u!114 &2638711621450923474
 MonoBehaviour:
@@ -143,11 +144,38 @@ MonoBehaviour:
   Path: ../fmodTristan/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637856283804623721
+  lastModified: 637871825678528713
   FileSizes:
   - Name: Desktop
-    Value: 872
+    Value: 906
   Exists: 1
+--- !u!114 &6933164366638448362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Halo
+  m_EditorClassIdentifier: 
+  Path: event:/Halo
+  Guid:
+    Data1: -2095434513
+    Data2: 1078569343
+    Data3: 732712350
+    Data4: -1009701579
+  Banks:
+  - {fileID: -1981258814673885399}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 500114
 --- !u!114 &7458317761567021589
 MonoBehaviour:
   m_ObjectHideFlags: 0

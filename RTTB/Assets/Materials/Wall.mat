@@ -39,7 +39,7 @@ Material:
     - _QueueOffset: 0
     - _line_intensity: 0.54
     m_Colors:
-    - _Grid_Color: {r: 2.3706617, g: 0.26960468, b: 0.52061594, a: 1}
+    - _Grid_Color: {r: 0.044367485, g: 1.1757383, b: 2.1961904, a: 1}
     - _Tiling: {r: 2, g: 2, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &157725109181636013

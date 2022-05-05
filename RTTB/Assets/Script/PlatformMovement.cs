@@ -7,8 +7,8 @@ public class PlatformMovement : MonoBehaviour
     public List<Transform> posList = new List<Transform>();
     //public Vector3 translatorVector;
     Transform origin;
-    public float tempo;
-    float timer;
+    public double tempo;
+    double timer;
     public bool moving = false;
     public bool grappable = false;
     //bool goingToTranslator = true;

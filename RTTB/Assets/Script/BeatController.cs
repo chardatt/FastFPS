@@ -6,10 +6,10 @@ public class BeatController : MonoBehaviour
 {
     public PlatformMovement environnementObject;
     public bool notPlaying = false;
-    private FMOD.Studio.EventInstance event_fmod;
+    public FMOD.Studio.EventInstance event_fmod;
     void Start()
     {
-        event_fmod = FMODUnity.RuntimeManager.CreateInstance("event:/BeatAlexis");
+        event_fmod = FMODUnity.RuntimeManager.CreateInstance("event:/BeatAlexis 2");
     }
 
     void Update()

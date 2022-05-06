@@ -57,6 +57,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] int dashSpeed = 5;
     private FMOD.Studio.EventInstance slide_event_fmod;
     Vector3 direction;
+
+    float elastic;
+    float velocity;
+    BeatController beatController;
     // Start is called before the first frame update
     void Start()
     {
@@ -69,11 +73,24 @@ public class PlayerController : MonoBehaviour
             Cursor.visible = false;
         }
         slide_event_fmod = FMODUnity.RuntimeManager.CreateInstance("event:/Slide");
+
+        beatController = GameObject.FindObjectOfType<BeatController>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        float g;
+        beatController.event_fmod.getParameterByName("Speed", out g);
+        if (elastic > speed)
+            elastic = Mathf.SmoothDamp(elastic, speed, ref velocity, 0.8f);
+        else
+            elastic = Mathf.SmoothDamp(elastic, speed, ref velocity, 1.5f);
+        beatController.event_fmod.setParameterByName("Speed", elastic);
+        Debug.Log(speed + " " + elastic + " " + g);
+
+
+
         if (cc.collisionFlags == CollisionFlags.Below || cc.isGrounded)
         {
             //Debug.Log("Grounded " + CollisionFlags.Below.ToString());
@@ -129,6 +146,8 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1"))
         {
+            
+            slide_event_fmod.start();
             transform.localScale = Vector3.up/2 + Vector3.right + Vector3.forward;
             canMove = false;
             
@@ -148,11 +167,10 @@ public class PlayerController : MonoBehaviour
         }
         if (direction != Vector3.zero)
         {
-            slide_event_fmod.start();
             glideTimer += Time.deltaTime;
-            Debug.Log(direction * speed * Time.deltaTime);
+
             cc.Move(direction * speed * Time.deltaTime);
-            Debug.Log(cc.velocity);
+
             if (glideTimer >= dashTime)
             {
                 getUp = true;
@@ -248,7 +266,7 @@ public class PlayerController : MonoBehaviour
             {
                 timer = 0;
                 moving = true;
-                FMODUnity.RuntimeManager.PlayOneShot("event:/Walk");
+                /*FMODUnity.RuntimeManager.PlayOneShot("event:/Walk");*/
                 if (speed < walkSpeed)
                     speed += speedIncrement * Time.deltaTime;
                 //Debug.Log("Moving");

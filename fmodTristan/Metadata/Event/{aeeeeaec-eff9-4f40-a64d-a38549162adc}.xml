@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{aeeeeaec-eff9-4f40-a64d-a38549162adc}">
 		<property name="name">
-			<value>Jump</value>
+			<value>JumpObsolete</value>
 		</property>
 		<property name="outputFormat">
 			<value>1</value>
@@ -53,7 +53,7 @@
 			<destination>{7bf16b3b-cd8b-4fcb-98fb-2be3b502a601}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{4bf108a0-2577-46e1-a5c9-415f4445a058}</destination>
+			<destination>{633bc998-331d-4901-b14e-398a91aa00d7}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{0b29e9b5-da34-47f8-9e2c-687b15cd178f}" />

@@ -7,15 +7,16 @@ public class Wallrun : MonoBehaviour
     [SerializeField] float wallRunSpeed = 10;
     CharacterController cc;
     PlayerController playerController;
-
+    public FMOD.Studio.EventInstance event_fmod;
     //SD
-    float timer;
+    bool playing;
     [SerializeField] float interval;
 
     void Start()
     {
         cc = GameObject.FindObjectOfType<CharacterController>();
         playerController = cc.gameObject.GetComponent<PlayerController>();
+        event_fmod = FMODUnity.RuntimeManager.CreateInstance("event:/Wallride");
     }
 
     void Update()
@@ -37,7 +38,7 @@ public class Wallrun : MonoBehaviour
                     playerController.hitPointWall = hit.point;
                     //Debug.DrawRay(transform.position, transform.position - transform.parent.parent.position, Color.blue, 100);
                     playerController.isWallrunning = true;
-                    Debug.Log("Wallrun trueing");
+                    //Debug.Log("Wallrun trueing");
                 }
 
                 if (playerController.isWallrunning && !Input.GetButton("Jump"))
@@ -52,17 +53,18 @@ public class Wallrun : MonoBehaviour
 
                     cc.Move(direction * Time.deltaTime * wallRunSpeed);
 
-                    timer += Time.deltaTime;
-                    if (timer >= interval)
+                    if (playing == false)
                     {
-                        timer = 0;
-                        FMODUnity.RuntimeManager.PlayOneShot("event:/Walk");
+                        event_fmod.start();
+                        playing = true;
                     }
                 }
             }
         }
         else if (!Input.GetButton("Jump"))
         {
+            event_fmod.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+            playing = false;
             playerController.GravityOn();
             //Debug.Log("Wallruning falsening");
             playerController.isWallrunning = false;

@@ -51,7 +51,7 @@ public class Wallrun : MonoBehaviour
                     }
                     direction.y = 0;
 
-                    cc.Move(direction * Time.deltaTime * wallRunSpeed);
+                    cc.Move(direction * Time.deltaTime);
 
                     if (playing == false)
                     {

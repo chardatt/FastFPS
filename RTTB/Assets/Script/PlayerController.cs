@@ -50,6 +50,8 @@ public class PlayerController : MonoBehaviour
     float decrementTimer;
     float jumpTimer;
     float glideTimer;
+    float musicSpeed = 0;
+    float musicTimer = 0;
 
     //// Glide Var
     bool getUp = false;
@@ -82,12 +84,39 @@ public class PlayerController : MonoBehaviour
     {
         float g;
         beatController.event_fmod.getParameterByName("Speed", out g);
-        if (elastic > speed)
-            elastic = Mathf.SmoothDamp(elastic, speed, ref velocity, 0.8f);
-        else
-            elastic = Mathf.SmoothDamp(elastic, speed, ref velocity, 1.5f);
+        if (cc.velocity != Vector3.zero)
+        {
+            musicTimer += Time.deltaTime;
+
+            if (musicSpeed <= 25)
+                musicSpeed = speed;
+            else if (musicTimer >= 0.3f)
+            {
+                musicTimer = 0;
+                musicSpeed += speedIncrement * Time.deltaTime;
+            }
+            
+            elastic = Mathf.SmoothDamp(elastic, musicSpeed, ref velocity, 3f);
+            /*if (elastic >= speed)
+            {
+                /*musicTimer += Time.deltaTime;
+                if (musicTimer >= 1 && elastic <= 35)
+                {
+                    elastic += .5f;
+                    musicTimer = 0;
+                }
+                elastic += Time.deltaTime / 2;
+            }
+            else
+            {
+                elastic = Mathf.SmoothDamp(elastic, speed, ref velocity, 1.5f);
+            }*/
+        }
+        /*else
+            if (elastic > speed)
+                elastic = Mathf.SmoothDamp(elastic, speed, ref velocity, 0.8f);*/
         beatController.event_fmod.setParameterByName("Speed", elastic);
-//        Debug.Log(speed + " " + elastic + " " + g);
+        Debug.Log(speed + " " + elastic + " " + musicSpeed);
 
 
 
@@ -122,7 +151,6 @@ public class PlayerController : MonoBehaviour
             Vector3 dirXZ = ((transform.position - hitPointWall).normalized + transform.forward / 2);
 
             dirXZ.y = 0;
-            Debug.Log("wallrun XY");
             cc.Move(((dirXZ * wallrunJumpSpeedXZ) + Vector3.up * Mathf.Sqrt(-2f * gravity * wallrunJumpY)) * Time.deltaTime);
         }
 
@@ -154,7 +182,7 @@ public class PlayerController : MonoBehaviour
             direction = transform.forward;
             speed += dashSpeed/* - speed * (Time.deltaTime * 0.5f)*/;
             if (speed > walkSpeed)
-                speed = walkSpeed;
+                speed = walkSpeed + 0.01f;
         }
         if (Input.GetButtonUp("Fire1") || Input.GetButtonDown("Jump") || getUp)
         {
@@ -307,7 +335,7 @@ public class PlayerController : MonoBehaviour
 
         if (hit.gameObject.transform != wallrunTransform)
         {
-            Debug.Log("Stop Wallrunning Jump " + hit.gameObject.name);
+//            Debug.Log("Stop Wallrunning Jump " + hit.gameObject.name);
             wallrunTransform = null;
         }
     }

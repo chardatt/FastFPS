@@ -17,6 +17,7 @@ public class PlatformMovement : MonoBehaviour
     GameObject player;
     int i = 0;
     Quaternion target;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -39,6 +40,7 @@ public class PlatformMovement : MonoBehaviour
             timer += Time.deltaTime;
             if (timer >= tempo)
             {
+                FMODUnity.RuntimeManager.PlayOneShot("event:/Platform", transform.position);
                 moving = true;
                 timer = 0;
             }

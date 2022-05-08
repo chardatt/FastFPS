@@ -63,6 +63,8 @@ public class PlayerController : MonoBehaviour
     float elastic;
     float velocity;
     BeatController beatController;
+
+    bool groundedCheck;
     // Start is called before the first frame update
     void Start()
     {
@@ -82,6 +84,26 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (isJumping)
+        {
+            groundedCheck = isJumping;
+        }
+
+        if (isJumping != groundedCheck)
+        {
+            groundedCheck = isJumping;
+            Debug.Log(grounded);
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Reception");
+        }
+        
+        /*if (grounded != groundedCheck)
+        {
+            groundedCheck = grounded;
+            Debug.Log(grounded);
+            //FMODUnity.RuntimeManager.PlayOneShot("");
+        }*/
+
+
         float g;
         beatController.event_fmod.getParameterByName("Speed", out g);
         if (cc.velocity != Vector3.zero)
@@ -116,7 +138,7 @@ public class PlayerController : MonoBehaviour
             if (elastic > speed)
                 elastic = Mathf.SmoothDamp(elastic, speed, ref velocity, 0.8f);*/
         beatController.event_fmod.setParameterByName("Speed", elastic);
-        Debug.Log(speed + " " + elastic + " " + musicSpeed);
+//        Debug.Log(speed + " " + elastic + " " + musicSpeed);
 
 
 

@@ -47,7 +47,6 @@
      <Compile Include="Assets\Script\PlatformMovement.cs" />
      <Compile Include="Assets\Script\BeatController.cs" />
      <Compile Include="Assets\Script\Restart.cs" />
-     <Compile Include="Assets\Script\Roue.cs" />
      <Compile Include="Assets\Script\Wallrun.cs" />
      <Compile Include="Assets\Script\Grappling.cs" />
     <Reference Include="UnityEngine">

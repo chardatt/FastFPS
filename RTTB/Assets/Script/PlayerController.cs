@@ -87,7 +87,7 @@ public class PlayerController : MonoBehaviour
         else
             elastic = Mathf.SmoothDamp(elastic, speed, ref velocity, 1.5f);
         beatController.event_fmod.setParameterByName("Speed", elastic);
-        Debug.Log(speed + " " + elastic + " " + g);
+//        Debug.Log(speed + " " + elastic + " " + g);
 
 
 

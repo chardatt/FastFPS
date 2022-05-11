@@ -194,7 +194,7 @@ public class PlayerController : MonoBehaviour
 
     void UpdateGlissade()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1") && grounded)
         {
             
             slide_event_fmod.start();
@@ -215,11 +215,11 @@ public class PlayerController : MonoBehaviour
             slide_event_fmod.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
             direction = Vector3.zero;
         }
-        if (direction != Vector3.zero)
+        if (direction != Vector3.zero && grounded)
         {
             glideTimer += Time.deltaTime;
 
-            cc.Move(direction * speed * Time.deltaTime);
+            cc.SimpleMove(direction * speed);
 
             if (glideTimer >= dashTime)
             {

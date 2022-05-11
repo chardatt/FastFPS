@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Restart : MonoBehaviour
 {
+    public float timer;
     private static Restart instance;
     /// <summary>
     /// Awake is called when the script instance is being loaded.
@@ -30,6 +31,7 @@ public class Restart : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
+        timer += Time.deltaTime;
         if (Input.GetKeyDown(KeyCode.R))
         {
             GameObject.FindObjectOfType<BeatController>().StopBeat();

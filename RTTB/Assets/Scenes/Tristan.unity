@@ -16684,6 +16684,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SmallGroundMoving
       objectReference: {fileID: 0}
+    - target: {fileID: 4646192696254618116, guid: 74d0653ffbc7af64396c5f9e8c3d299c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 4646192696254618618, guid: 74d0653ffbc7af64396c5f9e8c3d299c,
         type: 3}
       propertyPath: posList.Array.data[0]
@@ -26916,6 +26921,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SmallGroundMoving (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4646192696254618116, guid: 74d0653ffbc7af64396c5f9e8c3d299c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4646192696254618618, guid: 74d0653ffbc7af64396c5f9e8c3d299c,
         type: 3}

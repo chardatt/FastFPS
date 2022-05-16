@@ -7,6 +7,9 @@ public class Restart : MonoBehaviour
 {
     public float timer;
     private static Restart instance;
+    public GameObject stop;
+    public GameObject start;
+    bool menuOpen;
     /// <summary>
     /// Awake is called when the script instance is being loaded.
     /// </summary>
@@ -23,19 +26,45 @@ public class Restart : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
-
     // Update is called once per frame
     void LateUpdate()
     {
         timer += Time.deltaTime;
         if (Input.GetKeyDown(KeyCode.R))
         {
-            GameObject.FindObjectOfType<BeatController>().StopBeat();
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            Ft_Restart();
         }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (menuOpen)
+            {
+                CloseMenu();
+            }
+            else
+                OpenMenu();
+        }
+    }
+
+    public void Ft_Restart()
+    {    
+        GameObject.FindObjectOfType<BeatController>().StopBeat();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    void OpenMenu()
+    {
+        stop.SetActive(true);
+        start.SetActive(false);
+        menuOpen = true;
+        Time.timeScale = 0;
+    }
+
+    void CloseMenu()
+    {
+        stop.SetActive(false);
+        start.SetActive(true);
+        menuOpen = false;
+        Time.timeScale = 1;
     }
 }

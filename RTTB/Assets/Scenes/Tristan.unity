@@ -23090,6 +23090,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: SceneManager
       objectReference: {fileID: 0}
+    - target: {fileID: 7929260325265413865, guid: 1a299a91419a3804994994119de46590,
+        type: 3}
+      propertyPath: stop
+      value: 
+      objectReference: {fileID: 1957396795}
+    - target: {fileID: 7929260325265413865, guid: 1a299a91419a3804994994119de46590,
+        type: 3}
+      propertyPath: start
+      value: 
+      objectReference: {fileID: 59549847}
     - target: {fileID: 7929260325265413866, guid: 1a299a91419a3804994994119de46590,
         type: 3}
       propertyPath: m_RootOrder

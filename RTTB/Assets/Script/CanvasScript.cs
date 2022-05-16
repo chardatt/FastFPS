@@ -20,6 +20,6 @@ public class CanvasScript : MonoBehaviour
     void Update()
     {
         timerText.text = ((int)restart.timer).ToString();
-        speedText.text = ((int)characterController.velocity.magnitude).ToString();
+        speedText.text = ((int)characterController.velocity.magnitude).ToString() + " km/h";
     }
 }

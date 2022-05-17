@@ -9,12 +9,19 @@ public class Restart : MonoBehaviour
     private static Restart instance;
     public GameObject stop;
     public GameObject start;
+    public GameObject quit;
+    [SerializeField] bool lockCursor = true;
     bool menuOpen;
     /// <summary>
     /// Awake is called when the script instance is being loaded.
     /// </summary>
     void Awake()
     {
+        if (lockCursor)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
         if (instance == null)
         {
             instance = this;
@@ -35,14 +42,16 @@ public class Restart : MonoBehaviour
             Ft_Restart();
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Tab))
         {
             if (menuOpen)
             {
                 CloseMenu();
             }
             else
+            {
                 OpenMenu();
+            }
         }
     }
 
@@ -54,6 +63,9 @@ public class Restart : MonoBehaviour
 
     void OpenMenu()
     {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+        quit.SetActive(true);
         stop.SetActive(true);
         start.SetActive(false);
         menuOpen = true;
@@ -62,9 +74,18 @@ public class Restart : MonoBehaviour
 
     void CloseMenu()
     {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        quit.SetActive(false);
         stop.SetActive(false);
         start.SetActive(true);
         menuOpen = false;
         Time.timeScale = 1;
+    }
+
+    public void Ft_Quit()
+    {
+        Debug.Log("Quit");
+        Application.Quit();
     }
 }

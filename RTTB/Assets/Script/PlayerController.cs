@@ -15,7 +15,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField][Range(0f,0.5f)] float mouseSmoothTime = 0.03f;
     [SerializeField] float fallGravityMultiplier = 1;
     [SerializeField] float smallJumpGravityMultiplier = 2;
-    [SerializeField] bool lockCursor = true;
 
     [SerializeField] float speed = 10;
 
@@ -71,11 +70,7 @@ public class PlayerController : MonoBehaviour
         transform.position = GameObject.FindObjectOfType<PlayerStartingPoint>().position;
         gravityTmp = gravity;
         cc = GetComponent<CharacterController>();
-        if (lockCursor)
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
-        }
+
         slide_event_fmod = FMODUnity.RuntimeManager.CreateInstance("event:/Slide");
 
         beatController = GameObject.FindObjectOfType<BeatController>();

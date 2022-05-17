@@ -26,6 +26,6 @@ public class SpeedLineController : MonoBehaviour
         else
             spawnRate = Mathf.SmoothDamp(spawnRate, playerController.velocity.magnitude, ref velocity, 5f);
         visualEffect.SetFloat("SpawnRate", 150 * spawnRate / 30);
-        Debug.Log(playerController.velocity.magnitude + " " + spawnRate);
+        //Debug.Log(playerController.velocity.magnitude + " " + spawnRate);
     }
 }

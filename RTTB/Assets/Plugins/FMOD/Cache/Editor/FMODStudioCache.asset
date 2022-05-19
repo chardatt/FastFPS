@@ -24,6 +24,30 @@ MonoBehaviour:
   IsGlobal: 0
   Labels: []
   Exists: 1
+--- !u!114 &-8076437850870970697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/BeatAlexis 2/Speed
+  m_EditorClassIdentifier: 
+  Name: Speed
+  StudioPath: 
+  Min: 0
+  Max: 35
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
 --- !u!114 &-7327155727232798406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -90,8 +114,7 @@ MonoBehaviour:
     Data2: 1284627035
     Data3: 1781250946
     Data4: 674347880
-  Banks:
-  - {fileID: -1981258814673885399}
+  Banks: []
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
@@ -195,7 +218,7 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: -6929486872111287008}
+  - {fileID: -8076437850870970697}
   MinDistance: 1
   MaxDistance: 20
   Length: 13714
@@ -224,6 +247,30 @@ MonoBehaviour:
   Labels: []
   Exists: 1
 --- !u!114 &-4735925408164672762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/BeatAlexis 2/Speed
+  m_EditorClassIdentifier: 
+  Name: Speed
+  StudioPath: 
+  Min: 0
+  Max: 35
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 0
+--- !u!114 &-4711949766810216360
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -481,10 +528,10 @@ MonoBehaviour:
   Path: ../fmodTristan/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637876353160466754
+  lastModified: 637885708087307921
   FileSizes:
   - Name: Desktop
-    Value: 8660320
+    Value: 1848832
   Exists: 1
 --- !u!114 &-1283352992876855532
 MonoBehaviour:
@@ -604,16 +651,10 @@ MonoBehaviour:
   - {fileID: 3684684144597245551}
   - {fileID: -1981258814673885399}
   EditorEvents:
-  - {fileID: -6879825777288754549}
   - {fileID: 2638711621450923474}
   - {fileID: 7458317761567021589}
-  - {fileID: 6933164366638448362}
-  - {fileID: 7274153717531068696}
-  - {fileID: 758790168145601882}
-  - {fileID: 7625387890348220414}
   - {fileID: -5471509155718656732}
   - {fileID: -982712730546056816}
-  - {fileID: 7461540278853548809}
   - {fileID: -3706273173956383519}
   - {fileID: 3838860432665080538}
   EditorParameters: []
@@ -621,7 +662,7 @@ MonoBehaviour:
   - {fileID: -1981258814673885399}
   StringsBanks:
   - {fileID: 3684684144597245551}
-  cacheTime: 637876353160486760
+  cacheTime: 637885708087322923
   cacheVersion: 9
 --- !u!114 &758790168145601882
 MonoBehaviour:
@@ -641,8 +682,7 @@ MonoBehaviour:
     Data2: 1232382532
     Data3: 912526485
     Data4: 1371423463
-  Banks:
-  - {fileID: -1981258814673885399}
+  Banks: []
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -716,10 +756,10 @@ MonoBehaviour:
   Path: ../fmodTristan/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637876353160486760
+  lastModified: 637885708087322923
   FileSizes:
   - Name: Desktop
-    Value: 1358
+    Value: 1086
   Exists: 1
 --- !u!114 &3830384063518135086
 MonoBehaviour:
@@ -838,8 +878,7 @@ MonoBehaviour:
     Data2: 1078569343
     Data3: 732712350
     Data4: -1009701579
-  Banks:
-  - {fileID: -1981258814673885399}
+  Banks: []
   IsStream: 1
   Is3D: 0
   IsOneShot: 1
@@ -865,8 +904,7 @@ MonoBehaviour:
     Data2: 1114751564
     Data3: -368303453
     Data4: 1591889914
-  Banks:
-  - {fileID: -1981258814673885399}
+  Banks: []
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -919,8 +957,7 @@ MonoBehaviour:
     Data2: 1329655801
     Data3: -2052895322
     Data4: -601221559
-  Banks:
-  - {fileID: -1981258814673885399}
+  Banks: []
   IsStream: 0
   Is3D: 0
   IsOneShot: 1

@@ -46,3 +46,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   environnementObject: {fileID: 0}
   notPlaying: 1
+  postProcessVolume: {fileID: 0}
+  bloom: {fileID: 0}
+  bloomSmoothTime: 0.9

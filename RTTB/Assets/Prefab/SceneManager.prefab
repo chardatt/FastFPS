@@ -45,6 +45,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1344c82a39c462a4e827602f34c8a272, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timer: 0
+  stop: {fileID: 0}
+  start: {fileID: 0}
+  quit: {fileID: 0}
+  lockCursor: 1
 --- !u!114 &249643351
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57,4 +62,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6e265245a7ee19489e6d3317be202a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  position: {x: 0, y: 0, z: 0}
+  position: {x: 345.9, y: -15.96, z: 356.9}

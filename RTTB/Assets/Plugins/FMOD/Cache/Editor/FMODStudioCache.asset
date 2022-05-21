@@ -218,7 +218,7 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: 5261718656161438286}
+  - {fileID: 8246036785879049436}
   MinDistance: 1
   MaxDistance: 20
   Length: 13714
@@ -528,7 +528,7 @@ MonoBehaviour:
   Path: ../fmodTristan/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637887270854313928
+  lastModified: 637886370259298295
   FileSizes:
   - Name: Desktop
     Value: 1848832
@@ -662,7 +662,7 @@ MonoBehaviour:
   - {fileID: -1981258814673885399}
   StringsBanks:
   - {fileID: 3684684144597245551}
-  cacheTime: 637887270854318890
+  cacheTime: 637886370259507586
   cacheVersion: 9
 --- !u!114 &758790168145601882
 MonoBehaviour:
@@ -756,7 +756,7 @@ MonoBehaviour:
   Path: ../fmodTristan/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637887270854318890
+  lastModified: 637886370259507586
   FileSizes:
   - Name: Desktop
     Value: 1086
@@ -1064,6 +1064,30 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 2000
+--- !u!114 &8246036785879049436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/BeatAlexis 2/Speed
+  m_EditorClassIdentifier: 
+  Name: Speed
+  StudioPath: 
+  Min: 0
+  Max: 35
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
 --- !u!114 &8581578495061281514
 MonoBehaviour:
   m_ObjectHideFlags: 0

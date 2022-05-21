@@ -43,4 +43,9 @@ public class BeatController : MonoBehaviour
     {
         event_fmod.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
     }
+
+    public void StartBeat()
+    {
+        event_fmod.start();
+    }
 }

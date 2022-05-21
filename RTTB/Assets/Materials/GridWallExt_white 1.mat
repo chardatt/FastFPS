@@ -47,10 +47,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Line_Thickness: 0.98
+    - _Line_Thickness: 0.95
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _line_intensity: 0.5
+    - _line_intensity: 1
     m_Colors:
     - _Grid_Color: {r: 4.737255, g: 4.894118, b: 5.992157, a: 0}
     - _Tiling: {r: 1, g: 1, b: 0, a: 0}

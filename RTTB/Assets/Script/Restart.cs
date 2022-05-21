@@ -10,6 +10,7 @@ public class Restart : MonoBehaviour
     public GameObject stop;
     public GameObject start;
     public GameObject quit;
+    public GameObject rest;
     [SerializeField] bool lockCursor = true;
     bool menuOpen;
     /// <summary>
@@ -17,6 +18,13 @@ public class Restart : MonoBehaviour
     /// </summary>
     void Awake()
     {
+        stop = GameObject.FindGameObjectWithTag("Stop");
+        start = GameObject.FindGameObjectWithTag("Start");
+        quit = GameObject.FindGameObjectWithTag("Quit");
+        rest = GameObject.FindGameObjectWithTag("Restart");
+        stop.SetActive(false);
+        quit.SetActive(false);
+        rest.SetActive(false);
         if (lockCursor)
         {
             Cursor.lockState = CursorLockMode.Locked;
@@ -42,6 +50,17 @@ public class Restart : MonoBehaviour
             Ft_Restart();
         }
 
+        if (stop == null)
+        {
+            stop = GameObject.FindGameObjectWithTag("UI").transform.Find("Stop").gameObject;
+            start = GameObject.FindGameObjectWithTag("Start");
+            quit = GameObject.FindGameObjectWithTag("UI").transform.Find("Quit").gameObject;
+            rest = GameObject.FindGameObjectWithTag("UI").transform.Find("Restart").gameObject;
+            stop.SetActive(false);
+            quit.SetActive(false);
+            rest.SetActive(false);
+        }
+
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             if (menuOpen)
@@ -58,11 +77,13 @@ public class Restart : MonoBehaviour
     public void Ft_Restart()
     {    
         GameObject.FindObjectOfType<BeatController>().StopBeat();
+        Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     void OpenMenu()
     {
+        GameObject.FindObjectOfType<BeatController>().StopBeat();
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
         quit.SetActive(true);
@@ -74,6 +95,7 @@ public class Restart : MonoBehaviour
 
     void CloseMenu()
     {
+        GameObject.FindObjectOfType<BeatController>().StartBeat();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         quit.SetActive(false);
@@ -81,6 +103,14 @@ public class Restart : MonoBehaviour
         start.SetActive(true);
         menuOpen = false;
         Time.timeScale = 1;
+    }
+
+    public void OpenRestartMenu()
+    {
+        rest.SetActive(true);
+        start.SetActive(false);
+        stop.SetActive(true);
+        Time.timeScale = 0;
     }
 
     public void Ft_Quit()

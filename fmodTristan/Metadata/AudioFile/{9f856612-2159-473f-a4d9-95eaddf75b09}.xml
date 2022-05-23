@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{9f856612-2159-473f-a4d9-95eaddf75b09}">
+		<property name="assetPath">
+			<value>rewind.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>2.1851458333333333</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{65cf115b-9cbf-4ca5-8ba3-cc8fd98510cd}</destination>
+		</relationship>
+	</object>
+</objects>

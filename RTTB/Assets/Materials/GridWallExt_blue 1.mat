@@ -54,7 +54,7 @@ Material:
     - _Line_Thickness: 0.95
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _line_intensity: 1
+    - _line_intensity: 0.5
     m_Colors:
     - _Grid_Color: {r: 1.6512668, g: 11.263999, b: 4.820406, a: 0}
     - _MainTexSpeed: {r: 2, g: 2, b: 0, a: 0}

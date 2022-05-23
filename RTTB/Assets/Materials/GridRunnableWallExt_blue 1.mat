@@ -50,8 +50,9 @@ Material:
     - _Line_Thickness: 0.95
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _line_intensity: 1
+    - _line_intensity: 0.5
     m_Colors:
-    - _Grid_Color: {r: 1.92512, g: 26.264149, b: 10.352232, a: 0}
+    - _Grid_Color: {r: 26.264149, g: 25.852873, b: 1.92512, a: 0}
+    - _MainTexSpeed: {r: 2, g: 2, b: 0, a: 0}
     - _Tiling: {r: 1, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []

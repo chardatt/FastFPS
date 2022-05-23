@@ -410,16 +410,20 @@ MonoBehaviour:
   mouseSmoothTime: 0.03
   fallGravityMultiplier: 1
   smallJumpGravityMultiplier: 3
-  lockCursor: 1
   speed: 10
   isJumping: 0
   isWallrunning: 0
   canMove: 1
   moving: 0
+  wallrunTransform: {fileID: 0}
   wallrunJumpSpeedXZ: 12
   wallrunJumpY: 4
   hitPointWall: {x: 0, y: 0, z: 0}
+  wallrunTimer: 0.3
+  wallrunCD: 0.2
   grounded: 0
+  dashTime: 1
+  dashSpeed: 5
 --- !u!114 &413376655
 MonoBehaviour:
   m_ObjectHideFlags: 0

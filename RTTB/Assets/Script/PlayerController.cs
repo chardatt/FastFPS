@@ -189,7 +189,7 @@ public class PlayerController : MonoBehaviour
 
     void UpdateGlissade()
     {
-        if (Input.GetButtonDown("Fire1") && grounded)
+        if ((Input.GetButtonDown("Fire1") || Input.GetKeyDown(KeyCode.LeftShift)) && grounded)
         {
             
             slide_event_fmod.start();
@@ -201,7 +201,7 @@ public class PlayerController : MonoBehaviour
             if (speed > walkSpeed)
                 speed = walkSpeed + 0.01f;
         }
-        if (Input.GetButtonUp("Fire1") || Input.GetButtonDown("Jump") || getUp)
+        if (Input.GetButtonUp("Fire1") || Input.GetButtonDown("Jump") || getUp || Input.GetKeyUp(KeyCode.LeftShift))
         {
             transform.localScale = Vector3.up + Vector3.right + Vector3.forward;
             canMove = true;
@@ -210,11 +210,11 @@ public class PlayerController : MonoBehaviour
             slide_event_fmod.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
             direction = Vector3.zero;
         }
-        if (direction != Vector3.zero && grounded)
+        if (direction != Vector3.zero /*&& grounded*/)
         {
             glideTimer += Time.deltaTime;
 
-            cc.SimpleMove(direction * speed);
+            cc.Move(direction * speed * Time.deltaTime + Vector3.up * gravity * Time.deltaTime);
 
             if (glideTimer >= dashTime)
             {

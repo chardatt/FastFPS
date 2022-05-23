@@ -17,8 +17,50 @@
 	<object class="MixerBusEffectChain" id="{d38e2ecd-09c8-462c-9e6c-a51bc8b1f2b8}">
 		<relationship name="effects">
 			<destination>{11245cda-4f58-4477-8626-febf24a4c61b}</destination>
+			<destination>{cc7b7321-9289-4987-b073-be39b9c99376}</destination>
+			<destination>{874f4cae-61fa-4ab5-ba8c-0efa894a4356}</destination>
+			<destination>{43176979-0f3e-4f0a-93cd-1f41ea6ffb8c}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{c75841e1-7bda-4d1a-a7ae-20855aecbc95}" />
 	<object class="MixerBusFader" id="{11245cda-4f58-4477-8626-febf24a4c61b}" />
+	<object class="MixerSend" id="{cc7b7321-9289-4987-b073-be39b9c99376}">
+		<property name="level">
+			<value>-7.5</value>
+		</property>
+		<property name="inputFormat">
+			<value>2</value>
+		</property>
+		<relationship name="mixerReturn">
+			<destination>{0ae9d2a3-ce16-4bb6-82a3-afb3e5d6cc2d}</destination>
+		</relationship>
+	</object>
+	<object class="MixerSend" id="{874f4cae-61fa-4ab5-ba8c-0efa894a4356}">
+		<property name="level">
+			<value>-16</value>
+		</property>
+		<property name="inputFormat">
+			<value>2</value>
+		</property>
+		<relationship name="mixerReturn">
+			<destination>{423e1815-47da-45ac-9ff0-cedd96e3d86f}</destination>
+		</relationship>
+	</object>
+	<object class="CompressorEffect" id="{43176979-0f3e-4f0a-93cd-1f41ea6ffb8c}">
+		<property name="threshold">
+			<value>-23.5</value>
+		</property>
+		<property name="ratio">
+			<value>4.20000029</value>
+		</property>
+		<property name="attackTime">
+			<value>0.100000001</value>
+		</property>
+		<property name="releaseTime">
+			<value>56</value>
+		</property>
+		<property name="gain">
+			<value>12</value>
+		</property>
+	</object>
 </objects>

@@ -213,13 +213,17 @@ public class PlayerController : MonoBehaviour
         if (direction != Vector3.zero /*&& grounded*/)
         {
             glideTimer += Time.deltaTime;
+            if (cc.velocity.y < 0 && speed < walkSpeed && glideTimer > 0.15f)
+            {
+                glideTimer = 0;
+                speed += speedIncrement * 4 * Time.deltaTime;
+            }
 
-            cc.Move(direction * speed * Time.deltaTime + Vector3.up * gravity * Time.deltaTime);
-
-            if (glideTimer >= dashTime)
+            cc.Move(direction * speed * Time.deltaTime + Vector3.up * gravity * 5 * Time.deltaTime + Input.GetAxisRaw("Horizontal") * transform.right * Time.deltaTime * 7);
+            /*if (glideTimer >= dashTime)
             {
                 getUp = true;
-            }
+            }*/
         }
     }
 
@@ -323,6 +327,7 @@ public class PlayerController : MonoBehaviour
             }
 
             cc.Move(velocity * Time.deltaTime);
+            
         }
 
     }

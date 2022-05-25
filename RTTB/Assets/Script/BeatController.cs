@@ -9,7 +9,7 @@ public class BeatController : MonoBehaviour
     public PlatformMovement environnementObject;
     public bool notPlaying = false;
     public FMOD.Studio.EventInstance event_fmod;
-    double timer;
+    public double timer;
     public Volume postProcessVolume;
     public Bloom bloom;
     float velocity = 0;
@@ -30,12 +30,12 @@ public class BeatController : MonoBehaviour
         }
         if (!notPlaying)
         {
-            timer += Time.deltaTime;
             if (timer >= 0.85714285714)
             {
                 timer = 0;
                 bloom.intensity.value = 20;
             }
+            timer += Time.deltaTime;
         }
     }
 

@@ -129,7 +129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7ce7c505408f6c4e80f6adb3b765d2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerController: {fileID: 0}
+  playerController: {fileID: 1215276970938102381}
   visualEffect: {fileID: 0}
 --- !u!1 &1215276970190134673
 GameObject:
@@ -181,7 +181,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
+  m_BackGroundColor: {r: 0.21568628, g: 0.21568628, b: 0.21568628, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -402,8 +402,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerCamera: {fileID: 1215276970190134676}
   mouseSensitivity: 3.5
-  walkSpeed: 18
-  speedIncrement: 75
+  walkSpeed: 30
+  speedIncrement: 135
   gravity: -20
   jumpForce: 3
   moveSmoothTime: 0.2
@@ -416,14 +416,14 @@ MonoBehaviour:
   canMove: 1
   moving: 0
   wallrunTransform: {fileID: 0}
-  wallrunJumpSpeedXZ: 12
-  wallrunJumpY: 4
+  wallrunJumpSpeedXZ: 10
+  wallrunJumpY: 3.5
   hitPointWall: {x: 0, y: 0, z: 0}
   wallrunTimer: 0.3
   wallrunCD: 0.2
   grounded: 0
   dashTime: 1
-  dashSpeed: 5
+  dashSpeed: 2
 --- !u!114 &413376655
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -431,7 +431,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1215276970938102380}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2c7714847f79f584383279111f9d63b3, type: 3}
   m_Name: 

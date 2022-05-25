@@ -7,12 +7,13 @@ public class Slider : MonoBehaviour
     public List<GameObject> plate = new List<GameObject>();
     public int beginIndex = 0;
     public int endIndex = 5;
-    float timer;
+    BeatController beatController;
 
-    bool enteringArea;
+    public bool enteringArea;
     // Start is called before the first frame update
     void Start()
     {
+        beatController = GameObject.FindObjectOfType<BeatController>();
         Transform[] trans;
         trans = GetComponentsInChildren<Transform>();
 
@@ -29,13 +30,42 @@ public class Slider : MonoBehaviour
     {
         if (enteringArea)
         {
-            timer += Time.deltaTime;
-            if (timer >= 0.85714285714)
+            if (beatController.timer >= 0.85714285714)
             {
                 //// PULSE A FAIRE
-                timer = 0;
+                Debug.Log("Test");
+                PulseSlider();
             }
         }
+    }
+
+    void PulseSlider()
+    {
+        for (int index = 0; index < plate.Count; index++)
+        {
+            if ((beginIndex < endIndex && index >= beginIndex && index <= endIndex))
+            {
+                //Debug.Log("Premier if");
+                plate[index].SetActive(true);
+            }
+            else if (beginIndex > endIndex && (index >= beginIndex && index <= plate.Count - 1) || beginIndex > endIndex && (index >= 0 && index <= endIndex))
+            {
+                //Debug.Log("Second if");
+                plate[index].SetActive(true);
+            }
+            else
+            {
+                plate[index].SetActive(false);
+            }
+        }
+        if (beginIndex < plate.Count - 1)
+            beginIndex += 3;
+        else
+            beginIndex = 0;
+        if (endIndex < plate.Count - 1)
+            endIndex += 3;
+        else
+            endIndex = 0;
     }
 
     private void OnTriggerEnter(Collider other)

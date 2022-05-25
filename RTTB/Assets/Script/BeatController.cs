@@ -39,6 +39,11 @@ public class BeatController : MonoBehaviour
         }
     }
 
+    public void LowPass()
+    {
+        event_fmod.setParameterByName("Death", 2);
+    }
+
     public void StopBeat()
     {
         event_fmod.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);

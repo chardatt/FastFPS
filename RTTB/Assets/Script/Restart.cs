@@ -77,6 +77,7 @@ public class Restart : MonoBehaviour
     public void Ft_Restart()
     {    
         GameObject.FindObjectOfType<BeatController>().StopBeat();
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Rewind");
         Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }

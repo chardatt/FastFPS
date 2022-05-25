@@ -15,6 +15,7 @@ public class DeadZone : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            GameObject.FindObjectOfType<BeatController>().LowPass();
             restart.OpenRestartMenu();
         }
     }

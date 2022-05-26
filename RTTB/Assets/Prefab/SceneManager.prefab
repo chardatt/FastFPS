@@ -49,6 +49,7 @@ MonoBehaviour:
   stop: {fileID: 0}
   start: {fileID: 0}
   quit: {fileID: 0}
+  rest: {fileID: 0}
   lockCursor: 1
 --- !u!114 &249643351
 MonoBehaviour:

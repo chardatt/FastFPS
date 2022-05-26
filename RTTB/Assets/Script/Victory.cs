@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class Victory : MonoBehaviour
 {
+    public GameObject UIBase;
+    public GameObject UIFin;
     bool canChangeScene = false;
     int sceneIndex;
     // Start is called before the first frame update
@@ -28,5 +30,7 @@ public class Victory : MonoBehaviour
         sceneIndex = SceneManager.GetActiveScene().buildIndex;
         sceneIndex++;
         canChangeScene = true;
+        UIBase.SetActive(false);
+        UIFin.SetActive(true);
     }
 }

@@ -79,6 +79,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (isJumping)
         {
             groundedCheck = isJumping;
@@ -101,37 +102,9 @@ public class PlayerController : MonoBehaviour
 
         float g;
         beatController.event_fmod.getParameterByName("Speed", out g);
-        if (cc.velocity != Vector3.zero)
-        {
-            musicTimer += Time.deltaTime;
+        elastic = Mathf.SmoothDamp(elastic, speed, ref velocity, 3f);
+        Debug.Log(elastic + " " + speed + " " + musicSpeed);
 
-            if (musicSpeed <= 25)
-                musicSpeed = speed;
-            else if (musicTimer >= 0.3f)
-            {
-                musicTimer = 0;
-                musicSpeed += speedIncrement * Time.deltaTime;
-            }
-            
-            elastic = Mathf.SmoothDamp(elastic, musicSpeed, ref velocity, 3f);
-            /*if (elastic >= speed)
-            {
-                /*musicTimer += Time.deltaTime;
-                if (musicTimer >= 1 && elastic <= 35)
-                {
-                    elastic += .5f;
-                    musicTimer = 0;
-                }
-                elastic += Time.deltaTime / 2;
-            }
-            else
-            {
-                elastic = Mathf.SmoothDamp(elastic, speed, ref velocity, 1.5f);
-            }*/
-        }
-        /*else
-            if (elastic > speed)
-                elastic = Mathf.SmoothDamp(elastic, speed, ref velocity, 0.8f);*/
         beatController.event_fmod.setParameterByName("Speed", elastic);
 //        Debug.Log(speed + " " + elastic + " " + musicSpeed);
 
@@ -230,19 +203,23 @@ public class PlayerController : MonoBehaviour
     void UpdateMovement()
     {
         //Debug.Log(cc.isGrounded);
+
+        
         Vector2 targetDir = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         targetDir.Normalize();
-
-        if (targetDir.magnitude == 0 && speed > 10)
+        Debug.Log(targetDir.magnitude + "Magnitude");
+        if (targetDir.magnitude == 0)
         {
             //Debug.Log("Decrement");
             decrementTimer += Time.deltaTime;
             if (decrementTimer > 0.15f)
             {
-                speed -= speedIncrement * Time.deltaTime;
+                if (speed > 10)
+                    speed -= speedIncrement * Time.deltaTime;
                 decrementTimer = 0;
             }
         }
+
         currentDirection = Vector2.SmoothDamp(currentDirection, targetDir, ref currentDirectionVelocity, moveSmoothTime);
 
         //if (cc.isGrounded)

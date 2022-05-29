@@ -21,6 +21,7 @@ public class Victory : MonoBehaviour
         if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.R)) && canChangeScene)
         {
             SceneManager.LoadScene(sceneIndex);
+            Time.timeScale = 1;
         }
     }
 
@@ -32,5 +33,6 @@ public class Victory : MonoBehaviour
         canChangeScene = true;
         UIBase.SetActive(false);
         UIFin.SetActive(true);
+        GameObject.FindObjectOfType<BeatController>().StopBeat();
     }
 }

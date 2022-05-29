@@ -52,6 +52,7 @@ public class Restart : MonoBehaviour
 
         if (stop == null)
         {
+            Debug.Log("Test Reset");
             stop = GameObject.FindGameObjectWithTag("UI").transform.Find("Stop").gameObject;
             start = GameObject.FindGameObjectWithTag("Start");
             quit = GameObject.FindGameObjectWithTag("UI").transform.Find("Quit").gameObject;

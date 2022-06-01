@@ -34,5 +34,6 @@ public class Victory : MonoBehaviour
         UIBase.SetActive(false);
         UIFin.SetActive(true);
         GameObject.FindObjectOfType<BeatController>().StopBeat();
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Victory");
     }
 }

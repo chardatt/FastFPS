@@ -245,6 +245,30 @@ MonoBehaviour:
   IsGlobal: 0
   Labels: []
   Exists: 0
+--- !u!114 &-5767653868430254731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/BeatAlexis 2/Speed
+  m_EditorClassIdentifier: 
+  Name: Speed
+  StudioPath: 
+  Min: 0
+  Max: 35
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
 --- !u!114 &-5643458751235495737
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -317,8 +341,8 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: 3432189089048864711}
-  - {fileID: 1038856579703681471}
+  - {fileID: -5767653868430254731}
+  - {fileID: -779319664515276911}
   MinDistance: 1
   MaxDistance: 20
   Length: 13714
@@ -676,10 +700,10 @@ MonoBehaviour:
   Path: ../fmodTristan/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637891166882036671
+  lastModified: 637897180044341309
   FileSizes:
   - Name: Desktop
-    Value: 1877408
+    Value: 1922080
   Exists: 1
 --- !u!114 &-1283352992876855532
 MonoBehaviour:
@@ -759,6 +783,30 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 2000
+--- !u!114 &-779319664515276911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/BeatAlexis 2/Death
+  m_EditorClassIdentifier: 
+  Name: Death
+  StudioPath: 
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
 --- !u!114 &-419316399365754193
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -806,12 +854,13 @@ MonoBehaviour:
   - {fileID: -3706273173956383519}
   - {fileID: 3838860432665080538}
   - {fileID: -9123592543392177834}
+  - {fileID: 3593243763479347605}
   EditorParameters: []
   MasterBanks:
   - {fileID: -1981258814673885399}
   StringsBanks:
   - {fileID: 3684684144597245551}
-  cacheTime: 637891166882056672
+  cacheTime: 637897180044361301
   cacheVersion: 9
 --- !u!114 &533512612568550724
 MonoBehaviour:
@@ -962,6 +1011,33 @@ MonoBehaviour:
   IsGlobal: 0
   Labels: []
   Exists: 1
+--- !u!114 &3593243763479347605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Victory
+  m_EditorClassIdentifier: 
+  Path: event:/Victory
+  Guid:
+    Data1: 636939797
+    Data2: 1252347581
+    Data3: 1296444592
+    Data4: -907021220
+  Banks:
+  - {fileID: -1981258814673885399}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 4419
 --- !u!114 &3684684144597245551
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -977,10 +1053,10 @@ MonoBehaviour:
   Path: ../fmodTristan/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637891166882056672
+  lastModified: 637897180044361301
   FileSizes:
   - Name: Desktop
-    Value: 1222
+    Value: 1260
   Exists: 1
 --- !u!114 &3830384063518135086
 MonoBehaviour:

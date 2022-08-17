@@ -170,7 +170,7 @@ MonoBehaviour:
   Type: 0
   IsGlobal: 0
   Labels: []
-  Exists: 1
+  Exists: 0
 --- !u!114 &-7327155727232798406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -365,8 +365,8 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: -7403032257483963286}
-  - {fileID: 6250410439213663240}
+  - {fileID: 515661674880443412}
+  - {fileID: 1057817339341133787}
   MinDistance: 1
   MaxDistance: 20
   Length: 13714
@@ -748,7 +748,7 @@ MonoBehaviour:
   Path: ../fmodTristan/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637898026403433123
+  lastModified: 637898020934050168
   FileSizes:
   - Name: Desktop
     Value: 1922080
@@ -908,9 +908,33 @@ MonoBehaviour:
   - {fileID: -1981258814673885399}
   StringsBanks:
   - {fileID: 3684684144597245551}
-  cacheTime: 637898026403433123
+  cacheTime: 637898020934070174
   cacheVersion: 9
 --- !u!114 &508793901661762324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/BeatAlexis 2/Speed
+  m_EditorClassIdentifier: 
+  Name: Speed
+  StudioPath: 
+  Min: 0
+  Max: 30
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &515661674880443412
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -985,6 +1009,30 @@ MonoBehaviour:
   MaxDistance: 20
   Length: 1500
 --- !u!114 &1038856579703681471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/BeatAlexis 2/Death
+  m_EditorClassIdentifier: 
+  Name: Death
+  StudioPath: 
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &1057817339341133787
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1125,7 +1173,7 @@ MonoBehaviour:
   Path: ../fmodTristan/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637897835688526776
+  lastModified: 637898020934070174
   FileSizes:
   - Name: Desktop
     Value: 1260
@@ -1300,7 +1348,7 @@ MonoBehaviour:
   Type: 0
   IsGlobal: 0
   Labels: []
-  Exists: 1
+  Exists: 0
 --- !u!114 &6653090304816935648
 MonoBehaviour:
   m_ObjectHideFlags: 0

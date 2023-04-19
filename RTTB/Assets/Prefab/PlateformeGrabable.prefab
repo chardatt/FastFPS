@@ -2466,7 +2466,7 @@ MonoBehaviour:
   tempo: 2
   moving: 0
   grappable: 1
-  smoothTime: 0.5
+  smoothTime: 0.08
 --- !u!65 &3465026083769004858
 BoxCollider:
   m_ObjectHideFlags: 0

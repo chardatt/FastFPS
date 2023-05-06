@@ -11,8 +11,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float gravity = -13.0f;
     float gravityTmp;
     [SerializeField] float jumpForce = 5;
-    [SerializeField][Range(0f,0.5f)] float moveSmoothTime = 0.3f;
-    [SerializeField][Range(0f,0.5f)] float mouseSmoothTime = 0.03f;
+    [SerializeField][Range(0f, 0.5f)] float moveSmoothTime = 0.3f;
+    [SerializeField][Range(0f, 0.5f)] float mouseSmoothTime = 0.03f;
     [SerializeField] float fallGravityMultiplier = 1;
     [SerializeField] float smallJumpGravityMultiplier = 2;
 
@@ -64,6 +64,8 @@ public class PlayerController : MonoBehaviour
     BeatController beatController;
 
     bool groundedCheck;
+
+    Vector2 targetDir;
     // Start is called before the first frame update
     void Start()
     {
@@ -91,7 +93,7 @@ public class PlayerController : MonoBehaviour
             Debug.Log(grounded);
             FMODUnity.RuntimeManager.PlayOneShot("event:/Reception");
         }
-        
+
         /*if (grounded != groundedCheck)
         {
             groundedCheck = grounded;
@@ -103,10 +105,10 @@ public class PlayerController : MonoBehaviour
         float g;
         beatController.event_fmod.getParameterByName("Speed", out g);
         elastic = Mathf.SmoothDamp(elastic, speed, ref velocity, 3f);
-//        Debug.Log(elastic + " " + speed + " " + musicSpeed);
+        //        Debug.Log(elastic + " " + speed + " " + musicSpeed);
 
         beatController.event_fmod.setParameterByName("Speed", elastic);
-//        Debug.Log(speed + " " + elastic + " " + musicSpeed);
+        //        Debug.Log(speed + " " + elastic + " " + musicSpeed);
 
 
 
@@ -121,7 +123,7 @@ public class PlayerController : MonoBehaviour
             //Debug.Log("Not Grounded");
         }
         UpdateMouseLook();
-        
+
         UpdateGlissade();
 
         UpdateMovement();
@@ -136,7 +138,7 @@ public class PlayerController : MonoBehaviour
 
         if (wallrunTransform != null && isJumping == true)
         {
-//                Debug.Log(Vector3.up * Mathf.Sqrt(-2f * gravity * wallrunJumpY));
+            //                Debug.Log(Vector3.up * Mathf.Sqrt(-2f * gravity * wallrunJumpY));
             //cc.Move((((transform.position - wallrunTransform.position).normalized * wallrunJumpSpeedXZ) + Vector3.up * Mathf.Sqrt(-2f * gravity * jumpForce)) * Time.deltaTime);
             Vector3 dirXZ = ((transform.position - hitPointWall).normalized + transform.forward / 2);
 
@@ -164,11 +166,11 @@ public class PlayerController : MonoBehaviour
     {
         if ((Input.GetButtonDown("Fire1") || Input.GetKeyDown(KeyCode.LeftShift)) && grounded)
         {
-            
+
             slide_event_fmod.start();
-            transform.localScale = Vector3.up/2 + Vector3.right + Vector3.forward;
+            transform.localScale = Vector3.up / 2 + Vector3.right + Vector3.forward;
             canMove = false;
-            
+
             direction = transform.forward;
             speed += dashSpeed/* - speed * (Time.deltaTime * 0.5f)*/;
             if (speed > walkSpeed)
@@ -185,12 +187,12 @@ public class PlayerController : MonoBehaviour
         }
         if (direction != Vector3.zero /*&& grounded*/)
         {
-            glideTimer += Time.deltaTime;
+            /*glideTimer += Time.deltaTime;
             if (cc.velocity.y < 0 && speed < walkSpeed && glideTimer > 0.15f)
             {
                 glideTimer = 0;
                 speed += speedIncrement * 4 * Time.deltaTime;
-            }
+            }*/
 
             cc.Move(direction * speed * Time.deltaTime + Vector3.up * gravity * 5 * Time.deltaTime + Input.GetAxisRaw("Horizontal") * transform.right * Time.deltaTime * 7);
             /*if (glideTimer >= dashTime)
@@ -200,14 +202,19 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void UpdateMovement()
+    private void FixedUpdate()
     {
-        //Debug.Log(cc.isGrounded);
+        if (direction != Vector3.zero /*&& grounded*/)
+        {
+            glideTimer += Time.deltaTime;
+            if (cc.velocity.y < 0 && speed < walkSpeed && glideTimer > 0.15f)
+            {
+                glideTimer = 0;
+                speed += speedIncrement * 4 * Time.deltaTime;
+            }
+        }
 
-        
-        Vector2 targetDir = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        targetDir.Normalize();
-        Debug.Log(targetDir.magnitude + "Magnitude");
+
         if (targetDir.magnitude == 0)
         {
             //Debug.Log("Decrement");
@@ -219,6 +226,39 @@ public class PlayerController : MonoBehaviour
                 decrementTimer = 0;
             }
         }
+
+        timer += Time.deltaTime;
+
+        if (Vector3.Distance(cc.velocity, Vector3.zero) > .25f && timer >= .3f && grounded && canMove == true)
+        {
+            timer = 0;
+            moving = true;
+            /*FMODUnity.RuntimeManager.PlayOneShot("event:/Walk");*/
+            if (speed < walkSpeed)
+                speed += speedIncrement * Time.deltaTime;
+            //Debug.Log("Moving");
+        }
+    }
+
+    void UpdateMovement()
+    {
+        //Debug.Log(cc.isGrounded);
+
+
+        targetDir = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        targetDir.Normalize();
+        Debug.Log(targetDir.magnitude + "Magnitude");
+        /*if (targetDir.magnitude == 0)
+        {
+            //Debug.Log("Decrement");
+            decrementTimer += Time.deltaTime;
+            if (decrementTimer > 0.15f)
+            {
+                if (speed > 10)
+                    speed -= speedIncrement * Time.deltaTime;
+                decrementTimer = 0;
+            }
+        }*/
 
         currentDirection = Vector2.SmoothDamp(currentDirection, targetDir, ref currentDirectionVelocity, moveSmoothTime);
 
@@ -261,7 +301,7 @@ public class PlayerController : MonoBehaviour
             }
             else
                 velocityY = Mathf.Sqrt(-2f * gravity * jumpForce);
-            
+
             transform.parent = null;
             FMODUnity.RuntimeManager.PlayOneShot("event:/Jump");
         }
@@ -285,18 +325,18 @@ public class PlayerController : MonoBehaviour
 
         if (velocity != Vector3.zero && canMove || isWallrunning)
         {
-            
-            timer += Time.deltaTime;
+
+            /*timer += Time.deltaTime;
 
             if (Vector3.Distance(cc.velocity, Vector3.zero) > .25f && timer >= .3f && grounded && canMove == true)
             {
                 timer = 0;
                 moving = true;
-                /*FMODUnity.RuntimeManager.PlayOneShot("event:/Walk");*/
+                //FMODUnity.RuntimeManager.PlayOneShot("event:/Walk");
                 if (speed < walkSpeed)
                     speed += speedIncrement * Time.deltaTime;
                 //Debug.Log("Moving");
-            }
+            }*/
 
             if (Vector3.Distance(cc.velocity, Vector3.zero) < .25f || grounded == false)
             {
@@ -304,7 +344,7 @@ public class PlayerController : MonoBehaviour
             }
 
             cc.Move(velocity * Time.deltaTime);
-            
+
         }
 
     }
@@ -334,7 +374,7 @@ public class PlayerController : MonoBehaviour
 
         if (hit.gameObject.transform != wallrunTransform)
         {
-//            Debug.Log("Stop Wallrunning Jump " + hit.gameObject.name);
+            //            Debug.Log("Stop Wallrunning Jump " + hit.gameObject.name);
             wallrunTransform = null;
         }
     }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
 
 public class Wallrun : MonoBehaviour
@@ -11,6 +12,7 @@ public class Wallrun : MonoBehaviour
     //SD
     bool playing;
     [SerializeField] float interval;
+    [SerializeField] CinemachineVirtualCamera vCam;
 
     void Start()
     {
@@ -25,10 +27,21 @@ public class Wallrun : MonoBehaviour
         layerMask = ~layerMask;
 
         RaycastHit hit;
+        RaycastHit rightHit;
+        RaycastHit leftHit;
         // Get nearest Wall
         if ((Physics.Raycast(transform.position, transform.right, out hit, 2.5f, layerMask) || Physics.Raycast(transform.position, -transform.right, out hit, 2.5f, layerMask)
             || Physics.Raycast(transform.position, transform.forward, out hit, 2.5f, layerMask)) && !Input.GetButton("Jump") && playerController.wallrunTimer >= playerController.wallrunCD)
         {
+            if (Physics.Raycast(transform.position, -transform.right, out leftHit, 2.5f, layerMask) &&
+                leftHit.transform.CompareTag("Wallrun"))
+            {
+                Tilt(false);
+                Debug.Log("left");
+            }
+
+            if (Physics.Raycast(transform.position, transform.right, out rightHit, 2.5f, layerMask) && rightHit.transform.CompareTag("Wallrun"))
+                Tilt(true);
             if (hit.collider.tag == "Wallrun" && hit.collider.gameObject != playerController.wallrunTransform)
             {
                 if (cc.isGrounded == false)
@@ -68,6 +81,29 @@ public class Wallrun : MonoBehaviour
             playerController.GravityOn();
             //Debug.Log("Wallruning falsening");
             playerController.isWallrunning = false;
+            UnTilt();
         }
+
+        if (Input.GetButton("Jump"))
+        {
+                UnTilt();
+        }
+    }
+
+    //private Vector3 currentVelocity = Vector3.zero;
+    [SerializeField] private float smoothTime = 0.2f;
+    [SerializeField] private float value = 20;
+
+    void Tilt(bool right)
+    {
+        if (right)
+            vCam.m_Lens.Dutch = Mathf.Lerp(vCam.m_Lens.Dutch, value, smoothTime);
+        else
+            vCam.m_Lens.Dutch = Mathf.Lerp(vCam.m_Lens.Dutch, -value, smoothTime);
+    }
+
+    void UnTilt()
+    {
+        vCam.m_Lens.Dutch = Mathf.Lerp(vCam.m_Lens.Dutch, 0, smoothTime);
     }
 }

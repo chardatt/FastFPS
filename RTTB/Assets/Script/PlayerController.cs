@@ -66,6 +66,13 @@ public class PlayerController : MonoBehaviour
     bool groundedCheck;
 
     Vector2 targetDir;
+
+
+    public float maxSlopeAngle;
+    private RaycastHit slopeHit;
+    private bool exitingSlope;
+    public float playerHeight = 0.5f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -76,6 +83,22 @@ public class PlayerController : MonoBehaviour
         slide_event_fmod = FMODUnity.RuntimeManager.CreateInstance("event:/Slide");
 
         beatController = GameObject.FindObjectOfType<BeatController>();
+    }
+
+    bool OnSlope()
+    {
+        if (Physics.Raycast(transform.position, Vector3.down, out slopeHit, playerHeight * 0.5f + 0.3f))
+        {
+            float angle = Vector3.Angle(Vector3.up, slopeHit.normal);
+            return angle < maxSlopeAngle && angle != 0;
+        }
+
+        return false;
+    }
+
+    Vector3 GetSlopeMoveDirection(Vector3 directionS)
+    {
+        return Vector3.ProjectOnPlane(directionS, slopeHit.normal).normalized;
     }
 
     // Update is called once per frame
@@ -247,29 +270,16 @@ public class PlayerController : MonoBehaviour
 
         targetDir = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         targetDir.Normalize();
-        Debug.Log(targetDir.magnitude + "Magnitude");
-        /*if (targetDir.magnitude == 0)
-        {
-            //Debug.Log("Decrement");
-            decrementTimer += Time.deltaTime;
-            if (decrementTimer > 0.15f)
-            {
-                if (speed > 10)
-                    speed -= speedIncrement * Time.deltaTime;
-                decrementTimer = 0;
-            }
-        }*/
+        //Debug.Log(targetDir.magnitude + "Magnitude");
+        
 
         currentDirection = Vector2.SmoothDamp(currentDirection, targetDir, ref currentDirectionVelocity, moveSmoothTime);
 
-        //if (cc.isGrounded)
         if (grounded || isWallrunning == true)
         {
-            //Debug.Log("CanJump");
             isJumping = false;
             velocityY = 0;
             jumpTimer = 0;
-            //isWallrunning = false;
         }
         else
         {
@@ -286,13 +296,24 @@ public class PlayerController : MonoBehaviour
         velocityY += gravity * Time.deltaTime;
         Vector3 velocity = Vector3.zero;
         if (canMove)
-            velocity = (transform.forward * currentDirection.y + transform.right * currentDirection.x) * speed;
+        {
+            if (OnSlope())
+            {
+                Vector3 direction = (transform.forward * currentDirection.y + transform.right * currentDirection.x);
+                velocity = GetSlopeMoveDirection(direction) * speed;
+            }
+            else
+            {
+                velocity = (transform.forward * currentDirection.y + transform.right * currentDirection.x) * speed;
+            }
+        }
+            
 
         if (Input.GetButtonDown("Jump") && isJumping == false)
         {
             isJumping = true;
             Debug.Log(isWallrunning);
-            //isWallrunning = false;
+
             if (isWallrunning)
             {
                 wallrunTimer = 0;
@@ -306,7 +327,6 @@ public class PlayerController : MonoBehaviour
             FMODUnity.RuntimeManager.PlayOneShot("event:/Jump");
         }
 
-        //if (cc.isGrounded == false && isWallrunning == false)
         if (grounded == false && isWallrunning == false)
         {
             if (velocityY < 0)
@@ -325,26 +345,12 @@ public class PlayerController : MonoBehaviour
 
         if (velocity != Vector3.zero && canMove || isWallrunning)
         {
-
-            /*timer += Time.deltaTime;
-
-            if (Vector3.Distance(cc.velocity, Vector3.zero) > .25f && timer >= .3f && grounded && canMove == true)
-            {
-                timer = 0;
-                moving = true;
-                //FMODUnity.RuntimeManager.PlayOneShot("event:/Walk");
-                if (speed < walkSpeed)
-                    speed += speedIncrement * Time.deltaTime;
-                //Debug.Log("Moving");
-            }*/
-
             if (Vector3.Distance(cc.velocity, Vector3.zero) < .25f || grounded == false)
             {
                 moving = false;
             }
 
             cc.Move(velocity * Time.deltaTime);
-
         }
 
     }
@@ -359,12 +365,12 @@ public class PlayerController : MonoBehaviour
         cameraPitch = Mathf.Clamp(cameraPitch, -90, 90);
 
         playerCamera.localEulerAngles = Vector3.right * cameraPitch;
-        transform.Rotate(Vector3.up * currentMouseDelta.x * mouseSensitivity);
+        transform.Rotate(currentMouseDelta.x * mouseSensitivity * Vector3.up);
     }
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        if (hit.gameObject.tag == "Ground")
+        if (hit.gameObject.CompareTag("Ground"))
         {
             transform.parent = hit.gameObject.transform;
             wallrunTransform = null;

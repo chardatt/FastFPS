@@ -6,9 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/Scenes/Quentin.unity
+    path: Assets/Scenes/QuentinOpen.unity
     guid: cc65f1feb067a83439288bd79f571c3e
   - enabled: 1
-    path: Assets/Scenes/Tristan.unity
+    path: Assets/Scenes/TristanRampeLancement.unity
     guid: c5f4dd20b9108924d8c36a8189363b7a
   m_configObjects: {}

@@ -90,20 +90,26 @@ public class Wallrun : MonoBehaviour
         }
     }
 
+    public void StopWallRunSound()
+    {
+        event_fmod.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+    }
+
     //private Vector3 currentVelocity = Vector3.zero;
+    [Header("Camera roll")]
     [SerializeField] private float smoothTime = 0.2f;
     [SerializeField] private float value = 20;
 
     void Tilt(bool right)
     {
         if (right)
-            vCam.m_Lens.Dutch = Mathf.Lerp(vCam.m_Lens.Dutch, value, smoothTime);
+            vCam.m_Lens.Dutch = Mathf.Lerp(vCam.m_Lens.Dutch, value, smoothTime * Time.deltaTime);
         else
-            vCam.m_Lens.Dutch = Mathf.Lerp(vCam.m_Lens.Dutch, -value, smoothTime);
+            vCam.m_Lens.Dutch = Mathf.Lerp(vCam.m_Lens.Dutch, -value, smoothTime * Time.deltaTime);
     }
 
     void UnTilt()
     {
-        vCam.m_Lens.Dutch = Mathf.Lerp(vCam.m_Lens.Dutch, 0, smoothTime);
+        vCam.m_Lens.Dutch = Mathf.Lerp(vCam.m_Lens.Dutch, 0, smoothTime * Time.deltaTime);
     }
 }

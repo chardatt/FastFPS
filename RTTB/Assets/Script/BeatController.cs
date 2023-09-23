@@ -46,7 +46,13 @@ public class BeatController : MonoBehaviour
 
     public void StopBeat()
     {
+        
         event_fmod.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+    }
+
+    public void PauseBeat(bool state)
+    {
+        event_fmod.setPaused(state);
     }
 
     public void StartBeat()

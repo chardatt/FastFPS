@@ -11,6 +11,7 @@ public class Restart : MonoBehaviour
     public GameObject start;
     public GameObject quit;
     public GameObject rest;
+    private Wallrun _wallrun;
     [SerializeField] bool lockCursor = true;
     bool menuOpen;
     /// <summary>
@@ -18,13 +19,7 @@ public class Restart : MonoBehaviour
     /// </summary>
     void Awake()
     {
-        stop = GameObject.FindGameObjectWithTag("Stop");
-        start = GameObject.FindGameObjectWithTag("Start");
-        quit = GameObject.FindGameObjectWithTag("Quit");
-        rest = GameObject.FindGameObjectWithTag("Restart");
-        stop.SetActive(false);
-        quit.SetActive(false);
-        rest.SetActive(false);
+        SceneManager.sceneLoaded += GetObj;
         if (lockCursor)
         {
             Cursor.lockState = CursorLockMode.Locked;
@@ -41,16 +36,34 @@ public class Restart : MonoBehaviour
         }
     }
 
+    void GetObj(Scene scene, LoadSceneMode mode)
+    {
+        timer = 0;
+        Time.timeScale = 1;
+        _wallrun = GameObject.FindObjectOfType<Wallrun>();
+        stop = GameObject.FindGameObjectWithTag("Stop");
+        start = GameObject.FindGameObjectWithTag("Start");
+        quit = GameObject.FindGameObjectWithTag("Quit");
+        rest = GameObject.FindGameObjectWithTag("Restart");
+        if (stop && quit && rest)
+        {
+            stop.SetActive(false);
+            quit.SetActive(false);
+            rest.SetActive(false);
+        }
+    }
+
     // Update is called once per frame
     void LateUpdate()
     {
+        
         timer += Time.deltaTime;
         if (Input.GetKeyDown(KeyCode.R))
         {
             Ft_Restart();
         }
 
-        if (stop == null)
+        if (stop == null && SceneManager.GetActiveScene() != SceneManager.GetSceneAt(0))
         {
             Debug.Log("Test Reset");
             stop = GameObject.FindGameObjectWithTag("UI").transform.Find("Stop").gameObject;
@@ -62,7 +75,7 @@ public class Restart : MonoBehaviour
             rest.SetActive(false);
         }
 
-        if (Input.GetKeyDown(KeyCode.Tab))
+        if (Input.GetKeyDown(KeyCode.Tab) || Input.GetKeyDown(KeyCode.Escape))
         {
             if (menuOpen)
             {
@@ -77,15 +90,18 @@ public class Restart : MonoBehaviour
 
     public void Ft_Restart()
     {    
+        _wallrun.StopWallRunSound();
         GameObject.FindObjectOfType<BeatController>().StopBeat();
         FMODUnity.RuntimeManager.PlayOneShot("event:/Rewind");
         Time.timeScale = 1;
+        timer = 0;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        GetObj(SceneManager.GetActiveScene(), LoadSceneMode.Additive);
     }
 
     void OpenMenu()
     {
-        GameObject.FindObjectOfType<BeatController>().StopBeat();
+        GameObject.FindObjectOfType<BeatController>().PauseBeat(true);
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
         quit.SetActive(true);
@@ -97,7 +113,7 @@ public class Restart : MonoBehaviour
 
     void CloseMenu()
     {
-        GameObject.FindObjectOfType<BeatController>().StartBeat();
+        GameObject.FindObjectOfType<BeatController>().PauseBeat(false);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         quit.SetActive(false);

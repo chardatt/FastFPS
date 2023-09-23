@@ -30,6 +30,8 @@ public class Victory : MonoBehaviour
         Time.timeScale = 0;
         sceneIndex = SceneManager.GetActiveScene().buildIndex;
         sceneIndex++;
+        if (sceneIndex >= SceneManager.sceneCountInBuildSettings)
+            sceneIndex = 0;
         canChangeScene = true;
         UIBase.SetActive(false);
         UIFin.SetActive(true);

@@ -76,7 +76,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        transform.position = GameObject.FindObjectOfType<PlayerStartingPoint>().position;
+        //transform.position = GameObject.FindObjectOfType<PlayerStartingPoint>().position;
         gravityTmp = gravity;
         cc = GetComponent<CharacterController>();
 
@@ -187,6 +187,7 @@ public class PlayerController : MonoBehaviour
 
     void UpdateGlissade()
     {
+        Vector3 rightDir = transform.right * (Input.GetAxisRaw("Horizontal") * 2 * Time.deltaTime);
         if ((Input.GetButtonDown("Fire1") || Input.GetKeyDown(KeyCode.LeftShift)) && grounded)
         {
 
@@ -195,7 +196,7 @@ public class PlayerController : MonoBehaviour
             canMove = false;
 
             direction = transform.forward;
-            speed += dashSpeed/* - speed * (Time.deltaTime * 0.5f)*/;
+            speed += dashSpeed * Time.deltaTime/* - speed * (Time.deltaTime * 0.5f)*/;
             if (speed > walkSpeed)
                 speed = walkSpeed + 0.01f;
         }
@@ -217,7 +218,7 @@ public class PlayerController : MonoBehaviour
                 speed += speedIncrement * 4 * Time.deltaTime;
             }*/
 
-            cc.Move(direction * speed * Time.deltaTime + Vector3.up * gravity * 5 * Time.deltaTime + Input.GetAxisRaw("Horizontal") * transform.right * Time.deltaTime * 7);
+            cc.Move(direction * (speed * Time.deltaTime) + Vector3.up * (gravity * Time.deltaTime) + rightDir);
             /*if (glideTimer >= dashTime)
             {
                 getUp = true;
@@ -230,10 +231,11 @@ public class PlayerController : MonoBehaviour
         if (direction != Vector3.zero /*&& grounded*/)
         {
             glideTimer += Time.deltaTime;
-            if (cc.velocity.y < 0 && speed < walkSpeed && glideTimer > 0.15f)
+            if (cc.velocity.y < -0.2f && speed < walkSpeed && glideTimer > 0.15f)
             {
+                Debug.Log("SpeedIncrement Glide");
                 glideTimer = 0;
-                speed += speedIncrement * 4 * Time.deltaTime;
+                speed += speedIncrement * 2 * Time.deltaTime;
             }
         }
 

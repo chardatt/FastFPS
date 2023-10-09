@@ -8,15 +8,38 @@ public class BeatController : MonoBehaviour
 {
     public PlatformMovement environnementObject;
     public bool notPlaying = false;
+    public Musics levelMusic;
     public FMOD.Studio.EventInstance event_fmod;
     public double timer;
     public Volume postProcessVolume;
     public Bloom bloom;
     float velocity = 0;
     [SerializeField] float bloomSmoothTime;
-    void Start()
+    public double tempo = 0.85714285714;
+
+    private const double RTTBTempo = 0.42857142857;
+    private const double SpeedUpTempo = 0.33898305084;
+    
+
+    public enum Musics
     {
-        event_fmod = FMODUnity.RuntimeManager.CreateInstance("event:/BeatAlexis 2");
+        RTTB,
+        SpeedUp
+    }
+    
+    void Awake()
+    {
+        string levelMusicName = $"event:/M_{levelMusic}";
+        if (levelMusic == Musics.SpeedUp)
+        {
+            tempo = SpeedUpTempo * 2;
+        }
+        else
+        {
+            tempo = RTTBTempo * 2;
+        }
+        
+        event_fmod = FMODUnity.RuntimeManager.CreateInstance(levelMusicName);
         postProcessVolume.profile.TryGet<Bloom>(out bloom);
     }
 
@@ -30,7 +53,7 @@ public class BeatController : MonoBehaviour
         }
         if (!notPlaying)
         {
-            if (timer >= 0.85714285714)
+            if (timer >= tempo)
             {
                 timer = 0;
                 bloom.intensity.value = 20;

@@ -11033,7 +11033,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   posList:
   - {fileID: 332504019}
-  tempo: 0.85714285714
+  tempo: 0
   moving: 0
   grappable: 0
   smoothTime: 0.08
@@ -18079,7 +18079,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   posList:
   - {fileID: 3380713}
-  tempo: 0.85714285714
+  tempo: 0
   moving: 0
   grappable: 0
   smoothTime: 0.08
@@ -22861,7 +22861,7 @@ PrefabInstance:
     - target: {fileID: 8645921398709080832, guid: 260bd6057c79d0c4984f2523c2240f10,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 15.725767
+      value: 17.47
       objectReference: {fileID: 0}
     - target: {fileID: 8645921398709080832, guid: 260bd6057c79d0c4984f2523c2240f10,
         type: 3}
@@ -22956,7 +22956,7 @@ PrefabInstance:
     - target: {fileID: 8645921398709080832, guid: 260bd6057c79d0c4984f2523c2240f10,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 15.725767
+      value: 17.47
       objectReference: {fileID: 0}
     - target: {fileID: 8645921398709080832, guid: 260bd6057c79d0c4984f2523c2240f10,
         type: 3}
@@ -45584,7 +45584,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   posList:
   - {fileID: 514068013}
-  tempo: 0.85714285714
+  tempo: 0
   moving: 0
   grappable: 0
   smoothTime: 0.08

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using EZCameraShake;
 
 public class PlayerController : MonoBehaviour
 {
@@ -73,6 +74,7 @@ public class PlayerController : MonoBehaviour
     private bool exitingSlope;
     public float playerHeight = 0.5f;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -114,6 +116,8 @@ public class PlayerController : MonoBehaviour
         {
             groundedCheck = isJumping;
             Debug.Log(grounded);
+            if (grounded == true)
+                CameraShaker.Instance.ShakeOnce(4f, 4f, .1f, 1f);
             FMODUnity.RuntimeManager.PlayOneShot("event:/Reception");
         }
 

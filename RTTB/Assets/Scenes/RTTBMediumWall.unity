@@ -153,7 +153,7 @@ PrefabInstance:
     - target: {fileID: 1215276970938102382, guid: b94663a90f9a85d41b5e58675d8610ee,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.08
       objectReference: {fileID: 0}
     - target: {fileID: 1215276970938102382, guid: b94663a90f9a85d41b5e58675d8610ee,
         type: 3}
@@ -189,26 +189,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1215276970938102383, guid: b94663a90f9a85d41b5e58675d8610ee,
-        type: 3}
-      propertyPath: gravity
-      value: -35
-      objectReference: {fileID: 0}
-    - target: {fileID: 1215276970938102383, guid: b94663a90f9a85d41b5e58675d8610ee,
-        type: 3}
-      propertyPath: jumpForce
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1215276970938102383, guid: b94663a90f9a85d41b5e58675d8610ee,
-        type: 3}
-      propertyPath: wallrunJumpY
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1215276970938102383, guid: b94663a90f9a85d41b5e58675d8610ee,
-        type: 3}
-      propertyPath: speedIncrement
-      value: 35
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b94663a90f9a85d41b5e58675d8610ee, type: 3}
@@ -2124,6 +2104,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8720926296302031712, guid: 9ca02f72276da314cbb6c896b963dad2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9ca02f72276da314cbb6c896b963dad2, type: 3}

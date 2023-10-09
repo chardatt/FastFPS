@@ -99,6 +99,15 @@
      <Compile Include="Assets\Script\Wallrun.cs" />
      <Compile Include="Assets\Script\Grappling.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
+     <Compile Include="Assets\Script\CameraShake.cs" />
+     <Compile Include="Assets\EZ Camera Shake\Scripts\Utilities\CameraUtilities.cs" />
+     <Compile Include="Assets\EZ Camera Shake\Demo\Sample Scripts\ShakeByDistance.cs" />
+     <Compile Include="Assets\EZ Camera Shake\Scripts\CameraShakePresets.cs" />
+     <Compile Include="Assets\EZ Camera Shake\Demo\Sample Scripts\ShakeOnTrigger.cs" />
+     <Compile Include="Assets\EZ Camera Shake\Scripts\CameraShaker.cs" />
+     <Compile Include="Assets\EZ Camera Shake\Scripts\CameraShakeInstance.cs" />
+     <Compile Include="Assets\EZ Camera Shake\Demo\ShakeDemo.cs" />
+     <Compile Include="Assets\EZ Camera Shake\Demo\Sample Scripts\ShakeOnKeyPress.cs" />
      <Folder Include="Assets" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <Folder Include="Assets\TextMesh Pro\Examples &amp; Extras\Sprites" />
@@ -122,6 +131,7 @@
      <Folder Include="Assets\TextMesh Pro\Resources" />
      <Folder Include="Assets\Materials\ShaderGraph\Materials" />
      <Folder Include="Assets\Prefab\Struct" />
+     <Folder Include="Assets\EZ Camera Shake\Demo\Sample Scripts" />
      <Folder Include="Assets\Samples\Visual Effect Graph\12.1.4\VisualEffectGraph Additions\Subgraphs\Operators\Tween" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
      <Folder Include="Assets\TextMesh Pro" />
@@ -132,6 +142,7 @@
      <Folder Include="Assets\TextMesh Pro\Examples &amp; Extras\Resources" />
      <Folder Include="Assets\Samples\Visual Effect Graph\12.1.4\VisualEffectGraph Additions\VFX" />
      <Folder Include="Assets\Samples\Visual Effect Graph\12.1.4\VisualEffectGraph Additions\Subgraphs" />
+     <Folder Include="Assets\EZ Camera Shake\Docs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
      <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
@@ -145,10 +156,12 @@
      <Folder Include="Assets\Samples\ProBuilder\5.0.4\Universal Render Pipeline Support" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
      <Folder Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts" />
+     <Folder Include="Assets\EZ Camera Shake\Scripts\Utilities" />
      <Folder Include="Assets\Script\Menu" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
      <Folder Include="Assets\TextMesh Pro\Shaders" />
      <Folder Include="Assets\Samples\Visual Effect Graph\12.1.4\VisualEffectGraph Additions\Textures\Explosion" />
+     <Folder Include="Assets\EZ Camera Shake\Scripts" />
      <Folder Include="Assets\TextMesh Pro\Examples &amp; Extras\Resources\Sprite Assets" />
      <Folder Include="Assets\TextMesh Pro\Resources\Style Sheets" />
      <Folder Include="Assets\Fonts" />
@@ -161,6 +174,7 @@
      <Folder Include="Assets\Script" />
      <Folder Include="Assets\Samples\Visual Effect Graph\12.1.4\VisualEffectGraph Additions\Shaders" />
      <Folder Include="Assets\TextMesh Pro\Examples &amp; Extras\Scenes" />
+     <Folder Include="Assets\EZ Camera Shake\Demo" />
      <Folder Include="Assets\Materials\VFX" />
      <Folder Include="Assets\Materials\VFX\BEACON_VFX" />
      <Folder Include="Assets\Samples\ProBuilder" />
@@ -180,6 +194,7 @@
      <Folder Include="Assets\Scenes\Tristan" />
      <Folder Include="Assets\Samples\Visual Effect Graph\12.1.4\VisualEffectGraph Additions\Textures\Fire" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
+     <Folder Include="Assets\EZ Camera Shake" />
      <Folder Include="Assets\TextMesh Pro\Examples &amp; Extras\Resources\Fonts &amp; Materials" />
      <Folder Include="Assets\Resources" />
      <Folder Include="Assets\TextMesh Pro\Examples &amp; Extras\Resources\Color Gradient Presets" />

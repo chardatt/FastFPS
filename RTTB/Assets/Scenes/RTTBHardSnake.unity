@@ -523,7 +523,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   posList:
   - {fileID: 126904383}
-  tempo: 0.85714285714
+  tempo: 0
   moving: 0
   grappable: 0
   smoothTime: 0.08
@@ -3368,6 +3368,11 @@ PrefabInstance:
     - target: {fileID: 2837819790131412563, guid: 9422d06eed4537543a2b3d73318fbf53,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2837819790131412564, guid: 9422d06eed4537543a2b3d73318fbf53,
+        type: 3}
+      propertyPath: levelMusic
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2837819790131412564, guid: 9422d06eed4537543a2b3d73318fbf53,
@@ -6820,7 +6825,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   posList:
   - {fileID: 1265704559}
-  tempo: 0.85714285714
+  tempo: 0
   moving: 0
   grappable: 0
   smoothTime: 0.08
@@ -8842,7 +8847,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   posList:
   - {fileID: 0}
-  tempo: 0.85714285714
+  tempo: 0
   moving: 0
   grappable: 0
   smoothTime: 0.08
@@ -11783,7 +11788,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   posList:
   - {fileID: 14816335}
-  tempo: 0.85714285714
+  tempo: 0
   moving: 0
   grappable: 0
   smoothTime: 0.08
@@ -13316,7 +13321,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   posList:
   - {fileID: 1960541860}
-  tempo: 0.85714285714
+  tempo: 0
   moving: 0
   grappable: 0
   smoothTime: 0.08
@@ -13529,7 +13534,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   posList:
   - {fileID: 0}
-  tempo: 0.85714285714
+  tempo: 0
   moving: 0
   grappable: 0
   smoothTime: 0.08
@@ -14981,7 +14986,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   posList:
   - {fileID: 1026081219}
-  tempo: 0.85714285714
+  tempo: 0
   moving: 0
   grappable: 0
   smoothTime: 0.08
@@ -15094,21 +15099,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -8203042305068618524, guid: 2796e6e8e08116d42bd9509e02499eb0,
-        type: 3}
-      propertyPath: tempo
-      value: 0.85714285714
-      objectReference: {fileID: 0}
-    - target: {fileID: -8203042305068618524, guid: 2796e6e8e08116d42bd9509e02499eb0,
-        type: 3}
-      propertyPath: smoothTime
-      value: 0.08
-      objectReference: {fileID: 0}
-    - target: {fileID: -8203042305068618524, guid: 2796e6e8e08116d42bd9509e02499eb0,
-        type: 3}
-      propertyPath: posList.Array.size
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: -8203042305068618524, guid: 2796e6e8e08116d42bd9509e02499eb0,
         type: 3}
       propertyPath: posList.Array.data[0]

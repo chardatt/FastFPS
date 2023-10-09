@@ -110,8 +110,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29f53d8a3e8215b4b93c7367ea3239c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  posList: []
-  tempo: 0
+  posList:
+  - {fileID: 0}
+  tempo: 0.85714285714
   moving: 0
   grappable: 0
-  smoothTime: 2
+  smoothTime: 0.08

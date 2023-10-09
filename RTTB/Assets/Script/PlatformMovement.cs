@@ -7,7 +7,7 @@ public class PlatformMovement : MonoBehaviour
     public List<Transform> posList = new List<Transform>();
     //public Vector3 translatorVector;
     Transform origin;
-    public double tempo;
+    double tempo;
     double timer;
     public bool moving = false;
     public bool grappable = false;
@@ -17,10 +17,13 @@ public class PlatformMovement : MonoBehaviour
     GameObject player;
     int i = 0;
     Quaternion target;
+    private BeatController _beatController;
     
     // Start is called before the first frame update
     void Start()
     {
+        _beatController = GameObject.FindObjectOfType<BeatController>();
+        tempo = _beatController.tempo;
         origin = new GameObject().transform;
         origin.position = transform.position;
         origin.rotation = transform.rotation;

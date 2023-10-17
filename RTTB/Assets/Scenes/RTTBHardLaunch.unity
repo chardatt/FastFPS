@@ -335,7 +335,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   posList:
   - {fileID: 0}
-  tempo: 0
   moving: 0
   grappable: 0
   smoothTime: 2
@@ -510,15 +509,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1441383826, guid: b94663a90f9a85d41b5e58675d8610ee, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1215276970190134673, guid: b94663a90f9a85d41b5e58675d8610ee,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1215276970938102380, guid: b94663a90f9a85d41b5e58675d8610ee,
         type: 3}
       propertyPath: m_Name
@@ -581,23 +571,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1215276970938102383, guid: b94663a90f9a85d41b5e58675d8610ee,
         type: 3}
-      propertyPath: gravity
-      value: -35
-      objectReference: {fileID: 0}
-    - target: {fileID: 1215276970938102383, guid: b94663a90f9a85d41b5e58675d8610ee,
-        type: 3}
-      propertyPath: jumpForce
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1215276970938102383, guid: b94663a90f9a85d41b5e58675d8610ee,
-        type: 3}
-      propertyPath: wallrunJumpY
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1215276970938102383, guid: b94663a90f9a85d41b5e58675d8610ee,
-        type: 3}
-      propertyPath: speedIncrement
-      value: 35
+      propertyPath: smoothCamFovMod
+      value: 0.9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b94663a90f9a85d41b5e58675d8610ee, type: 3}
@@ -1261,7 +1236,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: d6550af71f813dd489e3a9805dea2a09, type: 2}
+      objectReference: {fileID: 2100000, guid: 339535689ff399b4683e177888dd1802, type: 2}
     - target: {fileID: 5351397934353825660, guid: 260bd6057c79d0c4984f2523c2240f10,
         type: 3}
       propertyPath: m_Mesh
@@ -1359,7 +1334,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   posList:
   - {fileID: 1430155241}
-  tempo: 0.85714285714
   moving: 0
   grappable: 0
   smoothTime: 0.08
@@ -1449,7 +1423,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: d6550af71f813dd489e3a9805dea2a09, type: 2}
+      objectReference: {fileID: 2100000, guid: 339535689ff399b4683e177888dd1802, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c07aa69f78a10004c894a926ae035732, type: 3}
 --- !u!1001 &33739782
@@ -1673,8 +1647,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 42690047}
-  - component: {fileID: 42690044}
-  - component: {fileID: 42690046}
   m_Layer: 0
   m_Name: glissade
   m_TagString: Untagged
@@ -1682,35 +1654,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &42690044
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 42690042}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee95735188eb92044ac18a40f5d8519b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  plate: []
-  beginIndex: 0
-  endIndex: 8
-  enteringArea: 0
---- !u!65 &42690046
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 42690042}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 10, y: 10, z: 10}
-  m_Center: {x: 674.3, y: -22, z: 358.32}
 --- !u!4 &42690047
 Transform:
   m_ObjectHideFlags: 0
@@ -2186,7 +2129,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   posList:
   - {fileID: 601383419}
-  tempo: 0.85714285714
   moving: 0
   grappable: 0
   smoothTime: 0.08
@@ -2417,7 +2359,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   posList:
   - {fileID: 207566354}
-  tempo: 0.85714285714
   moving: 0
   grappable: 0
   smoothTime: 0.08
@@ -4671,7 +4612,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: d6550af71f813dd489e3a9805dea2a09, type: 2}
+      objectReference: {fileID: 2100000, guid: 339535689ff399b4683e177888dd1802, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c07aa69f78a10004c894a926ae035732, type: 3}
 --- !u!1001 &184417649
@@ -4754,7 +4695,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: d6550af71f813dd489e3a9805dea2a09, type: 2}
+      objectReference: {fileID: 2100000, guid: 339535689ff399b4683e177888dd1802, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c07aa69f78a10004c894a926ae035732, type: 3}
 --- !u!4 &184417650 stripped
@@ -5263,7 +5204,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   posList:
   - {fileID: 2006736665}
-  tempo: 0.85714285714
   moving: 0
   grappable: 0
   smoothTime: 0.08
@@ -5551,7 +5491,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   posList:
   - {fileID: 1088645457}
-  tempo: 0.85714285714
   moving: 0
   grappable: 0
   smoothTime: 0.08
@@ -8049,7 +7988,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   posList:
   - {fileID: 1026917442}
-  tempo: 0.85714285714
   moving: 0
   grappable: 0
   smoothTime: 0.08
@@ -8168,7 +8106,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   posList:
   - {fileID: 0}
-  tempo: 0
   moving: 0
   grappable: 0
   smoothTime: 2
@@ -9220,7 +9157,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   posList:
   - {fileID: 2006736665}
-  tempo: 0.85714285714
   moving: 0
   grappable: 0
   smoothTime: 0.08
@@ -10647,7 +10583,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   posList:
   - {fileID: 842032751}
-  tempo: 0.85714285714
   moving: 0
   grappable: 0
   smoothTime: 0.08
@@ -11033,7 +10968,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   posList:
   - {fileID: 332504019}
-  tempo: 0
   moving: 0
   grappable: 0
   smoothTime: 0.08
@@ -12479,7 +12413,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   posList: []
-  tempo: 0
   moving: 0
   grappable: 0
   smoothTime: 2
@@ -14355,7 +14288,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   posList:
   - {fileID: 1575286813}
-  tempo: 0.85714285714
   moving: 0
   grappable: 0
   smoothTime: 0.08
@@ -14592,7 +14524,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   posList:
   - {fileID: 979071079}
-  tempo: 0.85714285714
   moving: 0
   grappable: 0
   smoothTime: 0.08
@@ -14934,7 +14865,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: d6550af71f813dd489e3a9805dea2a09, type: 2}
+      objectReference: {fileID: 2100000, guid: 339535689ff399b4683e177888dd1802, type: 2}
     - target: {fileID: 5351397934353825660, guid: 260bd6057c79d0c4984f2523c2240f10,
         type: 3}
       propertyPath: m_Mesh
@@ -15032,7 +14963,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   posList:
   - {fileID: 1571739441}
-  tempo: 0.85714285714
   moving: 0
   grappable: 0
   smoothTime: 0.08
@@ -15595,7 +15525,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: d6550af71f813dd489e3a9805dea2a09, type: 2}
+      objectReference: {fileID: 2100000, guid: 339535689ff399b4683e177888dd1802, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c07aa69f78a10004c894a926ae035732, type: 3}
 --- !u!1 &627393586
@@ -17030,7 +16960,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: d6550af71f813dd489e3a9805dea2a09, type: 2}
+      objectReference: {fileID: 2100000, guid: 339535689ff399b4683e177888dd1802, type: 2}
     - target: {fileID: 5351397934353825660, guid: 260bd6057c79d0c4984f2523c2240f10,
         type: 3}
       propertyPath: m_Mesh
@@ -17128,7 +17058,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   posList:
   - {fileID: 452553303}
-  tempo: 0.85714285714
   moving: 0
   grappable: 0
   smoothTime: 0.08
@@ -17616,7 +17545,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   posList:
   - {fileID: 1504775328}
-  tempo: 0.85714285714
   moving: 0
   grappable: 0
   smoothTime: 0.08
@@ -18079,7 +18007,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   posList:
   - {fileID: 3380713}
-  tempo: 0
   moving: 0
   grappable: 0
   smoothTime: 0.08
@@ -18986,7 +18913,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   posList:
   - {fileID: 1367711103}
-  tempo: 0.85714285714
   moving: 0
   grappable: 0
   smoothTime: 0.08
@@ -21324,7 +21250,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   posList:
   - {fileID: 988829023}
-  tempo: 0.85714285714
   moving: 0
   grappable: 0
   smoothTime: 0.08
@@ -21442,7 +21367,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   posList:
   - {fileID: 443284397}
-  tempo: 0.85714285714
   moving: 0
   grappable: 0
   smoothTime: 0.08
@@ -22101,7 +22025,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   posList:
   - {fileID: 873324192}
-  tempo: 0.85714285714
   moving: 0
   grappable: 0
   smoothTime: 0.08
@@ -23251,7 +23174,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   posList:
   - {fileID: 601383419}
-  tempo: 0.85714285714
   moving: 0
   grappable: 0
   smoothTime: 0.08
@@ -23561,7 +23483,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   posList:
   - {fileID: 835874500}
-  tempo: 0.85714285714
   moving: 0
   grappable: 0
   smoothTime: 0.08
@@ -24067,7 +23988,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: d6550af71f813dd489e3a9805dea2a09, type: 2}
+      objectReference: {fileID: 2100000, guid: 339535689ff399b4683e177888dd1802, type: 2}
     - target: {fileID: 5351397934353825660, guid: 260bd6057c79d0c4984f2523c2240f10,
         type: 3}
       propertyPath: m_Mesh
@@ -24160,7 +24081,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   posList:
   - {fileID: 1231374966}
-  tempo: 0.85714285714
   moving: 0
   grappable: 0
   smoothTime: 0.08
@@ -24725,7 +24645,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: d6550af71f813dd489e3a9805dea2a09, type: 2}
+      objectReference: {fileID: 2100000, guid: 339535689ff399b4683e177888dd1802, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c07aa69f78a10004c894a926ae035732, type: 3}
 --- !u!1001 &1026917440
@@ -24838,7 +24758,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   posList:
   - {fileID: 330066176}
-  tempo: 0.85714285714
   moving: 0
   grappable: 0
   smoothTime: 0.08
@@ -25483,7 +25402,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   posList:
   - {fileID: 1308634555}
-  tempo: 0.85714285714
   moving: 0
   grappable: 0
   smoothTime: 0.08
@@ -25805,7 +25723,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   posList:
   - {fileID: 1342896449}
-  tempo: 0.85714285714
   moving: 0
   grappable: 0
   smoothTime: 0.08
@@ -25992,7 +25909,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   posList:
   - {fileID: 215372003}
-  tempo: 0.85714285714
   moving: 0
   grappable: 0
   smoothTime: 0.08
@@ -27370,7 +27286,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   posList:
   - {fileID: 1467994196}
-  tempo: 0.85714285714
   moving: 0
   grappable: 0
   smoothTime: 0.08
@@ -31363,7 +31278,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   posList:
   - {fileID: 1064632561}
-  tempo: 0.85714285714
   moving: 0
   grappable: 0
   smoothTime: 0.08
@@ -32948,7 +32862,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   posList:
   - {fileID: 734468174}
-  tempo: 0.85714285714
   moving: 0
   grappable: 0
   smoothTime: 0.08
@@ -35395,7 +35308,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   posList:
   - {fileID: 601383419}
-  tempo: 0.85714285714
   moving: 0
   grappable: 0
   smoothTime: 0.08
@@ -36467,7 +36379,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   posList:
   - {fileID: 689474509}
-  tempo: 0.85714285714
   moving: 0
   grappable: 0
   smoothTime: 0.08
@@ -36907,7 +36818,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: d6550af71f813dd489e3a9805dea2a09, type: 2}
+      objectReference: {fileID: 2100000, guid: 339535689ff399b4683e177888dd1802, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c07aa69f78a10004c894a926ae035732, type: 3}
 --- !u!1001 &1541619653
@@ -37866,7 +37777,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   posList:
   - {fileID: 587024323}
-  tempo: 0.85714285714
   moving: 0
   grappable: 0
   smoothTime: 0.08
@@ -38275,7 +38185,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: d6550af71f813dd489e3a9805dea2a09, type: 2}
+      objectReference: {fileID: 2100000, guid: 339535689ff399b4683e177888dd1802, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c07aa69f78a10004c894a926ae035732, type: 3}
 --- !u!1001 &1615438455
@@ -45356,7 +45266,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   posList:
   - {fileID: 601383419}
-  tempo: 0.85714285714
   moving: 0
   grappable: 0
   smoothTime: 0.08
@@ -45584,7 +45493,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   posList:
   - {fileID: 514068013}
-  tempo: 0
   moving: 0
   grappable: 0
   smoothTime: 0.08
@@ -47546,7 +47454,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   posList:
   - {fileID: 1851489178}
-  tempo: 0.85714285714
   moving: 0
   grappable: 0
   smoothTime: 0.08
@@ -50666,7 +50573,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: d6550af71f813dd489e3a9805dea2a09, type: 2}
+      objectReference: {fileID: 2100000, guid: 339535689ff399b4683e177888dd1802, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c07aa69f78a10004c894a926ae035732, type: 3}
 --- !u!4 &2078557834 stripped
@@ -60260,7 +60167,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: d6550af71f813dd489e3a9805dea2a09, type: 2}
+      objectReference: {fileID: 2100000, guid: 339535689ff399b4683e177888dd1802, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c07aa69f78a10004c894a926ae035732, type: 3}
 --- !u!1 &8397924348468143094

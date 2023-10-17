@@ -48,7 +48,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   posList:
   - {fileID: 0}
-  tempo: 0.85714285714
   moving: 0
   grappable: 0
   smoothTime: 0.08
@@ -126,7 +125,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b410997445cce30429a5edbc9ab59066, type: 2}
+  - {fileID: 2100000, guid: d6550af71f813dd489e3a9805dea2a09, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

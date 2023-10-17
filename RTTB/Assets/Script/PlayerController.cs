@@ -2,9 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using EZCameraShake;
+using Cinemachine;
 
 public class PlayerController : MonoBehaviour
 {
+    public CinemachineVirtualCamera vcam;
+    [SerializeField] private float smoothCamFovMod = 0.5f;
+    
     [SerializeField] Transform playerCamera;
     [SerializeField] float mouseSensitivity = 3.5f;
     [SerializeField] float walkSpeed = 6.0f;
@@ -106,6 +110,9 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        var fovMod = speed / 30;
+        vcam.m_Lens.FieldOfView = Mathf.Lerp(60, 90,fovMod);
+        Debug.Log(vcam.m_Lens.FieldOfView + " " + fovMod);
 
         if (isJumping)
         {

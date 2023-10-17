@@ -604,6 +604,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15ff5cd2636794447a5cb3cd50aeff45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  vcam: {fileID: 1000160211}
   playerCamera: {fileID: 1215276970190134676}
   mouseSensitivity: 3.5
   walkSpeed: 30

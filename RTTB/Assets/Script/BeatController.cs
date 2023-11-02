@@ -19,12 +19,14 @@ public class BeatController : MonoBehaviour
 
     private const double RTTBTempo = 0.42857142857;
     private const double SpeedUpTempo = 0.33898305084;
+    private const double MetalTempo = 0.4;
     
 
     public enum Musics
     {
         RTTB,
-        SpeedUp
+        SpeedUp,
+        Metal
     }
     
     void Awake()
@@ -33,6 +35,10 @@ public class BeatController : MonoBehaviour
         if (levelMusic == Musics.SpeedUp)
         {
             tempo = SpeedUpTempo * 2;
+        }
+        else if (levelMusic == Musics.Metal)
+        {
+            tempo = MetalTempo * 2;
         }
         else
         {

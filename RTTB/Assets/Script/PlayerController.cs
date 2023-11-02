@@ -112,7 +112,7 @@ public class PlayerController : MonoBehaviour
     {
         var fovMod = speed / 30;
         vcam.m_Lens.FieldOfView = Mathf.Lerp(60, 90,fovMod);
-        Debug.Log(vcam.m_Lens.FieldOfView + " " + fovMod);
+//        Debug.Log(vcam.m_Lens.FieldOfView + " " + fovMod);
 
         if (isJumping)
         {

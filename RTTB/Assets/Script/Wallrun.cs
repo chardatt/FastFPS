@@ -37,7 +37,6 @@ public class Wallrun : MonoBehaviour
                 leftHit.transform.CompareTag("Wallrun"))
             {
                 Tilt(false);
-                Debug.Log("left");
             }
 
             if (Physics.Raycast(transform.position, transform.right, out rightHit, 2.5f, layerMask) && rightHit.transform.CompareTag("Wallrun"))

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 9173501887526996971}
   - component: {fileID: 9173501887526996970}
   m_Layer: 0
-  m_Name: ground (16)
+  m_Name: Slide
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

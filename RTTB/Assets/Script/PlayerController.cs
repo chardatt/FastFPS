@@ -122,7 +122,7 @@ public class PlayerController : MonoBehaviour
         if (isJumping != groundedCheck)
         {
             groundedCheck = isJumping;
-            Debug.Log(grounded);
+            //Debug.Log(grounded);
             if (grounded == true)
                 CameraShaker.Instance.ShakeOnce(4f, 4f, .1f, 1f);
             FMODUnity.RuntimeManager.PlayOneShot("event:/Reception");
@@ -162,10 +162,10 @@ public class PlayerController : MonoBehaviour
 
         UpdateMovement();
 
-        if (Input.GetButtonDown("Jump"))
+        /*if (Input.GetButtonDown("Jump"))
         {
             Debug.Log("is Wallrunning? " + isWallrunning);
-        }
+        }*/
 
         if (wallrunTimer <= wallrunCD)
             wallrunTimer += Time.deltaTime;
@@ -244,7 +244,7 @@ public class PlayerController : MonoBehaviour
             glideTimer += Time.deltaTime;
             if (cc.velocity.y < -0.2f && speed < walkSpeed && glideTimer > 0.15f)
             {
-                Debug.Log("SpeedIncrement Glide");
+                //Debug.Log("SpeedIncrement Glide");
                 glideTimer = 0;
                 speed += speedIncrement * 2 * Time.deltaTime;
             }
@@ -325,7 +325,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Jump") && isJumping == false)
         {
             isJumping = true;
-            Debug.Log(isWallrunning);
+//            Debug.Log(isWallrunning);
 
             if (isWallrunning)
             {

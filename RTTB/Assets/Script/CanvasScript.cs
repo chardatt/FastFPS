@@ -10,6 +10,7 @@ public class CanvasScript : MonoBehaviour
     public Text timerText;
     Restart restart;
     public Text finalText;
+    public string niceTime;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,7 +28,7 @@ public class CanvasScript : MonoBehaviour
             float minutes = Mathf.FloorToInt(restart.timer / 60);
             float seconds = Mathf.FloorToInt(restart.timer - minutes * 60);
             float milisec = (int)(restart.timer * 100 % 100);
-            string niceTime = string.Format("{0:00}:{1:00}:{2:00}", minutes, seconds, milisec);
+            niceTime = string.Format("{0:00}:{1:00}:{2:00}", minutes, seconds, milisec);
             timerText.text = niceTime;
             
             speedText.text = ((int)characterController.velocity.magnitude).ToString() + " km/h";

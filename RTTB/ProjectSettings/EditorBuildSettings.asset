@@ -9,12 +9,33 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: ebc15fe4892f4464eab175647f9a5d30
   - enabled: 1
-    path: Assets/Scenes/QuentinOpen.unity
-    guid: cc65f1feb067a83439288bd79f571c3e
+    path: Assets/Scenes/RTTB - 1 EasyPlatform.unity
+    guid: b2e19f23daf4a2c4db874d5a929175f5
+  - enabled: 1
+    path: Assets/Scenes/RTTB - 2 EasyWalls.unity
+    guid: 2d898cd6630d67e4ca1258a82e0cc580
+  - enabled: 1
+    path: Assets/Scenes/RTTB - 3 MediumWall.unity
+    guid: bc52606d4390baa4bb4c849cc04f2da8
   - enabled: 1
     path: Assets/Scenes/RTTB - 4 HardSnake.unity
     guid: e55f9b5c5ba178d4f991a1c0a0cb77de
   - enabled: 1
     path: Assets/Scenes/RTTB - 5 HardLaunch.unity
     guid: c5f4dd20b9108924d8c36a8189363b7a
+  - enabled: 1
+    path: Assets/Scenes/SpeedUp - 1 MediumSlide.unity
+    guid: 2b8575182dda5f44f8a600e590f015db
+  - enabled: 1
+    path: Assets/Scenes/SpeedUp - 2.unity
+    guid: 4b7abba0af79fbf4fa616375865a4966
+  - enabled: 1
+    path: Assets/Scenes/SpeedUp - 3 MediumWall.unity
+    guid: 27fe526c6724d1948a295637a3c7c025
+  - enabled: 1
+    path: Assets/Scenes/SpeedUp - 4 MediumHole.unity
+    guid: ea54c5632bfb7db499d342c765133efe
+  - enabled: 1
+    path: Assets/Scenes/SpeedUp - 5 HardPlatform.unity
+    guid: e878bdbe5a0ce3a45ae74341b5a35f93
   m_configObjects: {}

@@ -4413,7 +4413,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UIBase: {fileID: 400822011}
-  UIFin: {fileID: 0}
+  UIFin: {fileID: 1154907172}
 --- !u!65 &521792048
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9071,6 +9071,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1147594282}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1154907172 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8826987140545156271, guid: 69bcf4a53918c1642b92aa0382fadb84,
+    type: 3}
+  m_PrefabInstance: {fileID: 272492363}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1163144676
 GameObject:
   m_ObjectHideFlags: 0

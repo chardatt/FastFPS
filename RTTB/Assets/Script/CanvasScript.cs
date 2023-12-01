@@ -11,7 +11,7 @@ public class CanvasScript : MonoBehaviour
     Restart restart;
     public Text finalText;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         restart = GameObject.FindObjectOfType<Restart>();
         characterController = GameObject.FindObjectOfType<CharacterController>();

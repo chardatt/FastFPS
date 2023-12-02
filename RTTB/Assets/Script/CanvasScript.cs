@@ -12,7 +12,7 @@ public class CanvasScript : MonoBehaviour
     public Text finalText;
     public string niceTime;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         restart = GameObject.FindObjectOfType<Restart>();
         characterController = GameObject.FindObjectOfType<CharacterController>();

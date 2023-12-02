@@ -838,6 +838,14 @@
       <Project>{53631690-6759-3715-51C8-5FAC42C5D4B5}</Project>
       <Name>FMODUnityResonance</Name>
     </ProjectReference>
+    <ProjectReference Include="Dan.csproj">
+      <Project>{03F4D3F7-C1E8-ABA4-980B-8A0A2DFEC443}</Project>
+      <Name>Dan</Name>
+    </ProjectReference>
+    <ProjectReference Include="LeaderboardCreatorEditor.csproj">
+      <Project>{A2E3B6AF-D3FA-CB48-2CFD-50DF72E61C32}</Project>
+      <Name>LeaderboardCreatorEditor</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

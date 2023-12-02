@@ -1,3 +1,4 @@
+using Steamworks;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,18 +7,17 @@ using UnityEngine.UI;
 
 public class Victory : MonoBehaviour
 {
+    public LeaderBoard leaderBoard;
+    public SteamScript steamScript;
+    public Text timer;
     public GameObject UIBase;
     public GameObject UIFin;
-    public GameObject UILeaderBoard;
     bool canChangeScene = false;
     int sceneIndex;
-    //LeaderBoard
-    public Text nameText;
-    public Text scoreText;
     // Start is called before the first frame update
     void Start()
     {
-        
+        leaderBoard.GetLeaderBoard();
     }
 
     // Update is called once per frame
@@ -41,11 +41,20 @@ public class Victory : MonoBehaviour
         //UI
         UIBase.SetActive(false);
         UIFin.SetActive(true);
-        UILeaderBoard.SetActive(true);
-        nameText.text = GameObject.FindObjectOfType<SteamScript>().pseudo;
-        scoreText.text = GameObject.FindObjectOfType<CanvasScript>().niceTime;
+        string s = timer.text.Remove(2,1);
+        s = s.Remove(4,1);
+        leaderBoard.SetLeaderBoardEntry("Henry",ConvertStringToInt(s),timer.text);
         //Music
         GameObject.FindObjectOfType<BeatController>().StopBeat();
         FMODUnity.RuntimeManager.PlayOneShot("event:/Victory");
+    }
+    int ConvertStringToInt(string input)
+    {
+        int result;
+        if (int.TryParse(input, out result))
+        {
+            return result;
+        }
+        return 0;
     }
 }

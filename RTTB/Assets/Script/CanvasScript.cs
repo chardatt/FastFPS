@@ -10,6 +10,7 @@ public class CanvasScript : MonoBehaviour
     public Text timerText;
     Restart restart;
     public Text finalText;
+    [HideInInspector]
     public string niceTime;
     // Start is called before the first frame update
     void Awake()

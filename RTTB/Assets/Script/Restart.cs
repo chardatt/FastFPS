@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Restart : MonoBehaviour
 {
@@ -45,6 +46,7 @@ public class Restart : MonoBehaviour
         start = GameObject.FindGameObjectWithTag("Start");
         quit = GameObject.FindGameObjectWithTag("Quit");
         rest = GameObject.FindGameObjectWithTag("Restart");
+        quit.GetComponent<Button>().onClick.AddListener(Ft_ReturnToMain);
         if (stop && quit && rest)
         {
             stop.SetActive(false);
@@ -75,7 +77,7 @@ public class Restart : MonoBehaviour
             rest.SetActive(false);
         }
 
-        if (Input.GetKeyDown(KeyCode.Tab) || Input.GetKeyDown(KeyCode.Escape))
+        if ((Input.GetKeyDown(KeyCode.Tab) || Input.GetKeyDown(KeyCode.Escape)) && SceneManager.GetActiveScene().name != "Menu")
         {
             if (menuOpen)
             {
@@ -135,5 +137,10 @@ public class Restart : MonoBehaviour
     {
         Debug.Log("Quit");
         Application.Quit();
+    }
+
+    public void Ft_ReturnToMain()
+    {
+        SceneManager.LoadScene(0);
     }
 }

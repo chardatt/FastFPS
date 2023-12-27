@@ -53,24 +53,21 @@
     <UnityVersion>2021.3.25f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Assets\LeaderboardCreator\Scripts\Main\LeaderboardCreator.cs" />
-    <Compile Include="Assets\LeaderboardCreator\Scripts\Utils\ConstantVariables.cs" />
-    <Compile Include="Assets\LeaderboardCreator\Scripts\Utils\LeaderboardCreatorConfig.cs" />
-    <Compile Include="Assets\LeaderboardCreator\Scripts\Utils\ExtensionMethods.cs" />
-    <Compile Include="Assets\LeaderboardCreator\Scripts\Main\LeaderboardCreatorBehaviour.cs" />
-    <Compile Include="Assets\LeaderboardCreator\Scripts\Main\LeaderboardReference.cs" />
-    <Compile Include="Assets\LeaderboardCreator\Scripts\Enums\Routes.cs" />
-    <Compile Include="Assets\LeaderboardCreator\Scripts\Enums\TimePeriodType.cs" />
-    <Compile Include="Assets\LeaderboardCreator\Scripts\Models\LeaderboardSearchQuery.cs" />
     <Compile Include="Assets\LeaderboardCreator\Scripts\Main\Leaderboards.cs" />
     <Compile Include="Assets\LeaderboardCreator\Scripts\Utils\Requests.cs" />
     <Compile Include="Assets\LeaderboardCreator\Scripts\Enums\StatusCode.cs" />
-    <Compile Include="Assets\LeaderboardCreator\Scripts\Models\Entry.cs" />
-    <Compile Include="Assets\LeaderboardCreator\Scripts\Demo\LeaderboardShowcase.cs" />
     <Compile Include="Assets\LeaderboardCreator\Scripts\Demo\EntryDisplay.cs" />
+    <Compile Include="Assets\LeaderboardCreator\Scripts\Main\LeaderboardReference.cs" />
+    <Compile Include="Assets\LeaderboardCreator\Scripts\Demo\LeaderboardShowcase.cs" />
+    <Compile Include="Assets\LeaderboardCreator\Scripts\Models\Entry.cs" />
+    <Compile Include="Assets\LeaderboardCreator\Scripts\Main\LeaderboardCreatorBehaviour.cs" />
+    <Compile Include="Assets\LeaderboardCreator\Scripts\Utils\ConstantVariables.cs" />
+    <Compile Include="Assets\LeaderboardCreator\Scripts\Enums\TimePeriodType.cs" />
+    <Compile Include="Assets\LeaderboardCreator\Scripts\Enums\Routes.cs" />
+    <Compile Include="Assets\LeaderboardCreator\Scripts\Main\LeaderboardCreator.cs" />
+    <Compile Include="Assets\LeaderboardCreator\Scripts\Models\LeaderboardSearchQuery.cs" />
+    <Compile Include="Assets\LeaderboardCreator\Scripts\Utils\LeaderboardCreatorConfig.cs" />
+    <Compile Include="Assets\LeaderboardCreator\Scripts\Utils\ExtensionMethods.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\LeaderboardCreator\Scripts\Dan.asmdef" />

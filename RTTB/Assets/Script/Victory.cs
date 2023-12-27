@@ -14,10 +14,11 @@ public class Victory : MonoBehaviour
     public GameObject UIFin;
     bool canChangeScene = false;
     int sceneIndex;
+
     // Start is called before the first frame update
     void Start()
     {
-        leaderBoard.GetLeaderBoard();
+        //leaderBoard.GetLeaderBoard();
     }
 
     // Update is called once per frame
@@ -43,7 +44,8 @@ public class Victory : MonoBehaviour
         UIFin.SetActive(true);
         string s = timer.text.Remove(2,1);
         s = s.Remove(4,1);
-        leaderBoard.SetLeaderBoardEntry("Henry",ConvertStringToInt(s),timer.text);
+        leaderBoard.UploadEntry("Ger", int.Parse(s), s);
+        //leaderBoard.SetLeaderBoardEntry("Vincent",ConvertStringToInt(s),timer.text);
         //Music
         GameObject.FindObjectOfType<BeatController>().StopBeat();
         FMODUnity.RuntimeManager.PlayOneShot("event:/Victory");

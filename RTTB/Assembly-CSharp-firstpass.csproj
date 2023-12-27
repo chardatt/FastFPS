@@ -53,9 +53,6 @@
     <UnityVersion>2021.3.25f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Assets\Plugins\Demigiant\DOTween\Modules\DOTweenModulePhysics2D.cs" />
     <Compile Include="Assets\Plugins\Demigiant\DOTween\Modules\DOTweenModuleUI.cs" />
     <Compile Include="Assets\Plugins\Demigiant\DOTween\Modules\DOTweenModuleUnityVersion.cs" />
@@ -800,11 +797,11 @@
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
-      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.Mathematics.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Mathematics.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
+      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Core.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Core.Editor.dll</HintPath>
@@ -826,6 +823,14 @@
       <Project>{D9206036-9CE3-9768-9FD0-CC644C0F6812}</Project>
       <Name>com.rlabrecque.steamworks.net.editor</Name>
     </ProjectReference>
+    <ProjectReference Include="Dan.csproj">
+      <Project>{03F4D3F7-C1E8-ABA4-980B-8A0A2DFEC443}</Project>
+      <Name>Dan</Name>
+    </ProjectReference>
+    <ProjectReference Include="LeaderboardCreatorEditor.csproj">
+      <Project>{A2E3B6AF-D3FA-CB48-2CFD-50DF72E61C32}</Project>
+      <Name>LeaderboardCreatorEditor</Name>
+    </ProjectReference>
     <ProjectReference Include="FMODUnity.csproj">
       <Project>{B3D89077-267C-C689-D53C-6643C0E0E9B2}</Project>
       <Name>FMODUnity</Name>
@@ -837,14 +842,6 @@
     <ProjectReference Include="FMODUnityResonance.csproj">
       <Project>{53631690-6759-3715-51C8-5FAC42C5D4B5}</Project>
       <Name>FMODUnityResonance</Name>
-    </ProjectReference>
-    <ProjectReference Include="Dan.csproj">
-      <Project>{03F4D3F7-C1E8-ABA4-980B-8A0A2DFEC443}</Project>
-      <Name>Dan</Name>
-    </ProjectReference>
-    <ProjectReference Include="LeaderboardCreatorEditor.csproj">
-      <Project>{A2E3B6AF-D3FA-CB48-2CFD-50DF72E61C32}</Project>
-      <Name>LeaderboardCreatorEditor</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
